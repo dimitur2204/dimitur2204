@@ -4,13 +4,14 @@ module.exports = {
 	theme: {
 		extend: {},
 		colors: {
-			blue: '#7ab9e0',
-			yellow: '#fff794',
-			white: '#ffffff',
+			primary: '#7ab9e0',
+			secondary: '#fff794',
+			tertiary: '#96ea8c',
 			black: '#222431',
+			white: '#ffffff',
 		},
 		fontFamily: {
-			sans: ['proxima-nova', 'sans-serif'],
+			sans: ['work-sans', 'sans-serif'],
 			serif: ['tzimmes', 'serif'],
 		},
 		lineHeight: {
