@@ -12,7 +12,7 @@ module.exports = {
 		},
 		fontFamily: {
 			sans: ['work-sans', 'sans-serif'],
-			serif: ['tzimmes', 'serif'],
+			serif: ['timberline', 'serif'],
 		},
 		lineHeight: {
 			negative: '0.8',

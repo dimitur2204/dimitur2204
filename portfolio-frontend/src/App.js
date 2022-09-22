@@ -1,13 +1,9 @@
-import Header from './components/Header/Header';
-import Slider from './components/Slider/Slider';
+import Chip from "./components/Chip/Chip";
 
 function App() {
 	return (
-		<div className="container mx-auto">
-			<div className="flex">
-				<Header />
-				<Slider />
-			</div>
+		<div className="container-md mx-auto">
+			<Chip text="Content" color={'secondary'} button/>
 		</div>
 	);
 }
