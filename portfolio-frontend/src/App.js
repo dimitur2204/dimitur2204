@@ -1,16 +1,27 @@
-import Button from "./components/Button/Button";
-import Chip from "./components/Chip/Chip";
+import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
-import { colors } from "./constants";
 
+function DecorativeCircle() {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: "19%",
+        left: "-70px",
+        height: "220px",
+        width: "220px",
+        backgroundColor: "#fb923c",
+        borderRadius: "50%",
+      }}
+    ></div>
+  );
+}
 function App() {
   return (
-    <div className="container max-w-5xl px-3 mx-auto">
+    <div className="container max-w-5xl px-3 py-4 mx-auto">
+      <DecorativeCircle />
       <Nav />
-      <Chip button text="Content" />
-      <Chip text="Content" />
-      <Chip button color={colors.secondary} text="Content" />
-      <Button text="Write to me" />
+      <Header />
     </div>
   );
 }

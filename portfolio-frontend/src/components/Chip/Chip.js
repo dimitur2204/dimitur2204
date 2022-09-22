@@ -2,7 +2,9 @@ import React from "react";
 import { colors } from "../../constants";
 
 export default function Chip({ button, color, text, props }) {
-  const hoverClass = color ? `hover:bg-${color}-600` : "hover:bg-violet-600";
+  const hoverClass = color
+    ? `hover:bg-${color.split("-")[0]}-600`
+    : "hover:bg-violet-600";
   return button ? (
     <button
       className={`rounded-full ${
