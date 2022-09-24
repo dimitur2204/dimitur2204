@@ -28,8 +28,14 @@ export function darkenColor(color, percent) {
 
 export function getChipColor(chipText) {
 	switch (chipText.toLowerCase()) {
+		case 'js':
+			return 'yellow-500';
 		case 'react':
 			return 'cyan-400';
+		case 'html':
+			return 'orange-400';
+		case 'css3' || 'css':
+			return 'blue-500';
 		case 'firebase':
 			return 'orange-400';
 		case 'node.js':
