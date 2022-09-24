@@ -40,6 +40,8 @@ export function getChipColor(chipText) {
 			return 'orange-400';
 		case 'node.js':
 			return 'green-400';
+		case 'next.js':
+			return 'black';
 		default:
 			return null;
 	}
