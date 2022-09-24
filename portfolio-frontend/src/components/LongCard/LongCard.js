@@ -1,21 +1,10 @@
 import React from 'react';
+import { getChipColor } from '../../utils';
 import Chip from '../Chip/Chip';
 
-function getChipColor(chipText) {
-	switch (chipText.toLowerCase()) {
-		case 'react':
-			return 'cyan-400';
-		case 'firebase':
-			return 'orange-400';
-		case 'node.js':
-			return 'green-400';
-		default:
-			return null;
-	}
-}
 function LongCard({ thumbnail, chips, title, description, url }) {
 	return (
-		<a href={url}>
+		<a href={url} target="_blank" rel="noreferrer">
 			<article className="flex flex-wrap sm:flex-nowrap">
 				<img
 					className="h-48 w-48 rounded border border-slate-300 object-cover"

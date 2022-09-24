@@ -15,8 +15,8 @@ function SkillsAndProjects() {
 		<>Loading...</>
 	) : (
 		<section id="skills-and-projects">
-			<h2 className="text-xl font-semibold underline mb-10">
-				Skils & projects
+			<h2 className="text-xl font-semibold underline mb-12">
+				Skills & projects
 			</h2>
 			{posts?.map((post) => (
 				<LongCard key={post.id} {...post.acf} />
