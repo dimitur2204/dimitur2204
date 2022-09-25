@@ -21,7 +21,7 @@ function LongCard({
 	const { i18n } = useTranslation();
 	return (
 		<a href={url} target="_blank" rel="noreferrer">
-			<article className="flex flex-wrap sm:flex-nowrap mb-10">
+			<article className="transition-shadow hover:shadow-md border border-transparent hover:border-slate-200 rounded p-5 flex flex-wrap sm:flex-nowrap mb-3">
 				<Swiper
 					effect={'cards'}
 					grabCursor={true}

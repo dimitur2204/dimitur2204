@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import LongCard from '../components/LongCard/LongCard';
-import { WP_API_URL } from '../constants';
-import useFetch from '../hooks';
+import LongCard from '../../components/LongCard/LongCard';
+import { WP_API_URL } from '../../constants';
+import useFetch from '../../hooks';
 
 function SkillsAndProjects() {
 	const {
@@ -19,7 +19,7 @@ function SkillsAndProjects() {
 		<>Loading...</>
 	) : (
 		<section id="skills-and-projects">
-			<h2 className="text-xl font-semibold underline mb-12">
+			<h2 className="text-xl font-semibold underline mb-6">
 				{t('skillsAndProjects')}
 			</h2>
 			{posts?.map((post) => (

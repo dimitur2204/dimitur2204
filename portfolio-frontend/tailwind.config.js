@@ -1,8 +1,19 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors');
+
 module.exports = {
-	content: ['./src/**/*.{js,jsx,ts,tsx}'],
+	content: ['./src/**/*.{js,jsx,ts,tsx}', './src/*.{js,jsx,ts,tsx}'],
+	important: true,
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				orange: colors.orange,
+				blue: colors.blue,
+				green: colors.green,
+				cyan: colors.cyan,
+				violet: colors.violet,
+			},
+		},
 		fontFamily: {
 			sans: ['work-sans', 'montserrat', 'sans-serif'],
 			serif: ['timberline', 'serif'],
