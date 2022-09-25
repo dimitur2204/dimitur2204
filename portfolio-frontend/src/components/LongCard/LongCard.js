@@ -21,7 +21,7 @@ function LongCard({
 	const { i18n } = useTranslation();
 	return (
 		<a href={url} target="_blank" rel="noreferrer">
-			<article className="transition-shadow hover:shadow-md border border-transparent hover:border-slate-200 rounded p-5 flex flex-wrap sm:flex-nowrap mb-3">
+			<article className="transition-shadow hover:shadow-md border border-transparent hover:border-slate-200 hover:underline rounded p-5 flex flex-wrap sm:flex-nowrap mb-3">
 				<Swiper
 					effect={'cards'}
 					grabCursor={true}
@@ -66,7 +66,7 @@ function LongCard({
 						))}
 					</div>
 
-					<p className="description">
+					<p className="description no-underline">
 						{i18n.language === 'en' ? description : description_bg}
 					</p>
 				</div>

@@ -43,6 +43,19 @@ export function getChipColor(chipText) {
 		case 'next.js':
 			return 'black';
 		default:
-			return null;
+			return 'violet-500';
+	}
+}
+
+export function getBlogChipColor(chipText) {
+	switch (chipText.toLowerCase()) {
+		case 'short read':
+			return 'green-400';
+		case 'interesting':
+			return 'black';
+		case 'educative':
+			return 'white';
+		default:
+			return 'violet-500';
 	}
 }
