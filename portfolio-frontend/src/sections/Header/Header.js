@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useRef } from 'react';
+import React, { Component } from 'react';
 import AvatarImage from '../../components/AvatarImage/AvatarImage';
 import Typed from 'react-typed';
 import { useSpring, animated } from 'react-spring';
@@ -39,9 +39,12 @@ export default function Header() {
 		config: { duration: 400 },
 		delay: 400,
 	});
-	const { t, i18n } = useTranslation('sections');
+	const { t } = useTranslation('sections');
 	return (
-		<animated.header className="flex items-center" style={style}>
+		<animated.header
+			className="block my-8 sm:my-0 sm:flex items-center"
+			style={style}
+		>
 			<div className="flex-1">
 				<h1 className="font-bold text-5xl text-black mb-5">
 					<TypedHeaderWithTranslation />

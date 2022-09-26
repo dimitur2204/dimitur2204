@@ -59,13 +59,12 @@ function DecorativeCircle() {
 			style={{
 				position: 'absolute',
 				zIndex: -1,
-				top: '11%',
-				left: '-70px',
 				height: '220px',
 				width: '220px',
 				backgroundColor: '#fb923c',
 				borderRadius: '50%',
 			}}
+			className="left-[-200px] top-[22%] sm:left-[-70px] sm:top-[11%]"
 		></div>
 	);
 }

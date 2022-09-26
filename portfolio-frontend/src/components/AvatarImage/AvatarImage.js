@@ -47,6 +47,7 @@ function AvatarImage() {
 							key={index}
 							position={positionMap[index + 1]}
 							text={textMap[index + 1]}
+							chipStyles={position}
 						/>
 					))}
 				</animated.div>
