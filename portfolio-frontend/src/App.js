@@ -6,7 +6,7 @@ function DecorativeCircle() {
     <div
       style={{
         position: "fixed",
-        top: "19%",
+        top: "11%",
         left: "-70px",
         height: "220px",
         width: "220px",

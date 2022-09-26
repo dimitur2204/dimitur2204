@@ -5,11 +5,8 @@
   
   /* ---------- Outer orbit - This is the circles furthest away from the central point ---------- */
   #outer-orbit {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 294px;
-    height: 294px;
+    width: 370px;
+    height: 370px;
     border: 2px #4A437F dashed;
     border-radius: 100%;
     -webkit-animation: spin-right 20s linear infinite;
@@ -17,23 +14,49 @@
   }
   
   /* ---------- Repeating styles for the outer orbiting circles ---------- */
-  .outer-orbit-cirlces {
+  .outer-orbit-cirlce-top {
     position: absolute;
-    top: -17px;
-    left: 125px;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    @apply bg-violet-500
+  }
+
+  .outer-orbit-cirlce-bottom {
+    position: absolute;
+    top: calc(100% - 15px);
+    left: 50%;
+    transform: translateX(-50%);
     height: 30px;
     width: 30px;
     border-radius: 100%;
     background-color: #00FFCA;
+    @apply bg-orange-400
   }
-  
-  /* ---------- Animation ---------- */
-  @-webkit-keyframes spin-right {
-    100% {
-      -webkit-transform: rotate(360deg);
-      -moz-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
+
+  .outer-orbit-cirlce-left {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -15px;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    @apply bg-emerald-500
+
+  }
+
+  .outer-orbit-cirlce-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(100% - 15px);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    background-color: #00FFCA;
+    @apply bg-cyan-400
   }
