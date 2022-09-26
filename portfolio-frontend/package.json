@@ -10,11 +10,12 @@
     "react-feather": "^2.0.10",
     "react-i18next": "^11.18.6",
     "react-scripts": "5.0.1",
+    "react-spring": "^9.5.5",
     "swiper": "^8.4.2"
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "echo https://portfolio.dimtar-nizamov.dk/' > ./build/CNAME && gh-pages -d build",
+    "deploy": "echo https://portfolio.dimtar-nizamov.dk > ./build/CNAME && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

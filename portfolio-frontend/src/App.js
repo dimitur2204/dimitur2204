@@ -4,7 +4,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import SkillsAndProjects from './sections/SkillsAndProjects/SkillsAndProjects';
 import Blog from './sections/Blog/Blog';
-import Header from './components/Header/Header';
+import Header from './sections/Header/Header';
 
 i18n
 	.use(initReactI18next) // passes i18n down to react-i18next
@@ -43,7 +43,8 @@ function DecorativeCircle() {
   return (
     <div
       style={{
-        position: "fixed",
+        position: "absolute",
+		zIndex: -1,
         top: "11%",
         left: "-70px",
         height: "220px",
