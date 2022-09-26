@@ -19,6 +19,7 @@ function SquareCard({ thumbnail, title, title_bg, url, chips }) {
 				<div className="relative z-10 mb-1">
 					{chips?.split(',').map((chip) => (
 						<Chip
+							key={chip}
 							text={chip}
 							color={getBlogChipColor(chip)}
 							customClasses={`
@@ -31,7 +32,7 @@ function SquareCard({ thumbnail, title, title_bg, url, chips }) {
 				<h2 className="relative z-10 font-medium">
 					{i18n.language === 'en' ? title : title_bg}
 				</h2>
-				<div class="rounded absolute w-full h-full top-0 left-0 bg-black opacity-50 hover:opacity-0 transition-opacity duration-300"></div>
+				<div className="rounded absolute w-full h-full top-0 left-0 bg-black opacity-50 hover:opacity-0 transition-opacity duration-300"></div>
 			</div>
 		</a>
 	);

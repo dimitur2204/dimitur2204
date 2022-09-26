@@ -18,6 +18,13 @@ i18n
 				sections: {
 					skillsAndProjects: 'Skills & Projects',
 					blog: 'Blog',
+					header: {
+						stranger: 'Hello stranger!',
+						this: 'This is',
+						name: 'Dimitar',
+						job: 'Student Developer',
+						passion: 'Passionate to work with the greatest',
+					},
 				},
 			},
 			bg: {
@@ -28,6 +35,13 @@ i18n
 				sections: {
 					skillsAndProjects: 'Умения и проекти',
 					blog: 'Блог',
+					header: {
+						stranger: 'Здравей страннико!',
+						this: 'Това е',
+						name: 'Димитър',
+						job: 'Студент Програмист',
+						passion: 'Искащ да работи с най-новото',
+					},
 				},
 			},
 		},
@@ -40,20 +54,20 @@ i18n
 	});
 
 function DecorativeCircle() {
-  return (
-    <div
-      style={{
-        position: "absolute",
-		zIndex: -1,
-        top: "11%",
-        left: "-70px",
-        height: "220px",
-        width: "220px",
-        backgroundColor: "#fb923c",
-        borderRadius: "50%",
-      }}
-    ></div>
-  );
+	return (
+		<div
+			style={{
+				position: 'absolute',
+				zIndex: -1,
+				top: '11%',
+				left: '-70px',
+				height: '220px',
+				width: '220px',
+				backgroundColor: '#fb923c',
+				borderRadius: '50%',
+			}}
+		></div>
+	);
 }
 
 function App() {
