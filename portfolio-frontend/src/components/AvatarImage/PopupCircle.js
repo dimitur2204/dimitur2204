@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-import Chip from '../Chip/Chip';
 
-const chipMap = {
-	Passionate: 'primary',
-	Hardoworking: 'secondary',
-	'Eager to learn': 'tertiary',
-};
 function PopupCircle({ position, text, chipStyles, props }) {
 	const [hovered, setHovered] = useState();
 	const [clicked, setClicked] = useState();
@@ -33,9 +27,6 @@ function PopupCircle({ position, text, chipStyles, props }) {
 		transform:
 			hovered && !clicked ? `scale(1.4)` : clicked ? 'scale(0)' : `scale(1)`,
 	});
-	const chipStyle = useSpring({
-		transform: clicked ? `scale(1)` : `scale(0)`,
-	});
 
 	return (
 		<>
@@ -54,11 +45,6 @@ function PopupCircle({ position, text, chipStyles, props }) {
 					style={circleStyle}
 				></animated.div>
 			</button>
-			<Chip
-				text={text}
-				color={chipMap[text]}
-				style={{ chipStyles, ...chipStyle }}
-			/>
 		</>
 	);
 }
