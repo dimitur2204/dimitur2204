@@ -41,8 +41,8 @@ function Nav() {
 						/>
 					</div>
 				</Link>
-				<Link>{t('blog')}</Link>
-				<Link>{t('projects')}</Link>
+				<Link href={'#blog'}>{t('blog')}</Link>
+				<Link href={'#skills-and-projects'}>{t('projects')}</Link>
 			</ul>
 		</animated.nav>
 	);
