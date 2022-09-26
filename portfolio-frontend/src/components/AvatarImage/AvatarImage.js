@@ -33,14 +33,17 @@ function AvatarImage() {
 
 	useEffect(() => {
 		api.start({ opacity: 0 });
-	}, []);
+	}, [api]);
 
 	return (
-		<div className="h-[450px] flex-1 flex justify-end items-center">
-			<div id="circle-orbit-container" className="relative">
+		<div className="h-[450px] flex-1 flex justify-center sm:justify-end items-center">
+			<div
+				id="circle-orbit-container"
+				className="w-[270px] sm:w-[370px] relative"
+			>
 				<animated.div
 					id="outer-orbit"
-					className="flex justify-center items-center"
+					className="flex w-[270px] h-[270px] sm:w-[370px] sm:h-[370px] justify-center items-center"
 				>
 					{trail.map((props, index) => (
 						<PopupCircle

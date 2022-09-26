@@ -1,6 +1,6 @@
 import React from 'react';
-import { Moon, Search } from 'react-feather';
 import { useTranslation } from 'react-i18next';
+import { useSpring, animated } from 'react-spring';
 import BG from './BG.svg';
 import GB from './GB.svg';
 
@@ -11,10 +11,17 @@ function Link({ href, button, children, ...props }) {
 		</li>
 	);
 }
+
 function Nav() {
 	const { t, i18n } = useTranslation('nav');
+	const style = useSpring({
+		from: { opacity: 0, y: -30 },
+		to: { opacity: 1, y: 0, visibility: 'visible!important' },
+		config: { duration: 400 },
+		delay: 400,
+	});
 	return (
-		<nav className="flex justify-between">
+		<animated.nav className="flex justify-between py-2" style={style}>
 			<a href="/">
 				<span className="font-serif text-3xl">D.Huz</span>
 			</a>
@@ -37,7 +44,7 @@ function Nav() {
 				<Link>{t('blog')}</Link>
 				<Link>{t('projects')}</Link>
 			</ul>
-		</nav>
+		</animated.nav>
 	);
 }
 

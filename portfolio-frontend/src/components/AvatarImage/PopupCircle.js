@@ -48,6 +48,7 @@ function PopupCircle({ position, text, chipStyles, props }) {
 				className="circle-parent"
 				{...props}
 			>
+				<span className="invisible">{text}</span>
 				<animated.div
 					className={`outer-orbit-cirlce-${position} pulsing`}
 					style={circleStyle}
