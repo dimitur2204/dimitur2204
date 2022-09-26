@@ -4,6 +4,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import SkillsAndProjects from './sections/SkillsAndProjects/SkillsAndProjects';
 import Blog from './sections/Blog/Blog';
+import Header from './components/Header/Header';
 
 i18n
 	.use(initReactI18next) // passes i18n down to react-i18next
@@ -60,6 +61,7 @@ function App() {
 			<div className="container max-w-5xl px-3 mx-auto">
 				<DecorativeCircle />
 				<Nav />
+				<Header />
 				<SkillsAndProjects />
 				<Blog />
 			</div>
