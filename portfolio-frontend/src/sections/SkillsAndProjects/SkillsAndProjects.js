@@ -29,17 +29,15 @@ function SkillsAndProjects() {
 		api.start({ opacity: 1, delay: 2600 });
 	}, [api, posts]);
 
-	const elements = trail
-		? trail.map((styles, index) => (
-				<>
-					<LongCard
-						key={posts[index]?.id}
-						style={styles}
-						{...posts[index].acf}
-					/>
-				</>
-		  ))
-		: '';
+	const elements = trail ? (
+		trail.map((styles, index) => {
+			return (
+				<LongCard style={styles} key={posts[index]?.id} {...posts[index].acf} />
+			);
+		})
+	) : (
+		<></>
+	);
 
 	return error ? (
 		<>Error with fetching projects</>
