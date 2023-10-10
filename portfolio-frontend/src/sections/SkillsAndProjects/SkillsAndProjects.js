@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useSpring, useTrail, animated } from 'react-spring';
 import LongCard from '../../components/LongCard/LongCard';
 
-function SkillsAndProjects({ posts }) {
+function SkillsAndProjects({ projects }) {
 	const { t } = useTranslation('sections');
-	const [trail, api] = useTrail(posts?.length || 0, () => ({
+	const [trail, api] = useTrail(projects?.length || 0, () => ({
 		config: { duration: 400 },
 		opacity: 0,
 	}));
@@ -19,12 +19,12 @@ function SkillsAndProjects({ posts }) {
 
 	useEffect(() => {
 		api.start({ opacity: 1, delay: 2600 });
-	}, [api, posts]);
+	}, [api, projects]);
 
 	const elements = trail ? (
 		trail.map((styles, index) => {
 			return (
-				<LongCard style={styles} key={posts[index]?.id} {...posts[index].acf} />
+				<LongCard style={styles} key={projects[index]?.id} {...projects[index]} />
 			);
 		})
 	) : (

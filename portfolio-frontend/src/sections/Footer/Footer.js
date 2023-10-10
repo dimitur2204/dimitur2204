@@ -6,7 +6,7 @@ function Footer() {
     <div className="container max-w-5xl m-auto block md:flex justify-between items-center py-5 px-2">
       <div className="grid col-span-1">
         <a href="/" className="mb-3">
-          <span className="font-serif text-3xl">D.Huz</span>
+          <span className="font-serif text-3xl">D.Hiz</span>
         </a>
         <a href="mailto:dimitur2204@gmail.com" className="mb-3">
           dimitur2204@gmail

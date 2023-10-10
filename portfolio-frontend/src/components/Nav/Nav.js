@@ -23,7 +23,7 @@ function Nav() {
 	return (
 		<animated.nav className="flex justify-between py-2" style={style}>
 			<a href="/">
-				<span className="font-serif text-3xl">D.Huz</span>
+				<span className="font-serif text-3xl">D.Niz</span>
 			</a>
 			<ul className="grid gap-2 grid-cols-3">
 				<Link

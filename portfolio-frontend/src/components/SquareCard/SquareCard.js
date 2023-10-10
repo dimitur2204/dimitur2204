@@ -17,15 +17,15 @@ function SquareCard({ thumbnail, title, title_bg, url, chips }) {
 				className="rounded h-60 mx-2 p-3 text-white text-xl hover:underline relative flex flex-col justify-end"
 			>
 				<div className="relative z-10 mb-1">
-					{chips?.split(',').map((chip) => (
+					{chips?.map((chip) => (
 						<Chip
 							key={chip}
 							text={chip}
 							color={getBlogChipColor(chip)}
-							customClasses={`
-								${
-									getBlogChipColor(chip) === 'white' ? 'text-black' : ''
-								} border border-slate-600 mr-2`}
+							customClasses={`border border-slate-600 mr-2 `}
+							style={{
+								color: getBlogChipColor(chip) === 'white' && '#000'
+							}}
 						/>
 					))}
 				</div>

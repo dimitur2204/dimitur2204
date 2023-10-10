@@ -13,7 +13,7 @@ function Blog({ posts }) {
 					?.slice()
 					.reverse()
 					.map((post) => (
-						<SquareCard key={post.id} {...post.acf} />
+						<SquareCard key={post.id} {...post} />
 					))}
 			</div>
 		</section>

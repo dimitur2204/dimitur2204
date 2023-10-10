@@ -5,7 +5,6 @@ import { initReactI18next } from 'react-i18next';
 import SkillsAndProjects from './sections/SkillsAndProjects/SkillsAndProjects';
 import Blog from './sections/Blog/Blog';
 import Header from './sections/Header/Header';
-import { WP_API_URL } from './constants';
 import useFetch from './hooks';
 import { useSpring, animated, config } from 'react-spring';
 
@@ -91,13 +90,13 @@ function App() {
 		response: blogPosts,
 		error: blogError,
 		loading: blogLoading,
-	} = useFetch(WP_API_URL + '/blog-posts');
+	} = useFetch("/blog-posts.json");
 
 	const {
 		response: projects,
 		error: projectsError,
 		loading: projectsLoading,
-	} = useFetch(WP_API_URL + '/projects');
+	} = useFetch("/projects.json");
 	return blogLoading || projectsLoading ? (
 		<Loader />
 	) : (
@@ -106,7 +105,7 @@ function App() {
 				<DecorativeCircle />
 				<Nav />
 				<Header />
-				<SkillsAndProjects posts={projects} />
+				<SkillsAndProjects projects={projects} />
 				<Blog posts={blogPosts} />
 			</div>
 			<hr />

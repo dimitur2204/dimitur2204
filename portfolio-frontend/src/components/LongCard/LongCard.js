@@ -58,7 +58,7 @@ function LongCard({
 						{i18n.language === 'en' ? title : title_bg}
 					</h3>
 					<div className="mb-4">
-						{chips?.split(',').map((chipText, index) => (
+						{chips?.map((chipText, index) => (
 							<Chip
 								key={chipText}
 								text={chipText}

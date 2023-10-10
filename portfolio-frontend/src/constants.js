@@ -6,5 +6,3 @@ export const COLORS = {
   black: "black",
   white: "white",
 };
-
-export const WP_API_URL = "https://dimtar-nizamov.dk/wp-json/wp/v2";
