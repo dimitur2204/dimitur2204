@@ -15,13 +15,14 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["work-sans", "montserrat", "sans-serif"],
+      sans: ["Montserrat", "sans-serif"],
       serif: ["timberline", "serif"],
-      body: ["work-sans", "montserrat", "sans-serif"],
+      body: ["Montserrat", "sans-serif"],
+      number: ["Fjalla One"],
     },
     lineHeight: {
       negative: "0.8",
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

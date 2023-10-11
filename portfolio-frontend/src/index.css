@@ -13,7 +13,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 h1,
@@ -72,11 +73,27 @@ h5 {
   height: 11em;
   border-radius: 50%;
   background: #8b5cf6;
-  background: -moz-linear-gradient(left, #8b5cf6 10%, rgba(255, 255, 255, 0) 42%);
-  background: -webkit-linear-gradient(left, #8b5cf6 10%, rgba(255, 255, 255, 0) 42%);
+  background: -moz-linear-gradient(
+    left,
+    #8b5cf6 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
+  background: -webkit-linear-gradient(
+    left,
+    #8b5cf6 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
   background: -o-linear-gradient(left, #8b5cf6 10%, rgba(255, 255, 255, 0) 42%);
-  background: -ms-linear-gradient(left, #8b5cf6 10%, rgba(255, 255, 255, 0) 42%);
-  background: linear-gradient(to right, #8b5cf6 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(
+    left,
+    #8b5cf6 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
+  background: linear-gradient(
+    to right,
+    #8b5cf6 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
   position: relative;
   -webkit-animation: load3 1.4s infinite linear;
   animation: load3 1.4s infinite linear;

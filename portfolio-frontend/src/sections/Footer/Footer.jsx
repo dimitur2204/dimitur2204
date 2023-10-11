@@ -3,8 +3,8 @@ import { GitHub, Linkedin } from "react-feather";
 
 function Footer() {
   return (
-    <div className="container max-w-5xl m-auto block md:flex justify-between items-center py-5 px-2">
-      <div className="grid col-span-1">
+    <div className="container m-auto block max-w-5xl items-center justify-between px-2 py-5 md:flex">
+      <div className="col-span-1 grid">
         <a href="/" className="mb-3">
           <span className="font-serif text-3xl">D.Hiz</span>
         </a>

@@ -6,7 +6,7 @@ export default function Button({ color, text, props }) {
     <button
       className={`rounded ${
         color ? "" : `bg-${COLORS.primary}`
-      } text-white text-sm py-2 px-4`}
+      } px-4 py-2 text-sm text-white`}
       {...props}
     >
       {text}
