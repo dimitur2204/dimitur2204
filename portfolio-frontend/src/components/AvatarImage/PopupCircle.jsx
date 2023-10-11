@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated } from "@react-spring/web";
 
 function PopupCircle({ position, text, chipStyles, props }) {
   const [hovered, setHovered] = useState();

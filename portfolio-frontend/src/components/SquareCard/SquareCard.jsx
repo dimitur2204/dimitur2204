@@ -1,12 +1,13 @@
 import React from "react";
+import { animated } from "@react-spring/web";
 import { useTranslation } from "react-i18next";
 import { getBlogChipColor } from "../../utils";
 import Chip from "../Chip/Chip";
 
-function SquareCard({ thumbnail, title, title_bg, url, chips }) {
+function SquareCard({ thumbnail, title, title_bg, url, chips, style }) {
   const { i18n } = useTranslation();
   return (
-    <a href={url} className="group">
+    <animated.a href={url} className="group" style={style}>
       <div
         style={{
           backgroundImage: `url(${thumbnail})`,
@@ -34,7 +35,7 @@ function SquareCard({ thumbnail, title, title_bg, url, chips }) {
         </h2>
         <div className="absolute left-0 top-0 h-full w-full rounded bg-black opacity-50 transition-opacity duration-300 hover:opacity-0"></div>
       </div>
-    </a>
+    </animated.a>
   );
 }
 

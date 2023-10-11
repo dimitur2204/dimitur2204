@@ -6,7 +6,7 @@ import "swiper/css/effect-cards";
 import { getChipColor } from "../../utils";
 import Chip from "../Chip/Chip";
 import { EffectCards } from "swiper";
-import { animated } from "react-spring";
+import { animated } from "@react-spring/web";
 
 function LongCard({
   chips,

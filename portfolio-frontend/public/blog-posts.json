@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "title": "Follow me on Medium",
-    "title-bg": "Последвайте ме в Medium",
-    "url": "https://medium.com/@dimitar2204",
-    "thumbnail": "medium.png"
-  },
-  {
-    "id": 2,
     "title": "React store management with Zustand",
     "title-bg": "Управление на React store със Zustand",
     "chips": ["Educative", "Short read"],
     "url": "https://dimitar2204.medium.com/react-store-management-with-zustand-36e8922c9daf",
     "thumbnail": "blog-post-1-300x233.png"
+  },
+  {
+    "id": 2,
+    "title": "Follow me on Medium",
+    "title-bg": "Последвайте ме в Medium",
+    "url": "https://medium.com/@dimitar2204",
+    "thumbnail": "medium.png"
   }
 ]

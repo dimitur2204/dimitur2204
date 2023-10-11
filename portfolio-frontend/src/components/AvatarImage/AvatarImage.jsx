@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./AvatarImage.css";
 import avatar from "./avatar-picture.png";
 import PopupCircle from "./PopupCircle";
-import { animated, config, useTrail } from "react-spring";
+import { animated, config, useTrail } from "@react-spring/web";
 
 const positionMap = {
   1: "top",

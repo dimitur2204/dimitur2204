@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/web": "^9.7.3",
     "@tanstack/react-router": "beta",
     "i18next": "^21.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-i18next": "^11.18.6",
-    "react-spring": "^9.5.5",
     "react-typed": "^1.2.0",
     "react-visibility-sensor": "^5.1.1",
     "swiper": "^8.4.2"

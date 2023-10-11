@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AvatarImage from "../../components/AvatarImage/AvatarImage";
 import Typed from "react-typed";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated } from "@react-spring/web";
 import { useTranslation, withTranslation } from "react-i18next";
 
 class TypedHeader extends Component {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useSpring, useTrail, animated } from "react-spring";
+import { useSpring, useTrail, animated } from "@react-spring/web";
 import LongCard from "../../components/LongCard/LongCard";
 
 function SkillsAndProjects({ projects }) {

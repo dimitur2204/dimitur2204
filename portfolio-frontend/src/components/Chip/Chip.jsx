@@ -1,5 +1,5 @@
 import React from "react";
-import { animated } from "react-spring";
+import { animated } from "@react-spring/web";
 import { COLORS } from "../../constants";
 
 export default function Chip({ button, color, text, customClasses, style }) {

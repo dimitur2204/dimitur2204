@@ -1,4 +1,4 @@
-import { useSpring, animated, config } from "react-spring";
+import { useSpring, animated, config } from "@react-spring/web";
 import SkillsAndProjects from "../sections/SkillsAndProjects/SkillsAndProjects";
 import Blog from "../sections/Blog/Blog";
 import Header from "../sections/Header/Header";
