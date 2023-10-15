@@ -8,6 +8,10 @@
   width: 370px;
   height: 370px;
   border: 2px #4a437f dashed;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 100%;
   -webkit-animation: spin-right 20s linear infinite;
   animation: spin-right 20s linear infinite;
@@ -18,7 +22,7 @@
   position: absolute;
   top: -15px;
   left: 50%;
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
   height: 30px;
   width: 30px;
   border-radius: 100%;

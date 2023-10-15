@@ -1,7 +1,8 @@
+import { animated, useSpring } from "@react-spring/web";
+import { Link as RouterLink } from "@tanstack/react-router";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useSpring, animated } from "@react-spring/web";
-import { Link as RouterLink } from "@tanstack/react-router";
+
 import BG from "./BG.svg";
 import GB from "./GB.svg";
 

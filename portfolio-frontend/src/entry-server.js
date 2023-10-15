@@ -1,7 +1,8 @@
-import * as React from "react";
-import ReactDOMServer from "react-dom/server";
 import { createMemoryHistory } from "@tanstack/react-router";
 import { StartServer } from "@tanstack/react-start/server";
+import * as React from "react";
+import ReactDOMServer from "react-dom/server";
+
 import { createRouter } from "./router";
 
 export async function render(url, response) {

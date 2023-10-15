@@ -1,8 +1,9 @@
+import { animated, useSpring } from "@react-spring/web";
 import React, { Component } from "react";
-import AvatarImage from "../../components/AvatarImage/AvatarImage";
-import Typed from "react-typed";
-import { useSpring, animated } from "@react-spring/web";
 import { useTranslation, withTranslation } from "react-i18next";
+import Typed from "react-typed";
+
+import AvatarImage from "../../components/AvatarImage/AvatarImage";
 
 class TypedHeader extends Component {
   componentDidUpdate() {

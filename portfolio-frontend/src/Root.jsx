@@ -1,6 +1,7 @@
+import { Outlet, RootRoute } from "@tanstack/react-router";
 import i18n from "i18next";
-import { RootRoute, Outlet } from "@tanstack/react-router";
 import { initReactI18next } from "react-i18next";
+
 import Footer from "./sections/Footer/Footer";
 import Nav from "./sections/Nav/Nav";
 

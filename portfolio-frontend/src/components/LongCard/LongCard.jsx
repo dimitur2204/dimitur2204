@@ -1,12 +1,13 @@
+import { animated } from "@react-spring/web";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-cards";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import { getChipColor } from "../../utils";
 import Chip from "../Chip/Chip";
-import { EffectCards } from "swiper";
-import { animated } from "@react-spring/web";
 
 function LongCard({
   chips,

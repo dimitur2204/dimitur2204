@@ -1,7 +1,8 @@
-import { Router, Route } from "@tanstack/react-router";
+import { Route, Router } from "@tanstack/react-router";
+
 import { rootRoute } from "./Root";
-import Home from "./pages/Home";
 import About from "./pages/About";
+import Home from "./pages/Home";
 
 // Create an index route
 const indexRoute = new Route({

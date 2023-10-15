@@ -1,5 +1,5 @@
+import { animated, useSpring } from "@react-spring/web";
 import React, { useEffect, useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
 
 function PopupCircle({ position, text, chipStyles, props }) {
   const [hovered, setHovered] = useState();
@@ -19,10 +19,6 @@ function PopupCircle({ position, text, chipStyles, props }) {
     setHovered(false);
   }
 
-  function triggerClick() {
-    setClicked(true);
-  }
-
   const circleStyle = useSpring({
     transform:
       hovered && !clicked ? `scale(1.4)` : clicked ? "scale(0)" : `scale(1)`,
@@ -30,21 +26,21 @@ function PopupCircle({ position, text, chipStyles, props }) {
 
   return (
     <>
-      <button
-        onClick={triggerClick}
+      <div
         onMouseLeave={triggerLeave}
         onFocus={triggerEnter}
         onBlur={triggerLeave}
         onMouseEnter={triggerEnter}
         className="circle-parent"
+        tabIndex={-1}
+        aria-hidden="true"
         {...props}
       >
         <span className="invisible">{text}</span>
         <animated.div
           className={`outer-orbit-cirlce-${position} pulsing`}
-          style={circleStyle}
         ></animated.div>
-      </button>
+      </div>
     </>
   );
 }

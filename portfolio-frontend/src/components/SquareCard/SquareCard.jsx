@@ -1,6 +1,7 @@
-import React from "react";
 import { animated } from "@react-spring/web";
+import React from "react";
 import { useTranslation } from "react-i18next";
+
 import { getBlogChipColor } from "../../utils";
 import Chip from "../Chip/Chip";
 

@@ -1,42 +1,85 @@
-import { useSpring, animated, config } from "@react-spring/web";
+import { animated, config, easings, useSprings } from "@react-spring/web";
+import { useEffect } from "react";
 
-function Stepper() {
-  const dotAnimation = useSpring({
-    from: { transform: "scale(0)", opacity: 0 },
-    to: { transform: "scale(1)", opacity: 1 },
-    config: config.slow,
-  });
+function Stepper({ workplaces }) {
+  const [dotSprings, dotSpringsApi] = useSprings(
+    workplaces.length,
+    () => ({
+      from: {
+        transform: "scale(0)",
+        opacity: 0,
+      },
+      to: {
+        transform: "scale(1)",
+        opacity: 1,
+      },
+      config: config.slow,
+      pause: true,
+    }),
+    [workplaces],
+  );
 
-  const lineAnimation = useSpring({
-    from: { transform: "scaleY(0)", transformOrigin: "top" },
-    to: { transform: "scaleY(1)", transformOrigin: "top" },
-    config: {
-      ...config.stiff,
-      duration: 800,
-    },
-    delay: 600,
-  });
+  const [lineSprings, lineSpringsApi] = useSprings(
+    workplaces.length,
+    () => ({
+      from: {
+        transform: "scaleY(0)",
+        transformOrigin: "top",
+      },
+      to: {
+        transform: "scaleY(1)",
+      },
+      config: {
+        ...config.stiff,
+        easing: easings.easeOutCirc,
+        duration: 800,
+      },
+      pause: true,
+    }),
+    [workplaces],
+  );
+
+  useEffect(() => {
+    const allSprings = dotSpringsApi.current.map((_, index) => {
+      return [dotSpringsApi.current[index], lineSpringsApi.current[index]];
+    });
+    const timeouts = [];
+    allSprings.flat().forEach((spring, index) => {
+      const timeout = setTimeout(() => {
+        spring.resume();
+      }, index * 500);
+      timeouts.push(timeout);
+    });
+
+    return () => {
+      timeouts.forEach((timeout) => {
+        clearTimeout(timeout);
+      });
+    };
+  }, [dotSprings, lineSprings, dotSpringsApi, lineSpringsApi]);
 
   return (
-    <div className="flex gap-3">
-      <div className="flex flex-col items-center">
-        <animated.div
-          style={dotAnimation}
-          className="dot mb-3 h-3 w-3 rounded-full bg-violet-500"
-        ></animated.div>
-        <animated.div
-          style={lineAnimation}
-          className="line h-full w-1 rounded bg-violet-500"
-        ></animated.div>
-      </div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque vero,
-        dolorum modi sed tempore consectetur obcaecati harum aliquam at quos,
-        fugit placeat mollitia, dignissimos doloribus ea consequatur sunt sequi!
-        Consectetur hic vero nostrum soluta pariatur sunt. Repellendus,
-        molestias. Vero alias maiores dolorum illo beatae eligendi accusamus
-        nobis sint ex omnis.
-      </p>
+    <div className="flex flex-col gap-4">
+      {workplaces.map((wp, index) => (
+        <div key={wp.company} className="flex h-full gap-3">
+          <div className="flex flex-col items-center">
+            <animated.div
+              style={dotSprings[index]}
+              className="dot h-3 w-3 rounded-full bg-violet-500"
+            ></animated.div>
+            <div className="mt-3 h-full">
+              <animated.div
+                style={lineSprings[index]}
+                className="line h-full w-1 rounded bg-violet-500"
+              ></animated.div>
+            </div>
+          </div>
+          <div>
+            <h2>{wp.company}</h2>
+            <p>{wp.description}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

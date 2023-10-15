@@ -1,8 +1,15 @@
+import {
+  animated,
+  config,
+  easings,
+  useSpring,
+  useTrail,
+} from "@react-spring/web";
 import React, { useEffect } from "react";
+
 import "./AvatarImage.css";
-import avatar from "./avatar-picture.png";
 import PopupCircle from "./PopupCircle";
-import { animated, config, useTrail } from "@react-spring/web";
+import avatar from "./avatar-picture.png";
 
 const positionMap = {
   1: "top",
@@ -35,15 +42,31 @@ function AvatarImage() {
     api.start({ opacity: 0 });
   }, [api]);
 
+  const orbitRotate = useSpring({
+    from: {
+      transform: "rotate(0deg)",
+    },
+    to: {
+      transform: "rotate(360deg)",
+    },
+    loop: true,
+    config: {
+      ...config.default,
+      easing: easings.linear,
+      duration: 19000,
+    },
+  });
+
   return (
     <div className="flex h-[450px] flex-1 items-center justify-center sm:justify-end">
       <div
         id="circle-orbit-container"
         className="relative w-[270px] sm:w-[370px]"
       >
+        <div id="outer-orbit"></div>
         <animated.div
-          id="outer-orbit"
           className="flex h-[270px] w-[270px] items-center justify-center sm:h-[370px] sm:w-[370px]"
+          style={orbitRotate}
         >
           {trail.map((props, index) => (
             <PopupCircle

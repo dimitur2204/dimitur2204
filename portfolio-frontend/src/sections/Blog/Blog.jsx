@@ -1,6 +1,7 @@
+import { animated, useSpring, useTrail } from "@react-spring/web";
 import React, { useEffect } from "react";
-import { useTrail, useSpring, animated } from "@react-spring/web";
 import { useTranslation } from "react-i18next";
+
 import SquareCard from "../../components/SquareCard/SquareCard";
 
 function Blog({ posts }) {

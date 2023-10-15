@@ -1,8 +1,9 @@
-import { useSpring, animated, config } from "@react-spring/web";
-import SkillsAndProjects from "../sections/SkillsAndProjects/SkillsAndProjects";
+import { animated, config, useSpring } from "@react-spring/web";
+
+import { useFetch } from "../hooks";
 import Blog from "../sections/Blog/Blog";
 import Header from "../sections/Header/Header";
-import { useFetch } from "../hooks";
+import SkillsAndProjects from "../sections/SkillsAndProjects/SkillsAndProjects";
 
 function DecorativeCircle() {
   const style = useSpring({
