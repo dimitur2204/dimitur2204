@@ -1,5 +1,7 @@
 import { animated, config, easings, useSprings } from "@react-spring/web";
 import { useEffect } from "react";
+import Chip from "../Chip/Chip";
+import { getChipColor } from "../../utils";
 
 function Stepper({ workplaces }) {
   const [dotSprings, dotSpringsApi] = useSprings(
@@ -75,8 +77,21 @@ function Stepper({ workplaces }) {
             </div>
           </div>
           <div>
-            <h2>{wp.company}</h2>
+            <div className="flex gap-2">
+              <img className="aspect-square w-12" src={wp.iconPath} alt="" />
+              <h2 className="text-xl">{wp.company}</h2>
+            </div>
             <p>{wp.description}</p>
+            <div>
+              {wp.chips.map(({ text, color }, index) => (
+                <Chip
+                  customClasses="mr-2"
+                  key={text}
+                  text={text}
+                  color={getChipColor(color)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       ))}

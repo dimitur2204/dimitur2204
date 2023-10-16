@@ -24,5 +24,10 @@ module.exports = {
       negative: "0.8",
     },
   },
+  safelist: [
+    {
+      pattern: /bg-(blue|red|zinc|cyan)-(400|500|600|700|800|900)/,
+    },
+  ],
   plugins: [require("@tailwindcss/typography")],
 };

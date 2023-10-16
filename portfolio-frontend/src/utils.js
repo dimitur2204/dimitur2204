@@ -30,8 +30,12 @@ export function getChipColor(chipText) {
   switch (chipText.toLowerCase()) {
     case "js":
       return "yellow-500";
+    case "typescript":
+      return "blue-600";
+    case "npm":
+      return "red-500";
     case "react":
-      return "cyan-400";
+      return "cyan-500";
     case "html":
       return "orange-400";
     case "css3" || "css":
@@ -42,6 +46,10 @@ export function getChipColor(chipText) {
       return "green-400";
     case "next.js":
       return "black";
+    case "docker":
+      return "blue-400";
+    case "github":
+      return "zinc-900";
     default:
       return "violet-500";
   }
