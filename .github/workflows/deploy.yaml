@@ -27,6 +27,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./portfolio-frontend
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,19 +39,15 @@ jobs:
           version: 9
       - name: Install dependencies
         run: pnpm ci
-        working-directory: ./portfolio-frontend
       - name: Build
-        working-directory: ./portfolio-frontend
         run: pnpm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        working-directory: ./portfolio-frontend
         with:
           # Upload dist folder
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        working-directory: ./portfolio-frontend
