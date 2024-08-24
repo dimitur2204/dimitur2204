@@ -56,8 +56,8 @@ function Nav() {
             />
           </div>
         </Link>
-        <Link href={"/"}>{t("Home")}</Link>
-        <Link href={"/about"}>{t("About")}</Link>
+        <Link href={"/"}>{t("home")}</Link>
+        <Link href={"/work"}>{t("work")}</Link>
       </ul>
     </animated.nav>
   );

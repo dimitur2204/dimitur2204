@@ -7,7 +7,7 @@ export default function Chip({ button, color, text, customClasses, style }) {
   const hoverClass = color ? `hover:bg-${color}` : "hover:bg-violet-600";
   return button ? (
     <animated.button
-      className={`inline-block rounded-full font-bold text-white ${
+      className={`inline-flex rounded-full font-bold text-white ${
         color ? `bg-${color}` : `bg-${COLORS.primary}`
       } ${hoverClass} px-3 py-1 text-sm ${customClasses?.toString()}`}
       style={style}
@@ -16,7 +16,7 @@ export default function Chip({ button, color, text, customClasses, style }) {
     </animated.button>
   ) : (
     <animated.div
-      className={`${customClasses?.toString()} inline-block rounded-full font-bold text-white ${
+      className={`${customClasses?.toString()} inline-flex items-center justify-center rounded-full font-bold text-white ${
         color ? `bg-${color}` : `bg-${COLORS.primary}`
       } w-fit px-3 py-1 text-sm`}
       style={style}

@@ -38,13 +38,11 @@ function Loader() {
 function Home() {
   const {
     response: blogPosts,
-    error: blogError,
     loading: blogLoading,
   } = useFetch("/blog-posts.json");
 
   const {
     response: projects,
-    error: projectsError,
     loading: projectsLoading,
   } = useFetch("/projects.json");
   return blogLoading || projectsLoading ? (
