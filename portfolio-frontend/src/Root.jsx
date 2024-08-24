@@ -2,6 +2,7 @@ import { Outlet, RootRoute } from "@tanstack/react-router";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+import Cookies from "./components/Cookies/Cookies";
 import Footer from "./sections/Footer/Footer";
 import Nav from "./sections/Nav/Nav";
 
@@ -59,6 +60,7 @@ i18n
 function Root() {
 	return (
 		<>
+			<Cookies />
 			<div className="container mx-auto max-w-5xl px-3">
 				<Nav />
 				<Outlet />

@@ -31,7 +31,7 @@ function LongCard({
         >
           {images.map((image) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={image.url}>
                 <img
                   className="h-48 w-48 rounded border border-slate-300 object-cover"
                   src={image.url}
@@ -49,7 +49,7 @@ function LongCard({
           <div className="mb-4">
             {chips?.map((chipText, index) => (
               <Chip
-                key={chipText}
+                key={index + chipText}
                 text={chipText}
                 color={getChipColor(chipText)}
                 customClasses={index !== 0 ? "ml-4" : null}
