@@ -9,7 +9,7 @@ import React, { useEffect } from "react";
 
 import "./AvatarImage.css";
 import PopupCircle from "./PopupCircle";
-import avatar from "./avatar-picture.png";
+import avatar from "./mev2.jpg";
 
 const positionMap = {
   1: "top",
