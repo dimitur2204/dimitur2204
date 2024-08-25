@@ -27,7 +27,7 @@ function Stepper({ workplaces }) {
     () => ({
       from: {
         transform: "scaleY(0)",
-        transformOrigin: "bottom",
+        transformOrigin: "top",
       },
       to: {
         transform: "scaleY(1)",
@@ -43,11 +43,11 @@ function Stepper({ workplaces }) {
   );
 
   useEffect(() => {
-    const allSprings = dotSpringsApi.current.reverse().map((_, index) => {
-      return [lineSpringsApi.current[index], dotSpringsApi.current[index]];
+    const allSprings = dotSpringsApi.current.map((_, index) => {
+      return [dotSpringsApi.current[index], lineSpringsApi.current[index]];
     });
     const timeouts = [];
-    allSprings.reverse().flat().forEach((spring, index) => {
+    allSprings.flat().forEach((spring, index) => {
       const timeout = setTimeout(() => {
         spring.resume();
       }, index * 500);
