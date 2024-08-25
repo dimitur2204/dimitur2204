@@ -1,9 +1,9 @@
 import { animated } from "@react-spring/web";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { EffectCards } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
+import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { getChipColor } from "../../utils";

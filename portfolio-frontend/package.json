@@ -19,7 +19,6 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "predeploy": "pnpm run build",
-    "deploy": "echo https://portfolio.dimtar-nizamov.dk > ./build/CNAME && gh-pages -d build",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",

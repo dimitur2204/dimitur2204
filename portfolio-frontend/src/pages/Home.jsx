@@ -36,15 +36,11 @@ function Loader() {
 }
 
 function Home() {
-  const {
-    response: blogPosts,
-    loading: blogLoading,
-  } = useFetch("/blog-posts.json");
+  const { response: blogPosts, loading: blogLoading } =
+    useFetch("/blog-posts.json");
 
-  const {
-    response: projects,
-    loading: projectsLoading,
-  } = useFetch("/projects.json");
+  const { response: projects, loading: projectsLoading } =
+    useFetch("/projects.json");
   return blogLoading || projectsLoading ? (
     <Loader />
   ) : (

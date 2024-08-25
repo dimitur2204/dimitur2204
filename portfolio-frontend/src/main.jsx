@@ -1,9 +1,9 @@
 import { RouterProvider } from "@tanstack/react-router";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "vanilla-cookieconsent/dist/cookieconsent.css";
 
 import "./index.css";
-import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import router from "./routes";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
