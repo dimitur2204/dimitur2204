@@ -87,7 +87,10 @@ function Stepper({ workplaces }) {
                 />
               ) : null}
               {wp.company ? (
+                  <div className="flex-wrap">
                 <h2 className="text-xl text-blue-500">{wp.company}</h2>
+                  <span className="text-xs text-gray-500 flex">{wp.time}</span>
+                  </div>
               ) : null}
             </a>
             <p className="py-3">{wp.description}</p>
