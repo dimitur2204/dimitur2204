@@ -104,15 +104,11 @@ const cookiesConfig =
           consentModal: {
             title: "We use cookies",
             description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+              "We use cookies to personalise content and ads, to provide social media features and to analyse our traffic.",
             acceptAllBtn: "Accept all",
             acceptNecessaryBtn: "Reject all",
             showPreferencesBtn: "Manage Individual preferences",
             // closeIconLabel: 'Reject all and close modal',
-            footer: `
-                        <a href="#path-to-impressum.html" target="_blank">Impressum</a>
-                        <a href="#path-to-privacy-policy.html" target="_blank">Privacy Policy</a>
-                    `,
           },
           preferencesModal: {
             title: "Manage cookie preferences",
