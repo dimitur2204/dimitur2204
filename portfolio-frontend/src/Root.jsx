@@ -1,10 +1,12 @@
 import { Outlet, RootRoute } from "@tanstack/react-router";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import * as CookieConsent from "vanilla-cookieconsent";
 
-import Cookies from "./components/Cookies/Cookies";
 import Footer from "./sections/Footer/Footer";
 import Nav from "./sections/Nav/Nav";
+import { useEffect } from "react";
+import cookiesConfig from "./cookies-config";
 
 i18n
 	.use(initReactI18next) // passes i18n down to react-i18next
@@ -57,10 +59,17 @@ i18n
 		},
 	});
 
+const TailwindColorsFix = () => {
+    return <div className="hidden bg-slate-950 bg-pink-500 bg-indigo-700"></div>
+}
+
 function Root() {
+	useEffect(() => {
+		CookieConsent.run(cookiesConfig);
+	}, []);
 	return (
 		<>
-			<Cookies />
+            <TailwindColorsFix />
 			<div className="container mx-auto max-w-5xl px-3">
 				<Nav />
 				<Outlet />

@@ -63,7 +63,7 @@ function Stepper({ workplaces }) {
 	return (
 		<div className="flex flex-col gap-4">
 			{workplaces.map((wp, index) => (
-				<div key={wp.company} className="flex h-full gap-3">
+				<div key={wp.company} className="flex w-full h-full gap-3">
 					<div className="flex flex-col items-center">
 						<animated.div
 							style={dotSprings[index]}
@@ -76,7 +76,7 @@ function Stepper({ workplaces }) {
 							></animated.div>
 						</div>
 					</div>
-					<div>
+					<div className="w-full">
 						<a className="flex gap-2" href={wp.link}>
 							{wp.iconPath ? (
 								<img className="aspect-square w-12 p-1 border-gray-400 border rounded" src={wp.iconPath} alt="" />
@@ -86,11 +86,10 @@ function Stepper({ workplaces }) {
 							) : null}
 						</a>
 						<p className="py-3">{wp.description}</p>
-						<div className="flex">
+						<div className="flex flex-wrap gap-1">
 							{wp.chips.map(({ text, color }, index) => (
 								<Chip
-									customClasses="mr-2"
-									key={text}
+									key={text + index}
 									text={text}
 									color={getChipColor(color)}
 								/>

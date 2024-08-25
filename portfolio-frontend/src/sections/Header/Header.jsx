@@ -1,7 +1,7 @@
 import { animated, useSpring } from "@react-spring/web";
 import React, { Component } from "react";
 import { useTranslation, withTranslation } from "react-i18next";
-import Typed from "react-typed";
+import { ReactTyped as Typed } from "react-typed";
 
 import AvatarImage from "../../components/AvatarImage/AvatarImage";
 

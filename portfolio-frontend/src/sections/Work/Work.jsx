@@ -32,11 +32,11 @@ function Work() {
 								- One of the biggest digital assessment providers in Scandinavia
 								and Europe working with universities in: Denmark, Norway, The
 								United Kingdom, Portugal, France, Spain.
-								<div className="spacing p-3"></div>
+								<span className="spacing p-3"></span>
 								Codebase with microservices and many frontends. Got a lot of
 								hands on with Docker and Frontend operations (CI/CD - GH
 								Actions, shipping and maintaining <i>npm</i> libraries).
-								<div className="spacing p-3"></div>
+								<span className="spacing p-3"></span>
 								Working with <span className="font-medium">AGILE</span> .
 								Working on creating and maintaining an internal component
 								library in close collaboration with designers, that required
@@ -106,7 +106,7 @@ function Work() {
 						description: (
 							<>
 								A small software company based in Sofia, Bulgaria.
-								<div className="spacing p-3"></div>
+								<span className="spacing p-3"></span>
 								Worked on a Cloud Provider platform for the asian market in a
 								small team of 4 developers. Helped with many features and
 								incidents on the main client side of the platform. Was
@@ -114,7 +114,7 @@ function Work() {
 								creating marketplace applications which show on the client side
 								for provisioning ready to use Virtual Machines on the cloud
 								(similiar to DigitalOcean) marketplace.
-								<div className="spacing p-3"></div>
+								<span className="spacing p-3"></span>
 								Got hands on experience with looking into the python backend and
 								specifically the Ansible playbooks that were used for
 								provisioning the Virtual Machines.
@@ -158,7 +158,7 @@ function Work() {
 							<>
 								A software company based in Blagoevgrad, Bulgaria. Outsourcing
 								for foreign companies mostly based in the UK.
-								<div className="spacing p-3"></div>
+								<span className="spacing p-3"></span>
 								Worked on Umbraco based CMS websites and themes. Mainly
 								utilizing complex SCSS architectures and projects together with
 								jQuery for the frontends of the CMS based websites. Used a lot
