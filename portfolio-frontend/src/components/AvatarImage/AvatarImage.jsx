@@ -63,7 +63,7 @@ function AvatarImage() {
         id="circle-orbit-container"
         className="relative w-[270px] sm:w-[370px]"
       >
-        <div id="outer-orbit"></div>
+        <div id="outer-orbit" className="w-[270px] h-[270px] sm:h-[370px] sm:w-[370px]"></div>
         <animated.div
           className="flex h-[270px] w-[270px] items-center justify-center sm:h-[370px] sm:w-[370px]"
           style={orbitRotate}

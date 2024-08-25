@@ -5,8 +5,6 @@
 
 /* ---------- Outer orbit - This is the circles furthest away from the central point ---------- */
 #outer-orbit {
-  width: 370px;
-  height: 370px;
   border: 2px #4a437f dashed;
   position: absolute;
   top: 50%;
