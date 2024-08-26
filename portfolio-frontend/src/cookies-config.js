@@ -39,7 +39,6 @@ const cookiesConfig =
     onFirstConsent: ({ cookie }) => {
       const categories = cookie.categories;
 
-      console.log(categories);
       if (categories.includes("analytics")) {
         localStorage.setItem("consentGranted", "true");
         function gtag() {
@@ -146,12 +145,10 @@ const cookiesConfig =
                     {
                       name: "_ga",
                       domain: location.hostname,
-                      desc: "Description 1",
                     },
                     {
                       name: "_gid",
                       domain: location.hostname,
-                      desc: "Description 2",
                     },
                   ],
                 },
@@ -165,7 +162,75 @@ const cookiesConfig =
               {
                 title: "More information",
                 description:
-                  'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>',
+                  'For any queries in relation to my policy on cookies and your choices, please send an email to: <a href="mailto:dimitur2204@gmail.com">',
+              },
+            ],
+          },
+        },
+        bg: {
+          consentModal: {
+            title: "Ние използваме бисквитки",
+            description:
+              "Ние използваме бисквитки за да персонализираме съдържанието и рекламите, да предоставим функции за социални мрежи и да анализираме трафика си.",
+            acceptAllBtn: "Приеми всички",
+            acceptNecessaryBtn: "Откажи всички",
+            showPreferencesBtn: "Управление на индивидуални предпочитания",
+            // closeIconLabel: 'Reject all and close modal',
+          },
+          preferencesModal: {
+            title: "Управление на предпочитанията за бисквитки",
+            acceptAllBtn: "Приеми всички",
+            acceptNecessaryBtn: "Откажи всички",
+            savePreferencesBtn: "Приеми текущия избор",
+            closeIconLabel: "Затвори модално",
+            serviceCounterLabel: "Услуга|Услуги",
+            sections: [
+              {
+                title: "Вашите избори за поверителност",
+                description: `В този панел можете да изразите някои предпочитания, свързани с обработката на вашата лична информация. Можете да прегледате и промените изразените избори по всяко време, като повторно появите този панел чрез предоставената връзка. За да откажете съгласието си за конкретните обработващи дейности, описани по-долу, превключете превключвателите на изключено или използвайте бутона „Откажи всички“ и потвърдете, че искате да запазите изборите си.`,
+              },
+              {
+                title: "Абсолютно необходими",
+                description:
+                  "Тези бисквитки са от съществено значение за правилното функциониране на уебсайта и не могат да бъдат деактивирани.",
+
+                //this field will generate a toggle linked to the 'necessary' category
+                linkedCategory: "necessary",
+              },
+              {
+                title: "Производителност и анализи",
+                description:
+                  "Тези бисквитки събират информация за начина, по който използвате уебсайта ни. Всички данни са анонимизирани и не могат да бъдат използвани за идентифициране на личността ви.",
+                linkedCategory: "analytics",
+                cookieTable: {
+                  caption: "Таблица с бисквитки",
+                  headers: {
+                    name: "Бисквитка",
+                    domain: "Домейн",
+                    desc: "Описание",
+                  },
+                  body: [
+                    {
+                      name: "_ga",
+                      domain: location.hostname,
+                    },
+                    {
+                      name: "_gid",
+                      domain: location.hostname,
+                    },
+                  ],
+                },
+              },
+              {
+                title: "Цели и рекламиране",
+                description:
+                  "Тези бисквитки се използват за правене на рекламни съобщения по-релевантни за вас и вашите интереси. Целта е да се показват реклами, които са релевантни и привлекателни за индивидуалния потребител и по този начин да са по-ценни за издателите и рекламодателите от трети страни.",
+                linkedCategory: "ads",
+              },
+              {
+                title: "Повече информация",
+                description:
+                  'За всякакви въпроси, свързани с моята политика относно бисквитките и вашите избори, моля изпратете имейл на: <a href="mailto: dimitur2204@gmail.com">',
               },
             ],
           },

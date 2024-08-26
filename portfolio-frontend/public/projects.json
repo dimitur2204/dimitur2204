@@ -1,29 +1,39 @@
 [
-    {
-        "id": 1,
+  {
+    "id": 1,
+    "content": {
+      "bg": {
+        "title": "Подкрепи.бг",
+        "description": "Подкрепи.бг е проект с отворен код, по който аз съм допринесъл. Цели да е прозрачна дарителска платформа, в която хората могат да създават и да даряват за благотворителни кампании. По проекта все още се работи, но вече има работеща бета, пореди много талантливи работещи хора по него! Разгледайте го и помогнете на някого сега ❤️!"
+      },
+      "en": {
         "title": "Podkrepi.bg",
-        "title-bg": "Подкрепи.бг",
-        "url": "https://podkrepi.bg",
-        "description":"This is not a personal project, but rather an open source one which I have contributed to a lot! The Bulgarian IT community came together to create a transparent donation platform for people to be able to list and donate to noble campaigns! The project is still very much work in progress, but already has a currently working beta, because of the hard work of many talanted people! Check it out and help someone now ❤️!",
-        "description-bg": "Подкрепи.бг е проект с отворен код, по който аз съм допринесъл. Цели да е прозрачна дарителска платформа, в която хората могат да създават и да даряват за благотворителни кампании. По проекта все още се работи, но вече има работеща бета, пореди много талантливи работещи хора по него! Разгледайте го и помогнете на някого сега ❤️!",
-        "chips": ["React","Next.js","Node.js"],
-        "images":[
-            {
-                "url": "podkrepi-4.png",
-                "alt": "Podkrepi.bg main page of the website"
-            },
-            {
-                "url": "podkrepi-1.jpg",
-                "alt": "podkrepi.bg logo looking as a hand and a bird"
-            },
-            {
-                "url": "podkrepi-2.png",
-                "alt": "Campaign on podkrepi.bg that has been funded"
-            },
-            {
-                "url": "podkrepi-3.png",
-                "alt": "Active campaigns on podkrepi.bg"
-            }
-        ]
-    }
+        "description": "This is not a personal project, but rather an open source one which I have contributed to a lot! The Bulgarian IT community came together to create a transparent donation platform for people to be able to list and donate to noble campaigns! The project is still very much work in progress, but already has a currently working beta, because of the hard work of many talanted people! Check it out and help someone now ❤️!"
+      }
+    },
+    "url": "https://podkrepi.bg",
+    "chips": [
+      "React",
+      "Next.js",
+      "Node.js"
+    ],
+    "images": [
+      {
+        "url": "podkrepi-4.png",
+        "alt": "Podkrepi.bg main page of the website"
+      },
+      {
+        "url": "podkrepi-1.jpg",
+        "alt": "podkrepi.bg logo looking as a hand and a bird"
+      },
+      {
+        "url": "podkrepi-2.png",
+        "alt": "Campaign on podkrepi.bg that has been funded"
+      },
+      {
+        "url": "podkrepi-3.png",
+        "alt": "Active campaigns on podkrepi.bg"
+      }
+    ]
+  }
 ]

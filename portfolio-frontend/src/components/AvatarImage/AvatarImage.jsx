@@ -58,7 +58,7 @@ function AvatarImage() {
   });
 
   return (
-    <div className="flex h-[450px] flex-1 items-center justify-center sm:justify-end">
+    <div className="flex h-[330px] sm:h-[450px] flex-1 items-center justify-center sm:justify-end">
       <div
         id="circle-orbit-container"
         className="relative w-[270px] sm:w-[370px]"

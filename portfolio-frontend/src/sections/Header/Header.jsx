@@ -50,15 +50,15 @@ export default function Header() {
         <h1 className="mb-5 text-5xl font-bold text-black">
           <TypedHeaderWithTranslation />
         </h1>
-        <div className="flex justify-between">
-          <div className="mr-5">
+        <div className="flex gap-2">
+          <div>
             <p>{t("header.job")}</p>
             <a className="text-blue-500" href="https://www.uniwise.co.uk/">
               @UNIWise
             </a>
           </div>
-          <span className="mr-5 block text-xl font-bold">&</span>
-          <div className="mr-2">{t("header.passion")}</div>
+          <span>|</span>
+          <div>{t("header.passion")}</div>
         </div>
       </div>
       <AvatarImage />

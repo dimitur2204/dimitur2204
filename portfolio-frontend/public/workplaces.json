@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "content": {
+      "bg": {
+        "company": "Клеврет",
+        "time": "Ноември 2020 - Май 2021",
+        "description": "Софтуерна компания базирана в Благоевград, България. Аутсорсинг за чуждестранни компании, главно базирани в Обединеното кралство. <span class=\"block spacing p-3\"></span> Работих на уебсайтове и теми базирани на Umbraco CMS. Главно използвах сложни SCSS архитектури и проекти заедно с jQuery за фронтендите на уебсайтовете базирани на CMS. Използвах много CSS библиотеки като Bootstrap. Използвах vue и React в случаите, когато интерактивността беше ключова."
+      },
+      "en": {
+        "company": "Klevret",
+        "time": "Nov 2020 - May 2021",
+        "description": "A software company based in Blagoevgrad, Bulgaria. Outsourcing for foreign companies mostly based in the UK. <span class=\"block spacing p-3\"></span> Worked on Umbraco based CMS websites and themes. Mainly utilizing complex SCSS architectures and projects together with jQuery for the frontends of the CMS based websites. Used a lot of CSS libraries such as Bootstrap. Used vue and React in cases where interactivity was key."
+      }
+    }
+  },
+  {
+    "id": 2,
+    "content": {
+      "bg": {
+        "company": "ДеваСофт",
+        "time": "Май 2021 - Август 2021",
+        "description": "Малка софтуерна компания базирана в София, България. <span class=\"block spacing p-3\"></span> Работих на платформа за облачни услуги за азиатския пазар в малък екип от 4 разработчици. Помогнах с много функции и инциденти на основния клиентски интерфейс на платформата. Бях отговорен за създаването на административен панел от нулата за създаване на приложения за пазара, които се показват на клиентския интерфейс за предоставяне на готови за употреба виртуални машини в облака (подобно на DigitalOcean) пазара. <span class=\"block spacing p-3\"></span> Получих опит с разглеждане на python backend и специално Ansible playbooks, които се използваха за предоставяне на виртуални машини."
+      },
+      "en": {
+        "company": "DevaSoft",
+        "time": "May 2021 - Aug 2021",
+        "description": "A small software company based in Sofia, Bulgaria. <span class=\"block spacing p-3\"></span> Worked on a Cloud Provider platform for the asian market in a small team of 4 developers. Helped with many features and incidents on the main client side of the platform. Was responsible for creating an admin panel from scratch for creating marketplace applications which show on the client side for provisioning ready to use Virtual Machines on the cloud (similiar to DigitalOcean) marketplace. <span class=\"block spacing p-3\"></span> Got hands on experience with looking into the python backend and specifically the Ansible playbooks that were used for provisioning the Virtual Machines."
+      }
+    }
+  },
+  {
+    "id": 3,
+    "content": {
+      "bg": {
+        "company": "ЮНИуайз",
+        "time": "Февруари 2022 - Днес",
+        "description": "WISEflow - Един от най-големите доставчици на цифрови оценявания в Скандинавия и Европа, работещ с университети в: Дания, Норвегия, Обединеното кралство, Португалия, Франция, Испания. <span class=\"block spacing p-3\"></span> Кодова база с микросервизи и много фронтенди. Получих много опит с Docker и Frontend операции (CI/CD - GH Actions, доставка и поддръжка на npm библиотеки). <span class=\"block spacing p-3\"></span> Работа с AGILE. Работа по създаването и поддръжката на вътрешна библиотека с компоненти в близко сътрудничество с дизайнери, което изискваше спазване на високи стандарти за достъпност. Други задачи включват интегриране на промени, отстраняване на инциденти и разработване на нови функции въз основа на обратна връзка и нужди от отделите за изследвания, QA и поддръжка. С моята помощ тук успяхме значително да модернизираме и да направим лесно за използване и интегриране вътрешната библиотека, която е основна зависимост на всички фронтенди в компанията."
+      },
+      "en": {
+        "company": "UNIwise",
+        "time": "Feb 2022 - Present",
+        "description": "WISEflow - One of the biggest digital assessment providers in Scandinavia and Europe working with universities in: Denmark, Norway, The United Kingdom, Portugal, France, Spain. <span class=\"block spacing p-3\"></span> Codebase with microservices and many frontends. Got a lot of hands on with Docker and Frontend operations (CI/CD - GH Actions, shipping and maintaining npm libraries). <span class=\"block spacing p-3\"></span> Working with AGILE. Working on creating and maintaining an internal component library in close collaboration with designers, that required meeting high accessibility standards. Other tasks include integrating changes, fixing incidents, and develop new features based on feedback and needs from the Research, QA and Support departments. With my help here we managed greatly modernize and make it easy to use and integrate the internal library that is the core dependency of all frontends in the company."
+      }
+    }
+  }
+]

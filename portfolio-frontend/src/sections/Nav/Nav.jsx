@@ -46,6 +46,8 @@ function Nav() {
             i18n.changeLanguage(i18n.language === "en" ? "bg" : "en")
           }
           button
+          lang={i18n.language === 'en' ? 'bg' : 'en'}
+          hrefLang={i18n.language === 'en' ? 'bg' : 'en'}
         >
           <div className="flex">
             <span>{i18n.language === "en" ? "БГ" : "EN"}</span>
