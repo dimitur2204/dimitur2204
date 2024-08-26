@@ -4,18 +4,65 @@ import { useTranslation, withTranslation } from "react-i18next";
 import { ReactTyped as Typed } from "react-typed";
 
 import AvatarImage from "../../components/AvatarImage/AvatarImage";
+import { ChevronRight } from "react-feather";
+import { Link } from "@tanstack/react-router";
+
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { useEffect } from "react";
+
+const cursorVariants = {
+  blinking: {
+    opacity: [0, 0, 1, 1],
+    transition: {
+      duration: 1,
+      repeat: Infinity,
+      repeatDelay: 0,
+      ease: "linear",
+      times: [0, 0.5, 0.5, 1]
+    }
+  }
+};
+
+function CursorBlinker() {
+  return (
+    <motion.div
+      variants={cursorVariants}
+      animate="blinking"
+      className="inline-block h-5 w-[1px] translate-y-1 bg-slate-900"
+    />
+  );
+}
+
+function TextAnim() {
+    const { t } = useTranslation("sections.header");
+  const baseText = t("stranged") + " " + t("this") + " " + t("name");
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const displayText = useTransform(rounded, (latest) =>
+    baseText.slice(0, latest)
+  );
+
+  useEffect(() => {
+    const controls = animate(count, baseText.length, {
+      type: "tween",
+      duration: 1,
+      ease: "easeInOut",
+    });
+    return controls.stop;
+  }, []);
+
+  return (
+    <span className="">
+      <motion.span>{displayText}</motion.span>
+      <CursorBlinker />
+    </span>
+  );
+}
 
 class TypedHeader extends Component {
-  componentDidUpdate() {
-    this.typed.reset();
-  }
   render() {
     return (
       <Typed
-        typedRef={(typed) => {
-          this.typed = typed;
-        }}
-        contentType={"html"}
         strings={[
           `${this.props.t("header.stranger")} <br /> ${this.props.t(
             "header.this",
@@ -26,12 +73,11 @@ class TypedHeader extends Component {
         typeSpeed={25}
         showCursor={true}
         startDelay={800}
+        startWhenVisible
       />
     );
   }
 }
-
-const TypedHeaderWithTranslation = withTranslation("sections")(TypedHeader);
 
 export default function Header() {
   const style = useSpring({
@@ -60,6 +106,10 @@ export default function Header() {
           <span>|</span>
           <div>{t("header.passion")}</div>
         </div>
+        <Link to={"/work"} className="inline-block mt-4 text-sm font-semibold bg-slate-800 text-white px-4 py-2 rounded">
+            Check my work
+            <ChevronRight className="inline-block"/>
+        </Link>
       </div>
       <AvatarImage />
     </animated.header>
