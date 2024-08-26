@@ -26,6 +26,18 @@ h5 {
   font-style: normal;
 }
 
+/* Cookie consent changes */
+ #cc-main {
+     /** Change font **/
+     --cc-font-family: "Montserrat", sans-serif;
+
+     /** Change button primary color to semantic slate 800 **/
+     --cc-btn-primary-bg: theme('colors.slate.800'); 
+
+     /** Also make toggles the same color as the button **/
+     --cc-toggle-on-bg: var(--cc-btn-primary-bg);
+ }
+
 .bg-violet-500 {
   background-color: #8b5cf6 !important;
 }

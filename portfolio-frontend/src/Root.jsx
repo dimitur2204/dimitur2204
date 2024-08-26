@@ -27,7 +27,7 @@ i18n
 						this: "I am",
 						name: "Dimitar",
 						job: "Student Developer",
-						passion: "Passionate to work with the greatest",
+						passion: "Developing with purpose, contributing with pride!",
 					},
 				},
                 work: {
@@ -49,7 +49,7 @@ i18n
 						this: "Аз съм",
 						name: "Димитър",
 						job: "Студент Програмист",
-						passion: "Искащ да работи с най-новото",
+						passion: "Разработвам с цел, допринасям с гордост!",
 					},
 				},
                 work: {
