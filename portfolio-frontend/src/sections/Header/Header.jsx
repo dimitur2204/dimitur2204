@@ -1,13 +1,12 @@
 import { animated, useSpring } from "@react-spring/web";
 import React, { Component } from "react";
-import { useTranslation, withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { ReactTyped as Typed } from "react-typed";
 
 import AvatarImage from "../../components/AvatarImage/AvatarImage";
 import { ChevronRight } from "react-feather";
 import { Link } from "@tanstack/react-router";
 
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
 
 const cursorVariants = {
