@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 :root {
   --bg-color: #0a0a0a;
   --text-color: #ffffff;
@@ -107,4 +111,7 @@ body {
   .container {
     padding: 1rem;
   }
+}
+.work-projects-title{
+	view-transition-name: work-projects-title;
 }
