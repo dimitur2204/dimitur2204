@@ -17,10 +17,12 @@
   navigation: auto;
 }
 
+html {
+  font-family: 'Mona Sans';
+	font-feature-settings: "ss01" on, "ss03" on, "ss05" on;
+}
+
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica",
-    "Arial", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;

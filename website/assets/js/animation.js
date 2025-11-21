@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Hover animation
         const menuLink = element.closest('.menu-link');
+        const menuItem = menuLink.closest('.menu-item');
         
         menuLink.addEventListener('mouseenter', () => {
             gsap.to(chars, {
@@ -37,6 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     from: "start"
                 },
                 duration: 0.4,
+                ease: "power2.out"
+            });
+            
+            // Subtle scale effect
+            gsap.to(menuItem, {
+                scale: 1.05,
+                duration: 0.3,
                 ease: "power2.out"
             });
         });
@@ -51,6 +59,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 duration: 0.4,
                 ease: "power2.inOut"
+            });
+            
+            gsap.to(menuItem, {
+                scale: 1,
+                duration: 0.3,
+                ease: "power2.inOut"
+            });
+        });
+        
+        // Magnetic effect - menu item follows mouse
+        menuLink.addEventListener('mousemove', (e) => {
+            const rect = menuItem.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const deltaX = (e.clientX - centerX) * 0.15;
+            const deltaY = (e.clientY - centerY) * 0.15;
+            
+            gsap.to(menuItem, {
+                x: deltaX,
+                y: deltaY,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+        
+        menuLink.addEventListener('mouseleave', () => {
+            gsap.to(menuItem, {
+                x: 0,
+                y: 0,
+                duration: 0.5,
+                ease: "elastic.out(1, 0.5)"
             });
         });
     });

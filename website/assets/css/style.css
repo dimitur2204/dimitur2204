@@ -15,15 +15,30 @@
   --hover-color: #ff0066;
 }
 
+html {
+  font-family: 'Mona Sans';
+	font-feature-settings: "ss01" on, "ss03" on, "ss05" on;
+}
+
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica",
-    "Arial", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
   min-height: 100vh;
   cursor: none;
+  position: relative;
+	z-index: 2;
+}
+
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.3;
 }
 
 .container {
@@ -32,6 +47,8 @@ body {
   justify-content: center;
   min-height: 100vh;
   padding: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .menu {
@@ -72,6 +89,41 @@ body {
   letter-spacing: -0.02em;
   display: block;
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.menu-text::before,
+.menu-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu-link:hover .menu-text::before {
+  opacity: 0.7;
+  animation: glitch-1 0.3s infinite;
+}
+
+.menu-link:hover .menu-text::after {
+  opacity: 0.7;
+  animation: glitch-2 0.3s infinite;
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  33% { transform: translate(-2px, 2px); color: #ff0066; clip-path: inset(0 0 70% 0); }
+  66% { transform: translate(2px, -2px); color: #00ff88; clip-path: inset(70% 0 0 0); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  33% { transform: translate(2px, -2px); color: #00ff88; clip-path: inset(0 0 40% 0); }
+  66% { transform: translate(-2px, 2px); color: #ff0066; clip-path: inset(40% 0 0 0); }
 }
 
 .menu-text span {
@@ -159,4 +211,12 @@ body {
   body {
     cursor: auto;
   }
+  
+  #particles-canvas {
+    opacity: 0.2;
+  }
+}
+
+.menu-item {
+  transition: transform 0.2s ease;
 }
