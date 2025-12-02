@@ -2,6 +2,7 @@
 "compatibility_date":"2025-12-02",
   "assets": {
     "directory": "./assets",
+		"not_found_handling": "404-page",
   },
 	"name": "personal-website"
 }
