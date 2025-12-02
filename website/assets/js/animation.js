@@ -94,4 +94,42 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+    
+    // GitHub icon fill animation
+    const githubLink = document.querySelector('.github-link');
+    const githubPath = document.querySelector('.github-icon-path');
+    
+    if (githubLink && githubPath) {
+        githubLink.addEventListener('mouseenter', () => {
+            gsap.to(githubPath, {
+                fill: 'var(--accent-color)',
+                stroke: 'var(--accent-color)',
+                strokeWidth: 0,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+            
+            gsap.to('.github-icon', {
+                filter: 'drop-shadow(0 0 16px rgba(0, 255, 136, 0.6))',
+                duration: 0.4,
+                ease: "power2.out"
+            });
+        });
+        
+        githubLink.addEventListener('mouseleave', () => {
+            gsap.to(githubPath, {
+                fill: 'none',
+                stroke: 'var(--text-color)',
+                strokeWidth: 0.5,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+            
+            gsap.to('.github-icon', {
+                filter: 'drop-shadow(0 0 8px rgba(0, 255, 136, 0.3))',
+                duration: 0.4,
+                ease: "power2.out"
+            });
+        });
+    }
 });
