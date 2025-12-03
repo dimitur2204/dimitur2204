@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Dimitar Nizamov</title>
+    <link rel="stylesheet" href="css/about-me.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/posthog.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a href="javascript:history.back()" class="back-link">← Back</a>
+        <h1 class="work-projects-title">About me</h1>
+      </header>
+
+      <section class="content">
+        <div class="hero-section">
+          <div class="hero-text">
+            <span class="highlight">Hey there! 👋</span>
+            <p class="intro-text">
+              I'm a <span class="gradient-text">frontend engineer</span> who
+              loves building things that make developers smile.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p>
+            I'm a frontend engineer with 5 years of experience building web
+            applications. I specialize in TypeScript, React, and modern frontend
+            architecture, with a focus on microfrontends and developer tooling.
+            Beyond the browser, I'm passionate about DevOps, cloud
+            infrastructure, and I'm a
+            <span class="neovim-text">Neovim</span> user (btw).
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script>
+      // Hero section animation
+      gsap.from(".hero-text", {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+      });
+
+      gsap.from(".highlight", {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.8,
+        delay: 0.5,
+        ease: "back.out(1.7)",
+      });
+
+      gsap.from(".intro-text", {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        delay: 0.8,
+        ease: "power2.out",
+      });
+
+      // About text fade in
+      gsap.from(".about-text", {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        delay: 1.2,
+        ease: "power2.out",
+      });
+
+      // Gradient text animation
+      gsap.to(".gradient-text", {
+        backgroundPosition: "200% center",
+        duration: 3,
+        repeat: -1,
+        ease: "none",
+      });
+
+      // Neovim text special effect
+      const neovimText = document.querySelector(".neovim-text");
+      if (neovimText) {
+        neovimText.addEventListener("mouseenter", () => {
+          gsap.to(neovimText, {
+            scale: 1.1,
+            color: "#57a143",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+
+        neovimText.addEventListener("mouseleave", () => {
+          gsap.to(neovimText, {
+            scale: 1,
+            color: "",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
