@@ -131,6 +131,10 @@ body {
   .container {
     padding: 1rem;
   }
+
+  .hide-mobile {
+    display: none;
+  }
 }
 .work-projects-title{
 	view-transition-name: work-projects-title;
