@@ -3,112 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me - Dimitar Nizamov</title>
-    <link rel="stylesheet" href="css/about-me.css" />
+    <title>About — Dimitar Nizamov</title>
+    <meta
+      name="description"
+      content="Frontend developer in Aarhus, Denmark. I own the component library and design system behind every WISEflow frontend, and study Software Technology Engineering at VIA."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/about-me.css" />
     <script src="js/posthog.js"></script>
   </head>
   <body>
     <div class="container">
-      <header>
-        <a href="javascript:history.back()" class="back-link">← Back</a>
-        <h1 class="work-projects-title">About me</h1>
+      <header class="reveal">
+        <a href="/" class="back-link"><span>←</span> Index</a>
+        <h1>About me</h1>
       </header>
 
-      <section class="content">
-        <div class="hero-section">
-          <div class="hero-text">
-            <span class="highlight">Hey there! 👋</span>
-            <p class="intro-text">
-              I'm a <span class="gradient-text">frontend engineer</span> who
-              loves building things that make developers smile.
-            </p>
-          </div>
-        </div>
+      <p class="lede reveal">
+        I build the layer other developers build on — <em>component libraries,
+        design systems, and the tooling around them.</em>
+      </p>
 
-        <div class="about-text">
+      <div class="about-grid">
+        <div class="prose reveal">
           <p>
-            I'm a frontend engineer with 5 years of experience building web
-            applications. I specialize in TypeScript, React, and modern frontend
-            architecture, with a focus on microfrontends and developer tooling.
-            Beyond the browser, I'm passionate about DevOps, cloud
-            infrastructure, and I'm a
-            <span class="neovim-text">Neovim</span> user (btw).
+            I've been writing frontend professionally for five years, most of
+            them at <strong>UNIwise</strong> in Aarhus, where I own the React
+            and TypeScript component library that every one of our frontends
+            depends on. It means most of my work is judged by people who never
+            see it directly: the engineers who install the package, and the
+            students sitting an exam on the other side of it, who only notice
+            the interface when it fails them.
+          </p>
+          <p>
+            Accessibility is a large part of why I like that job. When you are
+            the shared dependency, getting WCAG right once means ten
+            applications get it for free — and getting it wrong once means ten
+            applications are broken at the same time. That leverage, in both
+            directions, is the most interesting thing about library work. Right
+            now I'm migrating the whole ecosystem off Semantic UI React onto
+            headless primitives without regressing a single one of those apps.
+          </p>
+          <p>
+            I grew up in Bulgaria and have been in Denmark for a few years now.
+            Alongside work I'm finishing a BEng in Software Technology
+            Engineering at
+            <a href="https://en.via.dk/" target="_blank" rel="noopener noreferrer"
+              >VIA University College</a
+            >
+            in January 2027. I deliberately picked the coursework my day job
+            doesn't cover — embedded C, databases, backend systems — and my
+            bachelor's project is with the radiology
+            department at Aarhus University Hospital, applying machine learning
+            to medical imaging to relate organ health to biological age.
+          </p>
+          <p>
+            Outside work there's a Debian server in my apartment running
+            Nextcloud, Plex and Immich behind Tailscale, with Grafana dashboards
+            I check more often than I need to. Self-hosting has taught me more
+            about Docker, networking and backups than any amount of reading
+            would have — mostly by breaking, at inconvenient hours. I also use
+            <span class="neovim">Neovim</span>, btw.
           </p>
         </div>
+
+        <aside class="rail reveal">
+          <div class="fact">
+            <span class="label">Now</span>
+            <span class="fact-value"
+              >Frontend Developer at UNIwise<br /><span class="muted"
+                >Aarhus, Denmark</span
+              ></span
+            >
+          </div>
+          <div class="fact">
+            <span class="label">Studying</span>
+            <span class="fact-value"
+              >BEng Software Technology Engineering<br /><span class="muted"
+                >VIA, until Jan 2027</span
+              ></span
+            >
+          </div>
+          <div class="fact">
+            <span class="label">Status</span>
+            <span class="fact-value"
+              >EU citizen<br /><span class="muted">Open to relocation</span></span
+            >
+          </div>
+          <div class="fact">
+            <span class="label">Elsewhere</span>
+            <div class="rail-links">
+              <a
+                href="https://github.com/dimitur2204"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <a
+                href="https://www.linkedin.com/in/dimitar-nizamov-9180121a2/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+              <a href="work.html">Work &amp; Projects</a>
+              <a href="cv.pdf" target="_blank">Résumé (PDF)</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="contact reveal">
+        <p class="label">Get in touch</p>
+        <a class="contact-email" href="mailto:dimitur2204@gmail.com"
+          >dimitur2204@gmail.com</a
+        >
+        <p class="contact-note">
+          Happy to talk about design systems, accessibility, or why your
+          component library is harder to use than it should be.
+        </p>
       </section>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script>
-      // Hero section animation
-      gsap.from(".hero-text", {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        delay: 0.3,
-        ease: "power3.out",
-      });
-
-      gsap.from(".highlight", {
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.8,
-        delay: 0.5,
-        ease: "back.out(1.7)",
-      });
-
-      gsap.from(".intro-text", {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        delay: 0.8,
-        ease: "power2.out",
-      });
-
-      // About text fade in
-      gsap.from(".about-text", {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        delay: 1.2,
-        ease: "power2.out",
-      });
-
-      // Gradient text animation
-      gsap.to(".gradient-text", {
-        backgroundPosition: "200% center",
-        duration: 3,
-        repeat: -1,
-        ease: "none",
-      });
-
-      // Neovim text special effect
-      const neovimText = document.querySelector(".neovim-text");
-      if (neovimText) {
-        neovimText.addEventListener("mouseenter", () => {
-          gsap.to(neovimText, {
-            scale: 1.1,
-            color: "#57a143",
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-
-        neovimText.addEventListener("mouseleave", () => {
-          gsap.to(neovimText, {
-            scale: 1,
-            color: "",
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      }
-    </script>
   </body>
 </html>

@@ -3,38 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 - Page Not Found</title>
+    <title>404 — Dimitar Nizamov</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="css/404.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/404.css" />
     <script src="js/posthog.js"></script>
   </head>
   <body>
-    <div class="floating-shapes">
-      <div class="shape"></div>
-      <div class="shape"></div>
-      <div class="shape"></div>
-      <div class="shape"></div>
-    </div>
-
-    <div class="particles" id="particles"></div>
+    <div class="grid-backdrop" aria-hidden="true"></div>
 
     <div class="container">
-      <h1 class="error-code glitch" data-text="404">404</h1>
-      <h2 class="error-title">Page Not Found</h2>
+      <p class="error-code">4<span>0</span>4</p>
+      <h1 class="error-title">This page doesn't exist</h1>
       <p class="error-message">
-        Looks like you've ventured into uncharted territory. The page you're looking for doesn't exist.
+        Either the link is wrong, or I moved something and forgot to redirect
+        it. Both are plausible.
       </p>
-      <a href="/" class="home-link">Take Me Home</a>
+      <a href="/" class="home-link"><span>←</span> Back to the index</a>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   </body>
 </html>

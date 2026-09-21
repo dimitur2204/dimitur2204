@@ -10,7 +10,8 @@ class FluidCursor {
         this.innerX = 0;
         this.innerY = 0;
         this.isHovering = false;
-        
+        this.seen = false;
+
         this.init();
     }
     
@@ -27,10 +28,17 @@ class FluidCursor {
         this.cursorOuter = this.cursor.querySelector('.cursor-outer');
         
         document.addEventListener('mousemove', (e) => {
+            if (!this.seen) {
+                // Jump to the first known position instead of easing in from 0,0.
+                this.seen = true;
+                this.innerX = this.outerX = e.clientX;
+                this.innerY = this.outerY = e.clientY;
+                this.cursor.style.opacity = '1';
+            }
             this.mouseX = e.clientX;
             this.mouseY = e.clientY;
         });
-        
+
         const interactiveElements = document.querySelectorAll('a, button, .menu-link');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => this.setHoverState(true));
@@ -71,5 +79,9 @@ class FluidCursor {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new FluidCursor();
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (finePointer && !reduceMotion) {
+        new FluidCursor();
+    }
 });

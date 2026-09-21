@@ -5,6 +5,8 @@ class ParticleSystem {
         document.body.insertBefore(this.canvas, document.body.firstChild);
         
         this.ctx = this.canvas.getContext('2d');
+        this.accent = getComputedStyle(document.documentElement)
+            .getPropertyValue('--accent').trim();
         this.particles = [];
         this.particleCount = 50;
         this.mouseX = 0;
@@ -76,7 +78,7 @@ class ParticleSystem {
             // Draw particle
             this.ctx.beginPath();
             this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-            this.ctx.fillStyle = '#00ff88';
+            this.ctx.fillStyle = this.accent;
             this.ctx.fill();
             
             // Draw connections
@@ -86,11 +88,11 @@ class ParticleSystem {
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
                 if (distance < 120) {
-                    const opacity = (120 - distance) / 120;
+                    const alpha = Math.round(((120 - distance) / 120) * 0.3 * 255);
                     this.ctx.beginPath();
                     this.ctx.moveTo(particle.x, particle.y);
                     this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
-                    this.ctx.strokeStyle = `rgba(0, 255, 136, ${opacity * 0.3})`;
+                    this.ctx.strokeStyle = this.accent + alpha.toString(16).padStart(2, '0');
                     this.ctx.lineWidth = 0.5;
                     this.ctx.stroke();
                 }
@@ -102,7 +104,8 @@ class ParticleSystem {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth > 768) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (window.innerWidth > 768 && !reduceMotion) {
         new ParticleSystem();
     }
 });
