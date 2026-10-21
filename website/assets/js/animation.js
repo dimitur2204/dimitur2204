@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const styles = getComputedStyle(document.documentElement);
   const accent = styles.getPropertyValue("--accent").trim();
   const text = styles.getPropertyValue("--text").trim();
+  const returning = document.documentElement.classList.contains("returning");
 
   document.querySelectorAll(".menu-text").forEach((element, menuIndex) => {
     const label =
@@ -19,15 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (reduceMotion.matches) return;
 
-    gsap.from(chars, {
-      opacity: 0,
-      y: 60,
-      rotateX: -70,
-      stagger: 0.04,
-      delay: 0.3 + menuIndex * 0.12,
-      duration: 0.7,
-      ease: "power3.out",
-    });
+    if (!returning) {
+      gsap.from(chars, {
+        opacity: 0,
+        y: 60,
+        rotateX: -70,
+        stagger: 0.04,
+        delay: 0.3 + menuIndex * 0.12,
+        duration: 0.7,
+        ease: "power3.out",
+      });
+    }
 
     const menuLink = element.closest(".menu-link");
     const menuItem = menuLink.closest(".menu-item");

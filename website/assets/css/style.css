@@ -242,8 +242,23 @@ body {
   }
 }
 
-.work-projects-title {
-  view-transition-name: work-projects-title;
+/* Returning from a subpage: reverse of base.css. The page drops away, the
+   index comes back into focus, and the heading flies back into its slot. */
+::view-transition-old(root) {
+  animation: vt-drop 0.3s var(--ease) both;
+}
+
+::view-transition-new(root) {
+  animation: vt-emerge 0.55s var(--ease) 0.1s both;
+}
+
+/* The menu is where the heading lands, so it has to be there already. */
+.returning .menu-item,
+.returning .identity,
+.returning .footer-bar {
+  animation: none;
+  opacity: 1;
+  transform: none;
 }
 
 @media (max-width: 768px) {

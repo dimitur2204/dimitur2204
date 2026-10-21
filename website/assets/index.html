@@ -18,6 +18,16 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="js/posthog.js"></script>
+    <script>
+      // Back from a subpage the heading morphs into the menu, so skip the intro.
+      try {
+        const from = window.navigation?.activation?.from?.url || document.referrer;
+        const url = from && new URL(from);
+        if (url && url.origin === location.origin && url.pathname !== location.pathname) {
+          document.documentElement.classList.add("returning");
+        }
+      } catch {}
+    </script>
     <link rel="prefetch" href="work.html" />
     <link rel="prefetch" href="about-me.html" />
   </head>
@@ -43,7 +53,9 @@
         <div class="menu-item" data-index="1">
           <a href="about-me.html" class="menu-link">
             <span class="menu-index label" aria-hidden="true">02</span>
-            <span class="menu-text" data-text="About Me">About Me</span>
+            <span class="menu-text about-title" data-text="About Me"
+              >About Me</span
+            >
           </a>
         </div>
         <div class="menu-item" data-index="2">

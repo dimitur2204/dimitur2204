@@ -201,7 +201,7 @@ h1 {
   animation: rise 0.7s var(--ease) forwards;
 }
 
-header.reveal {
+.back-link.reveal {
   animation-delay: 0.05s;
 }
 
@@ -235,8 +235,9 @@ header.reveal {
   }
 }
 
-.work-projects-title {
-  view-transition-name: work-projects-title;
+/* The staggered reveal already moves the content, so the page itself only fades. */
+::view-transition-new(root) {
+  animation: vt-fade-in 0.4s var(--ease) 0.1s both;
 }
 
 @media (max-width: 860px) {

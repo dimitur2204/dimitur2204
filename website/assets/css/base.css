@@ -44,6 +44,86 @@
   navigation: auto;
 }
 
+/* Page transitions ------------------------------------------------------
+   The menu word you click becomes the heading of the page it opens, while
+   the index recedes behind it. These are the "entering a subpage" rules;
+   style.css reverses them for the way back to the index. */
+
+.work-projects-title {
+  view-transition-name: work-projects-title;
+}
+
+.about-title {
+  view-transition-name: about-title;
+}
+
+/* Same type as the menu word, so the morph scales one shape into another. */
+h1.work-projects-title,
+h1.about-title {
+  width: fit-content;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.6s;
+  animation-timing-function: var(--ease);
+}
+
+/* Scale snapshots by height and pin them left, so "Work" (mobile menu) and
+   "Work & Projects" line up instead of stretching. */
+::view-transition-old(work-projects-title),
+::view-transition-new(work-projects-title),
+::view-transition-old(about-title),
+::view-transition-new(about-title) {
+  width: auto;
+  height: 100%;
+}
+
+::view-transition-old(root) {
+  animation: vt-recede 0.3s var(--ease) both;
+}
+
+::view-transition-new(root) {
+  animation: vt-rise 0.55s var(--ease) 0.15s both;
+}
+
+@keyframes vt-recede {
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(6px);
+  }
+}
+
+@keyframes vt-rise {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}
+
+@keyframes vt-drop {
+  to {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}
+
+@keyframes vt-emerge {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(6px);
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
 html {
   font-family: var(--sans);
   font-feature-settings: "ss01" on, "ss03" on, "ss05" on;
