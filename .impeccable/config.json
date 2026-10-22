@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "oversized-h1",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/assigned.html"
+        ],
+        "createdAt": "2026-10-22T17:58:16.923Z",
+        "reason": "Agent decision: throwaway decision-round sketch, not shipped; the live homepage h1 was sized separately"
+      },
+      {
+        "rule": "oversized-h1",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-10-22T17:58:16.952Z",
+        "reason": "Agent decision: throwaway decision-round sketch, not shipped; the live homepage h1 was sized separately"
+      }
+    ]
+  }
+}

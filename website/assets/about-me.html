@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500&family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/base.css" />
@@ -19,19 +19,20 @@
     <script src="js/posthog.js"></script>
   </head>
   <body>
+    <div class="kerb" aria-hidden="true"></div>
     <div class="container">
       <header>
-        <a href="/" class="back-link reveal"><span>←</span> Index</a>
+        <a href="/" class="back-link"><span class="icon icon-back" aria-hidden="true"></span> Index</a>
         <h1 class="about-title">About me</h1>
       </header>
 
-      <p class="lede reveal">
+      <p class="lede">
         I build the layer other developers build on — <em>component libraries,
         design systems, and the tooling around them.</em>
       </p>
 
       <div class="about-grid">
-        <div class="prose reveal">
+        <div class="prose">
           <p>
             I've been writing frontend professionally for five years, most of
             them at <strong>UNIwise</strong> in Aarhus, where I own the React
@@ -73,7 +74,7 @@
           </p>
         </div>
 
-        <aside class="rail reveal">
+        <aside class="rail">
           <div class="fact">
             <span class="label">Now</span>
             <span class="fact-value"
@@ -118,8 +119,7 @@
         </aside>
       </div>
 
-      <section class="contact reveal">
-        <p class="label">Get in touch</p>
+      <section class="contact" aria-label="Get in touch">
         <a class="contact-email" href="mailto:dimitur2204@gmail.com"
           >dimitur2204@gmail.com</a
         >

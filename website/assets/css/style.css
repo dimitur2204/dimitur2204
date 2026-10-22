@@ -1,245 +1,391 @@
-body {
-  position: relative;
-  z-index: 2;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  body {
-    cursor: none;
-  }
-}
-
-#particles-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.22;
-}
+/* Homepage: the street surface. Name, availability and the menu along the
+   top, the claim on the asphalt, then three sprayed locate lines running the
+   full width, one per kind of work, each tagged with its proof. */
 
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 1240px;
   min-height: 100vh;
-  padding: 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-/* Identity ------------------------------------------------------------- */
-
-.identity {
-  position: fixed;
-  top: 2.5rem;
-  left: 2.5rem;
-  z-index: 100;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 2rem clamp(1.5rem, 4vw, 3.5rem) 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  opacity: 0;
-  animation: fadeIn 0.9s var(--ease) 0.15s forwards;
+}
+
+main {
+  flex: 1;
+}
+
+/* Top strip ------------------------------------------------------------ */
+
+.site-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem 2rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
 }
 
 .identity-name {
-  font-size: var(--step-0);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 .identity-role {
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
-.footer-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+/* White paint outlines a proposed dig: here, the next job (the sprayed
+   frame comes from .dig-outline in base.css). */
+.dig-mark {
+  grid-column: 1;
+  justify-self: start;
+  padding: 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.primary-nav {
+  grid-column: 2;
+  grid-row: 1 / span 2;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 2.5rem;
-  opacity: 0;
-  animation: fadeIn 0.9s var(--ease) 1.1s forwards;
-}
-
-.status {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  min-width: 0;
-}
-
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-wash);
-  flex-shrink: 0;
-}
-
-/* Menu ----------------------------------------------------------------- */
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 2.25rem;
-}
-
-.menu-item {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: fadeInUp 0.8s var(--ease) forwards;
-  transition: transform 0.2s ease;
-}
-
-.menu-item[data-index="0"] {
-  animation-delay: 0.3s;
-}
-
-.menu-item[data-index="1"] {
-  animation-delay: 0.45s;
-}
-
-.menu-item[data-index="2"] {
-  animation-delay: 0.6s;
-}
-
-.menu-link {
-  text-decoration: none;
-  color: var(--text);
-  display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 1.25rem;
+  justify-content: flex-end;
+  column-gap: 1.75rem;
+  row-gap: 0.25rem;
+}
+
+.nav-link {
   position: relative;
-  padding-bottom: 0.5rem;
-  width: fit-content;
+  display: inline-block;
+  padding-block: 0.6rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.25s var(--ease);
 }
 
-.menu-index {
-  color: var(--text-dim);
-  transition: color 0.35s var(--ease);
-  flex-shrink: 0;
-}
-
-.menu-link:hover .menu-index {
-  color: var(--accent);
-}
-
-.menu-text {
-  font-size: clamp(2.75rem, 9vw, 7rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-  display: block;
-  position: relative;
-  z-index: 1;
-}
-
-.menu-text span {
+.nav-link > span:first-child {
   display: inline-block;
 }
 
-.menu-link::after {
+.nav-link-main {
+  color: var(--text);
+  font-size: var(--step-1);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+.nav-note {
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+/* A painted stroke under each link; the main one is always marked. */
+.nav-link::after {
   content: "";
   position: absolute;
-  bottom: 0;
   left: 0;
-  width: 0;
-  height: 2px;
+  right: 0;
+  bottom: 0.3rem;
+  height: 3px;
+  border-radius: 2px;
   background: var(--accent);
-  transition: width 0.5s var(--ease);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
 }
 
-.menu-link:hover::after {
-  width: 100%;
+.nav-link-main::after {
+  background: var(--locate-dig);
+  transform: none;
 }
 
-/* Social icons --------------------------------------------------------- */
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--text);
+}
 
-.icons {
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  background: var(--accent);
+  transform: scaleX(1);
+}
+
+/* Claim ---------------------------------------------------------------- */
+
+.intro {
+  margin-top: clamp(1.75rem, 4.5vh, 3.5rem);
+}
+
+.intro h1 {
+  max-width: 15ch;
+  font-size: clamp(2.4rem, 1.4rem + 3vw, 4.1rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.lede {
+  max-width: 74ch;
+  margin-top: 1.25rem;
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* Locate lines --------------------------------------------------------- */
+
+.locates {
+  margin-top: clamp(1.75rem, 4vh, 3rem);
+}
+
+.locate-list {
+  list-style: none;
+}
+
+.locate {
+  --paint: var(--locate-frontend);
+  --tint: var(--locate-frontend);
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+  padding-bottom: 0.75rem;
+}
+
+.locate-fullstack {
+  --paint: var(--locate-fullstack);
+  --tint: var(--locate-fullstack-text);
+}
+
+.locate-ops {
+  --paint: var(--locate-ops);
+  --tint: var(--locate-ops-text);
+}
+
+/* The run: a line sprayed from the kerb to the right edge of the street, with
+   its proof sprayed onto it beside a survey flag. */
+.locate-run {
+  grid-column: 1 / -1;
+  display: grid;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.locate-run > * {
+  grid-area: 1 / 1;
+}
+
+.locate .paint-line {
+  width: calc(100vw - var(--kerb));
+  margin-left: calc(50% - (100vw - var(--kerb)) / 2);
+  color: var(--paint);
+}
+
+/* Each line is its own pass of the can. */
+.locate-fullstack .paint-line {
+  -webkit-mask-image: url("../img/spray-h-b.webp");
+  mask-image: url("../img/spray-h-b.webp");
+}
+
+.locate-ops .paint-line {
+  -webkit-mask-image: url("../img/spray-h-c.webp");
+  mask-image: url("../img/spray-h-c.webp");
+}
+
+/* Above the masked line, which paints in its own layer. */
+.locate-tag {
+  position: relative;
+  z-index: 1;
+  justify-self: start;
+  margin-left: calc(47.5% + clamp(0.75rem, 2vw, 1.75rem));
   display: flex;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.15rem 0.85rem;
+  background: var(--bg) url("../img/asphalt.webp");
+  font-family: var(--mono);
+  font-size: var(--step-00);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--tint);
+}
+
+.flag {
+  width: 1.1rem;
+  height: 1.9rem;
+  margin-top: -1.2rem;
+  color: var(--paint);
   flex-shrink: 0;
 }
 
-.icons a {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
+.locate h3 {
+  font-size: var(--step-2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+}
+
+.locate h3 a {
+  padding-block: 0.4rem;
+  text-decoration: underline;
+  text-decoration-color: var(--tint);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  transition: color 0.25s var(--ease);
+}
+
+.locate h3 a:hover {
+  color: var(--tint);
+}
+
+.locate-meta {
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+  color: var(--text-dim);
+}
+
+.locate-text {
+  max-width: 58ch;
   color: var(--text-muted);
-  transition: color 0.3s var(--ease), border-color 0.3s var(--ease),
-    transform 0.3s var(--ease);
+  line-height: 1.6;
 }
 
-.icons a:hover {
-  color: var(--accent);
-  border-color: var(--accent-line);
-  transform: translateY(-2px);
-}
-
-.icons svg {
+.locate-source {
   display: block;
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+  width: fit-content;
+  margin-top: 0.25rem;
+  padding-block: 0.4rem;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color 0.25s var(--ease);
 }
 
-/* Cursor --------------------------------------------------------------- */
-
-.fluid-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0;
-  transition: opacity 0.2s linear;
+.locate-source:hover {
+  text-decoration-color: var(--accent);
 }
 
-.cursor-inner,
-.cursor-outer {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: transform 0.3s var(--ease);
-}
-
-.cursor-inner {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  transform: translate(-50%, -50%);
-}
-
-.cursor-outer {
-  width: 34px;
-  height: 34px;
-  border: 1px solid var(--accent-line);
-  transform: translate(-50%, -50%);
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* The lines are laid down once, left to right, as the page arrives. */
+@media (prefers-reduced-motion: no-preference) {
+  .locate .paint-line {
+    animation: lay-down 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(0.15s + var(--i, 0) * 0.14s);
   }
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
+@keyframes lay-down {
+  from {
+    clip-path: inset(0 100% 0 0);
   }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Key ------------------------------------------------------------------ */
+
+.locate-key {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.locate-key li::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.5rem;
+  height: 0.4rem;
+  margin-right: 0.6rem;
+  border-radius: 0.2rem;
+}
+
+.key-frontend::before {
+  background: var(--locate-frontend);
+}
+
+.key-fullstack::before {
+  background: var(--locate-fullstack);
+}
+
+.key-ops::before {
+  background: var(--locate-ops);
+}
+
+.locate-key .key-dig::before {
+  width: 1.6rem;
+  height: 1.1rem;
+  border: 6px solid transparent;
+  border-image: url("../img/dig-frame.webp") 24 round;
+  border-radius: 0;
+}
+
+.locate-key .key-note {
+  color: var(--text-dim);
+}
+
+.locate-key .key-note::before {
+  display: none;
+}
+
+/* Footer --------------------------------------------------------------- */
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: clamp(3rem, 8vh, 5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+
+.status {
+  color: var(--text-dim);
+}
+
+.contact-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.contact-links a {
+  display: inline-block;
+  padding-block: 0.6rem;
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 0.25em;
+  transition: color 0.25s var(--ease), text-decoration-color 0.25s var(--ease);
+}
+
+.contact-links a:hover {
+  color: var(--text);
+  text-decoration-color: var(--accent);
 }
 
 /* Returning from a subpage: reverse of base.css. The page drops away, the
@@ -252,75 +398,79 @@ body {
   animation: vt-emerge 0.55s var(--ease) 0.1s both;
 }
 
-/* The menu is where the heading lands, so it has to be there already. */
-.returning .menu-item,
-.returning .identity,
-.returning .footer-bar {
-  animation: none;
-  opacity: 1;
-  transform: none;
+@media (max-width: 860px) {
+  .site-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .primary-nav {
+    grid-column: 1;
+    grid-row: auto;
+    justify-content: flex-start;
+  }
+
+  .locate {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.6rem;
+  }
+
+  /* Narrow screens: the line is too short to carry the tag on it, so the
+     tag is sprayed just above the line with its flag staked through it, and
+     the paint runs the full width. */
+  .locate-run {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .locate-tag {
+    margin: 0 0 -0.2rem;
+    padding: 0;
+    background: none;
+  }
+
+  .flag {
+    margin: 0 0 -1.3rem;
+  }
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 1.5rem;
-    justify-content: flex-start;
+    padding: 1.5rem 1.25rem 2rem;
   }
 
-  .menu {
-    gap: 1.5rem;
+  .intro {
+    margin-top: 2rem;
   }
 
-  .menu-link {
-    gap: 0.85rem;
-  }
-
-  .menu-text {
-    font-size: clamp(2.25rem, 13vw, 4rem);
-  }
-
-  .identity {
-    top: 1.5rem;
-    left: 1.5rem;
-  }
-
-  .footer-bar {
-    padding: 1.5rem;
-  }
-
-  .hide-compact {
-    display: none;
-  }
-
-  .fluid-cursor {
-    display: none;
-  }
-
-  #particles-canvas {
-    opacity: 0.15;
+  .locates {
+    margin-top: 2.75rem;
   }
 }
 
-/* Below this height the fixed footer would collide with the menu. */
-@media (max-height: 560px) {
-  .footer-bar {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .menu-item,
-  .identity,
-  .footer-bar {
-    opacity: 1;
-    transform: none;
+/* Landscape phones: a smaller claim leaves room for the first line. */
+@media (max-height: 500px) {
+  .container {
+    padding-top: 1rem;
   }
 
-  .fluid-cursor {
-    display: none;
+  .site-header {
+    padding-bottom: 0.75rem;
   }
 
-  body {
-    cursor: auto;
+  .intro {
+    margin-top: 1.25rem;
+  }
+
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .lede {
+    margin-top: 0.75rem;
+    font-size: var(--step-0);
+  }
+
+  .locates {
+    margin-top: 2rem;
   }
 }

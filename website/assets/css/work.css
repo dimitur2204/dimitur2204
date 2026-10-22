@@ -33,28 +33,96 @@ h1 {
   margin-bottom: 0;
 }
 
-/* Entry: date rail on the left, content on the right -------------------- */
+/* Entry ----------------------------------------------------------------
+   Each entry opens with a locate run, the same device as the homepage: a
+   sprayed line from the kerb to the right edge, with a flag and a tag on it
+   naming the kind of work and the dates, so colour is never the only cue. */
 
 .entry {
-  display: grid;
-  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
-  gap: 2.75rem;
+  --paint: var(--locate-frontend);
+  --tint: var(--locate-frontend);
+  position: relative;
+  isolation: isolate;
+  scroll-margin-top: 2rem;
   padding-bottom: 3.5rem;
-  margin-bottom: 3.5rem;
-  border-bottom: 1px solid var(--line);
+}
+
+.entry-fullstack {
+  --paint: var(--locate-fullstack);
+  --tint: var(--locate-fullstack-text);
+}
+
+.entry-ops {
+  --paint: var(--locate-ops);
+  --tint: var(--locate-ops-text);
+}
+
+.entry-study {
+  --paint: var(--locate-dig);
+  --tint: var(--locate-dig);
 }
 
 .entry:last-child {
   padding-bottom: 0;
-  margin-bottom: 0;
-  border-bottom: none;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0.05rem;
+  width: calc(100vw - var(--kerb));
+  left: calc(50% - (100vw - var(--kerb)) / 2);
+  height: 1.5rem;
+  background: var(--paint);
+  -webkit-mask: url("../img/spray-h-a.webp") 0 50% / auto 100% repeat-x;
+  mask: url("../img/spray-h-a.webp") 0 50% / auto 100% repeat-x;
+}
+
+.entry-fullstack::before {
+  -webkit-mask-image: url("../img/spray-h-b.webp");
+  mask-image: url("../img/spray-h-b.webp");
+}
+
+.entry-ops::before {
+  -webkit-mask-image: url("../img/spray-h-c.webp");
+  mask-image: url("../img/spray-h-c.webp");
+}
+
+/* Study is a proposed dig: marked in white dashes, not yet dug. */
+.entry-study::before {
+  -webkit-mask: url("../img/spray-dash-h.webp") 0 50% / auto 100% repeat-x;
+  mask: url("../img/spray-dash-h.webp") 0 50% / auto 100% repeat-x;
 }
 
 .entry-meta {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  padding-top: 0.35rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.1rem 0.9rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 1.4rem 1.25rem;
+  padding: 0.05rem 0.85rem 0.05rem 0.6rem;
+  background: var(--bg) url("../img/asphalt.webp");
+}
+
+/* The survey flag on the run, tinted with the line's paint. */
+.entry-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--tint);
+}
+
+.entry-kind::before {
+  content: "";
+  width: 0.85rem;
+  height: 1.45rem;
+  margin-top: -0.9rem;
+  background: var(--paint);
+  -webkit-mask: url("../img/icons/flag.svg") center / contain no-repeat;
+  mask: url("../img/icons/flag.svg") center / contain no-repeat;
 }
 
 .entry-date {
@@ -62,49 +130,34 @@ h1 {
 }
 
 .entry-body {
-  position: relative;
-  padding-left: 2.25rem;
-  border-left: 1px solid var(--line);
+  max-width: 46rem;
 }
 
-/* Timeline node, aligned to the cap height of the company name. */
-.entry-body::before {
-  content: "";
-  position: absolute;
-  left: -4px;
-  top: 0.7rem;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 1px solid var(--line-strong);
-  transition: background 0.35s var(--ease), border-color 0.35s var(--ease);
-}
-
-.entry:hover .entry-body::before {
-  background: var(--accent);
-  border-color: var(--accent);
+.entry-place {
+  margin: -1rem 0 1.25rem;
+  font-size: 0.92rem;
+  color: var(--text-dim);
 }
 
 .entry-title {
   font-size: var(--step-2);
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.2rem;
 }
 
 .entry-title a {
   color: inherit;
-  text-decoration: none;
-  background-image: linear-gradient(var(--accent), var(--accent));
-  background-size: 0% 1px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 0.35s var(--ease), color 0.35s var(--ease);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.35s var(--ease), color 0.35s var(--ease);
 }
 
-.entry-title a:hover {
-  color: var(--accent);
-  background-size: 100% 1px;
+.entry-title a:hover,
+.entry-title a:focus-visible {
+  color: var(--tint);
+  text-decoration-color: var(--tint);
 }
 
 .entry-title .sub {
@@ -113,7 +166,7 @@ h1 {
 }
 
 .entry-role {
-  color: var(--accent);
+  color: var(--tint);
   font-size: var(--step-0);
   font-weight: 500;
   margin-bottom: 1.25rem;
@@ -146,8 +199,8 @@ h1 {
   left: 0;
   top: 0.72em;
   width: 6px;
-  height: 1px;
-  background: var(--accent);
+  height: 2px;
+  background: var(--tint);
 }
 
 .entry-points strong {
@@ -155,21 +208,15 @@ h1 {
   font-weight: 600;
 }
 
-.entry:hover .chip {
-  border-color: var(--line-strong);
-}
-
 .entry-link {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  margin-top: 1.5rem;
-  color: var(--accent);
+  margin-top: 1.25rem;
+  padding-block: 0.4rem;
+  color: var(--tint);
   text-decoration: none;
-  font-size: var(--step-00);
-  font-family: var(--mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .entry-link span {
@@ -189,13 +236,10 @@ h1 {
 }
 
 .skill-group h3 {
-  font-size: var(--step-00);
-  font-family: var(--mono);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  margin-bottom: 1rem;
+  font-size: var(--step-0);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.6rem;
 }
 
 @media (max-width: 820px) {
@@ -208,21 +252,23 @@ h1 {
   }
 
   .entry {
-    grid-template-columns: 1fr;
-    gap: 1rem;
     padding-bottom: 2.5rem;
-    margin-bottom: 2.5rem;
+  }
+
+  /* As on the homepage: the tag sits just above the run, its flag staked
+     through the paint, so the line shows across the full width. */
+  .entry::before {
+    top: 1.45rem;
   }
 
   .entry-meta {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.35rem 1rem;
-    padding-top: 0;
+    margin: 0 0 2rem;
+    padding: 0;
+    background: none;
   }
 
-  .entry-body {
-    padding-left: 1.25rem;
+  .entry-kind::before {
+    margin: 0 0 -1.2rem;
   }
 
   .section-block {

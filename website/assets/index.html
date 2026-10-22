@@ -3,106 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dimitar Nizamov — Frontend Developer</title>
+    <title>Dimitar Nizamov — Software Engineer</title>
     <meta
       name="description"
-      content="Dimitar Nizamov — frontend developer in Aarhus, Denmark. Design systems, component libraries and microfrontends in React and TypeScript."
+      content="Dimitar Nizamov, software engineer in Aarhus, Denmark. Five years of building the layer other developers build on: a shared React component library, frontend containers and CI, payments end to end, and a 26-service homelab."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500&family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="js/posthog.js"></script>
-    <script>
-      // Back from a subpage the heading morphs into the menu, so skip the intro.
-      try {
-        const from = window.navigation?.activation?.from?.url || document.referrer;
-        const url = from && new URL(from);
-        if (url && url.origin === location.origin && url.pathname !== location.pathname) {
-          document.documentElement.classList.add("returning");
-        }
-      } catch {}
-    </script>
     <link rel="prefetch" href="work.html" />
     <link rel="prefetch" href="about-me.html" />
   </head>
   <body>
-    <div class="identity">
-      <span class="identity-name">Dimitar Nizamov</span>
-      <span class="identity-role label">Frontend Developer</span>
-    </div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="kerb" aria-hidden="true"></div>
 
     <div class="container">
-      <nav class="menu">
-        <div class="menu-item" data-index="0">
-          <a href="work.html" class="menu-link">
-            <span class="menu-index label" aria-hidden="true">01</span>
-            <span
-              class="menu-text work-projects-title"
-              data-text="Work &amp; Projects"
-              data-text-mobile="Work"
-              >Work &amp; Projects</span
+      <header class="site-header">
+        <p class="identity">
+          <span class="identity-name">Dimitar Nizamov</span>
+          <span class="identity-role">Software engineer · frontend, fullstack, DevOps</span>
+        </p>
+        <p class="dig-mark dig-outline">Available from Jan 2027 · EU citizen, open to relocation</p>
+        <nav class="primary-nav" aria-label="Primary">
+          <a href="work.html" class="nav-link nav-link-main">
+            <span class="work-projects-title">Work &amp; Projects</span>
+          </a>
+          <a href="about-me.html" class="nav-link">
+            <span class="about-title">About me</span>
+          </a>
+          <a href="cv.pdf" target="_blank" class="nav-link">
+            Résumé <span class="nav-note">(PDF<span class="visually-hidden">, opens in a new tab</span>)</span>
+          </a>
+        </nav>
+      </header>
+
+      <main id="main-content">
+        <section class="intro" aria-labelledby="intro-title">
+          <h1 id="intro-title">I build the layer other developers build on.</h1>
+          <p class="lede">
+            Five years of it so far: the component library every WISEflow
+            frontend depends on, the containers our frontends ship in, a
+            payment flow end to end, and 26 self-hosted services I run as my
+            own ops team.
+          </p>
+        </section>
+
+        <section class="locates" aria-labelledby="locates-title">
+          <h2 id="locates-title" class="visually-hidden">Selected work</h2>
+          <ul class="locate-list">
+            <li class="locate locate-frontend" style="--i: 0">
+              <div class="locate-run">
+                <div class="paint-line" aria-hidden="true"></div>
+                <p class="locate-tag"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path d="M3 2v38" stroke="#d8d5cd" stroke-width="2"/><path d="M4 3h17l-3 6 3 6H4z" fill="currentColor"/></svg>Frontend · 10 microfrontends</p>
+              </div>
+              <div class="locate-head">
+                <h3><a href="work.html#uniwise">The component library, and the containers it ships in</a></h3>
+                <p class="locate-meta">UNIwise · since 2022</p>
+              </div>
+              <div class="locate-body">
+                <p class="locate-text">
+                  The shared React and TypeScript library behind 10
+                  microfrontends and 15–20 engineers, kept at WCAG 2.1 AA, and
+                  the Docker containers our frontend repos ship in.
+                </p>
+              </div>
+            </li>
+            <li class="locate locate-fullstack" style="--i: 1">
+              <div class="locate-run">
+                <div class="paint-line" aria-hidden="true"></div>
+                <p class="locate-tag"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path d="M3 2v38" stroke="#d8d5cd" stroke-width="2"/><path d="M4 3h17l-3 6 3 6H4z" fill="currentColor"/></svg>Fullstack · 73 merged PRs</p>
+              </div>
+              <div class="locate-head">
+                <h3><a href="work.html#podkrepi">Payments, end to end</a></h3>
+                <p class="locate-meta">Podkrepi.bg · open source, 2021–2024</p>
+              </div>
+              <div class="locate-body">
+                <p class="locate-text">
+                  The donation payment flow of an open-source charity platform:
+                  Next.js on the front, NestJS and Prisma behind it, Stripe for
+                  one-off and recurring gifts.
+                </p>
+                <a
+                  class="locate-source"
+                  href="https://github.com/search?q=org%3Apodkrepi-bg+author%3Adimitur2204+is%3Apr+is%3Amerged&amp;type=pullrequests"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >73 merged pull requests on GitHub</a
+                >
+              </div>
+            </li>
+            <li class="locate locate-ops" style="--i: 2">
+              <div class="locate-run">
+                <div class="paint-line" aria-hidden="true"></div>
+                <p class="locate-tag"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path d="M3 2v38" stroke="#d8d5cd" stroke-width="2"/><path d="M4 3h17l-3 6 3 6H4z" fill="currentColor"/></svg>Operations · 26 services</p>
+              </div>
+              <div class="locate-head">
+                <h3><a href="work.html#homelab">Backups that prove they restore</a></h3>
+                <p class="locate-meta">Homelab · since 2024</p>
+              </div>
+              <div class="locate-body">
+                <p class="locate-text">
+                  26 self-hosted services run like production: nightly backups
+                  that stop and restart each stack in order, a weekly restore
+                  test, alerts when a job fails, and CI that validates every
+                  stack.
+                </p>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="locate-key" aria-label="Colour key">
+            <li class="key-frontend">Orange: frontend</li>
+            <li class="key-fullstack">Blue: fullstack</li>
+            <li class="key-ops">Red: operations</li>
+            <li class="key-dig">White outline: open to work</li>
+            <li class="key-note">Colours follow the utility locate code.</li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p class="status">
+          Aarhus, Denmark · EU citizen, open to relocation · BEng at VIA until
+          Jan 2027
+        </p>
+        <ul class="contact-links">
+          <li><a href="mailto:dimitur2204@gmail.com">dimitur2204@gmail.com</a></li>
+          <li>
+            <a href="https://github.com/dimitur2204" target="_blank" rel="noopener noreferrer"
+              >GitHub</a
             >
-          </a>
-        </div>
-        <div class="menu-item" data-index="1">
-          <a href="about-me.html" class="menu-link">
-            <span class="menu-index label" aria-hidden="true">02</span>
-            <span class="menu-text about-title" data-text="About Me"
-              >About Me</span
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/dimitar-nizamov-9180121a2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
             >
-          </a>
-        </div>
-        <div class="menu-item" data-index="2">
-          <a href="cv.pdf" target="_blank" class="menu-link">
-            <span class="menu-index label" aria-hidden="true">03</span>
-            <span class="menu-text" data-text="Resume">Resume</span>
-          </a>
-        </div>
-      </nav>
+          </li>
+        </ul>
+      </footer>
     </div>
-
-    <footer class="footer-bar">
-      <p class="status label">
-        <span class="status-dot" aria-hidden="true"></span>
-        Aarhus, Denmark<span class="hide-compact"> — open to relocation</span>
-      </p>
-
-      <div class="icons">
-      <a
-        href="https://github.com/dimitur2204"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-          <path
-            d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
-          ></path>
-        </svg>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/dimitar-nizamov-9180121a2/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-          <path
-            d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"
-          ></path>
-        </svg>
-        </a>
-      </div>
-    </footer>
-
-    <script src="js/particles.js"></script>
-    <script src="js/cursor.js"></script>
-    <script src="js/animation.js"></script>
   </body>
 </html>

@@ -1,1 +1,6 @@
 .DS_Store
+.impeccable/review
+.impeccable/mocks
+.impeccable/questions
+.impeccable/live
+.impeccable/hook.cache.json

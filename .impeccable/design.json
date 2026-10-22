@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-22T18:25:51.161Z",
+  "title": "Design System: Dimitar Nizamov",
+  "extensions": {
+    "colorMeta": {
+      "asphalt": {
+        "role": "neutral",
+        "displayName": "Asphalt",
+        "canonical": "oklch(27.6% 0.005 248.0)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222426",
+          "#3e4042",
+          "#5c5e60",
+          "#7e8083",
+          "#a2a5a7",
+          "#c8cbcd",
+          "#eceff1"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Joint Line",
+        "canonical": "oklch(37.4% 0.007 248.0)",
+        "tonalRamp": [
+          "#090b0e",
+          "#222427",
+          "#3d4043",
+          "#5b5e61",
+          "#7d8184",
+          "#a1a5a8",
+          "#c7cbcf",
+          "#ebeff3"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Joint",
+        "canonical": "oklch(46.2% 0.008 248.0)",
+        "tonalRamp": [
+          "#090c0f",
+          "#212428",
+          "#3c4044",
+          "#5a5e62",
+          "#7c8185",
+          "#a1a5aa",
+          "#c6cbd0",
+          "#eaeff4"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Chalk",
+        "canonical": "oklch(94.5% 0.007 97.4)",
+        "tonalRamp": [
+          "#0c0b08",
+          "#252420",
+          "#41403c",
+          "#5e5e59",
+          "#81807c",
+          "#a6a5a0",
+          "#cbcbc6",
+          "#efeee9"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Weathered Chalk",
+        "canonical": "oklch(79.4% 0.010 100.0)",
+        "tonalRamp": [
+          "#0c0b07",
+          "#25241f",
+          "#41403a",
+          "#5f5e58",
+          "#81807a",
+          "#a6a59e",
+          "#cccbc4",
+          "#f0efe7"
+        ]
+      },
+      "text-dim": {
+        "role": "neutral",
+        "displayName": "Faded Chalk",
+        "canonical": "oklch(69.2% 0.009 98.9)",
+        "tonalRamp": [
+          "#0c0b07",
+          "#25241f",
+          "#41403b",
+          "#5f5e58",
+          "#81807b",
+          "#a6a59f",
+          "#cccbc4",
+          "#f0efe8"
+        ]
+      },
+      "concrete": {
+        "role": "neutral",
+        "displayName": "Poured Concrete",
+        "canonical": "oklch(83.3% 0.011 89.7)",
+        "tonalRamp": [
+          "#0d0b06",
+          "#26241e",
+          "#424039",
+          "#605d56",
+          "#838079",
+          "#a7a49d",
+          "#cdcac2",
+          "#f1eee6"
+        ]
+      },
+      "concrete-ink": {
+        "role": "neutral",
+        "displayName": "Concrete Ink",
+        "canonical": "oklch(24.3% 0.002 247.9)",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#232425",
+          "#3f4041",
+          "#5c5e5f",
+          "#7f8081",
+          "#a3a5a6",
+          "#c9cbcc",
+          "#edeff0"
+        ]
+      },
+      "concrete-muted": {
+        "role": "neutral",
+        "displayName": "Concrete Grey Ink",
+        "canonical": "oklch(39.7% 0.006 258.3)",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#222427",
+          "#3e4043",
+          "#5c5e61",
+          "#7e8084",
+          "#a2a5a8",
+          "#c8cbce",
+          "#eceff2"
+        ]
+      },
+      "locate-frontend": {
+        "role": "primary",
+        "displayName": "Communications Orange",
+        "canonical": "oklch(70.1% 0.200 43.7)",
+        "tonalRamp": [
+          "#200000",
+          "#4d0000",
+          "#7e0200",
+          "#a92700",
+          "#db4800",
+          "#ff701f",
+          "#ffb492",
+          "#ffe6d9"
+        ]
+      },
+      "locate-fullstack": {
+        "role": "secondary",
+        "displayName": "Water Blue",
+        "canonical": "oklch(55.0% 0.166 252.2)",
+        "tonalRamp": [
+          "#000532",
+          "#00205b",
+          "#003d8a",
+          "#005cb7",
+          "#2082df",
+          "#58a8ff",
+          "#a1cfff",
+          "#ddf1ff"
+        ]
+      },
+      "locate-fullstack-text": {
+        "role": "secondary",
+        "displayName": "Water Blue, Text Tint",
+        "canonical": "oklch(74.9% 0.119 247.3)",
+        "tonalRamp": [
+          "#00082d",
+          "#00244f",
+          "#00417a",
+          "#12619d",
+          "#3d85c3",
+          "#63abeb",
+          "#97d1ff",
+          "#d9f2ff"
+        ]
+      },
+      "locate-ops": {
+        "role": "tertiary",
+        "displayName": "Power Red",
+        "canonical": "oklch(57.9% 0.234 23.9)",
+        "tonalRamp": [
+          "#220000",
+          "#4d0005",
+          "#7e0011",
+          "#b00a21",
+          "#ec1732",
+          "#ff6a68",
+          "#ffb1ab",
+          "#ffe6e3"
+        ]
+      },
+      "locate-ops-text": {
+        "role": "tertiary",
+        "displayName": "Power Red, Text Tint",
+        "canonical": "oklch(71.5% 0.180 15.5)",
+        "tonalRamp": [
+          "#210003",
+          "#4b0012",
+          "#7a0225",
+          "#ab153a",
+          "#d6455b",
+          "#ff6d7e",
+          "#ffb1b6",
+          "#ffe5e6"
+        ]
+      },
+      "locate-dig": {
+        "role": "tertiary",
+        "displayName": "Proposed-Dig White",
+        "canonical": "oklch(96.4% 0.007 97.4)",
+        "tonalRamp": [
+          "#0c0b08",
+          "#252420",
+          "#41403c",
+          "#5e5e59",
+          "#81807c",
+          "#a6a5a0",
+          "#cbcbc6",
+          "#efeeea"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Homepage claim only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Subpage h1; metrics match the menu word it morphs from."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Proof titles on homepage runs; Work entry titles (600)."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Summary under a claim or headline."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, 64ch measure."
+      },
+      "section-label": {
+        "displayName": "Section Label",
+        "purpose": "Work section names with a hairline rule to the edge; also the main nav item size."
+      },
+      "locate-tag": {
+        "displayName": "Locate Tag",
+        "purpose": "The only Mono: tags on runs and Work margin data (kind, dates)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "kerb-cast",
+        "value": "0.35rem 0 0.9rem -0.2rem rgba(0, 0, 0, 0.6)",
+        "purpose": "The concrete kerb casting onto the road."
+      },
+      {
+        "name": "slab-cast",
+        "value": "inset 0 1px 0 #f1efe9, 0 0.5rem 1.25rem -0.4rem rgba(0, 0, 0, 0.6)",
+        "purpose": "The reading slab: lit top edge and cast shadow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Default easing for hover, nav strokes and view transitions."
+      },
+      {
+        "name": "hover",
+        "value": "0.25s",
+        "purpose": "Colour and nudge transitions on links."
+      },
+      {
+        "name": "nav-stroke",
+        "value": "0.35s",
+        "purpose": "Painted stroke drawing under nav items."
+      },
+      {
+        "name": "heading-morph",
+        "value": "0.6s",
+        "purpose": "Named view transition from menu word to subpage h1 (and back). The kerb has no animation."
+      },
+      {
+        "name": "page-recede",
+        "value": "vt-recede 0.3s / vt-rise 0.55s 0.15s",
+        "purpose": "Index recedes and blurs while the subpage rises; reversed (vt-drop / vt-emerge) on return; About only fades in."
+      },
+      {
+        "name": "lay-down",
+        "value": "0.9s cubic-bezier(0.16, 1, 0.3, 1), delay 0.15s + i × 0.14s",
+        "purpose": "Homepage runs sprayed once, left to right, on load; only under prefers-reduced-motion: no-preference."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animations and transitions 0.01ms; view transitions off",
+        "purpose": "Global reduced-motion floor."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack",
+        "value": "860px"
+      },
+      {
+        "name": "work-stack",
+        "value": "820px"
+      },
+      {
+        "name": "kerb-narrow",
+        "value": "768px"
+      },
+      {
+        "name": "landscape-short",
+        "value": "max-height 500px"
+      }
+    ],
+    "materials": [
+      {
+        "name": "asphalt",
+        "file": "website/assets/img/asphalt.webp",
+        "purpose": "Ground texture on every page and behind tags on runs."
+      },
+      {
+        "name": "kerb",
+        "file": "website/assets/img/kerb.webp",
+        "purpose": "Sawcut kerb strip."
+      },
+      {
+        "name": "concrete-slab",
+        "file": "website/assets/img/concrete-slab.webp",
+        "purpose": "Reading slab."
+      },
+      {
+        "name": "spray-h-a/b/c",
+        "file": "website/assets/img/spray-h-{a,b,c}.webp",
+        "purpose": "One spray mask per run: frontend, fullstack, operations."
+      },
+      {
+        "name": "spray-dash-h",
+        "file": "website/assets/img/spray-dash-h.webp",
+        "purpose": "Dashed white run for a proposed dig (study)."
+      },
+      {
+        "name": "dig-frame",
+        "file": "website/assets/img/dig-frame.webp",
+        "purpose": "Sprayed dashed outline (border-image 24 round)."
+      },
+      {
+        "name": "icons",
+        "file": "website/assets/img/icons/{arrow-left,arrow-right,arrow-up-right,flag}.svg",
+        "purpose": "Drawn icon set, tinted via CSS masks."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Locate Run, Frontend",
+      "kind": "custom",
+      "refersTo": "paint-line-frontend",
+      "description": "Signature device: full-width sprayed orange line with a staked flag and a Mono tag naming kind and proof. In the build the line is masked by spray-h-a.webp; the snippet approximates the spray with a soft gradient mask.",
+      "html": "<div class=\"ds-run ds-run-frontend\"><div class=\"ds-paint\"></div><p class=\"ds-tag\"><svg class=\"ds-flag\" viewBox=\"0 0 24 40\" aria-hidden=\"true\"><path d=\"M3 2v38\" stroke=\"#d8d5cd\" stroke-width=\"2\"/><path d=\"M4 3h17l-3 6 3 6H4z\" fill=\"currentColor\"/></svg>Frontend · 10 microfrontends</p></div>",
+      "css": ":host{--bg:#26282a;--text:#eeede8;--text-muted:#bdbcb5;--text-dim:#9d9c96;--line-strong:#55595d;--concrete:#cbc8c0;--concrete-ink:#1f2021;--concrete-muted:#45474a;--locate-frontend:#ff6a13;--locate-fullstack:#0072ce;--locate-fullstack-text:#6cb4f5;--locate-ops:#e4002b;--locate-ops-text:#ff6b7d;--locate-dig:#f4f3ee;--accent:#f4f3ee;--ease:cubic-bezier(0.22,1,0.36,1);--sans:\"Atkinson Hyperlegible Next\",ui-sans-serif,system-ui,sans-serif;--mono:\"Atkinson Hyperlegible Mono\",ui-monospace,Menlo,monospace;} .ds-run{display:grid;align-items:center;padding:1rem 0;background:#26282a;font-family:var(--sans)} .ds-run>*{grid-area:1/1} .ds-paint{height:1.5rem;background:var(--paint);-webkit-mask:linear-gradient(transparent 25%,#000 40%,#000 60%,transparent 75%);mask:linear-gradient(transparent 25%,#000 40%,#000 60%,transparent 75%)} .ds-tag{position:relative;z-index:1;justify-self:start;margin-left:40%;display:flex;align-items:center;gap:0.6rem;padding:0.15rem 0.85rem;background:#26282a;font-family:var(--mono);font-size:0.8125rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;color:var(--tint)} .ds-flag{width:1.1rem;height:1.9rem;margin-top:-1.2rem;color:var(--paint);flex-shrink:0} @media (prefers-reduced-motion:no-preference){.ds-paint{animation:ds-lay 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both}} @keyframes ds-lay{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}} .ds-run-frontend{--paint:var(--locate-frontend);--tint:var(--locate-frontend)}"
+    },
+    {
+      "name": "Locate Run, Fullstack",
+      "kind": "custom",
+      "refersTo": "paint-line-fullstack",
+      "description": "Blue run; the line uses raw water blue, the tag uses the blue text tint.",
+      "html": "<div class=\"ds-run ds-run-fullstack\"><div class=\"ds-paint\"></div><p class=\"ds-tag\"><svg class=\"ds-flag\" viewBox=\"0 0 24 40\" aria-hidden=\"true\"><path d=\"M3 2v38\" stroke=\"#d8d5cd\" stroke-width=\"2\"/><path d=\"M4 3h17l-3 6 3 6H4z\" fill=\"currentColor\"/></svg>Fullstack · 73 merged PRs</p></div>",
+      "css": ":host{--bg:#26282a;--text:#eeede8;--text-muted:#bdbcb5;--text-dim:#9d9c96;--line-strong:#55595d;--concrete:#cbc8c0;--concrete-ink:#1f2021;--concrete-muted:#45474a;--locate-frontend:#ff6a13;--locate-fullstack:#0072ce;--locate-fullstack-text:#6cb4f5;--locate-ops:#e4002b;--locate-ops-text:#ff6b7d;--locate-dig:#f4f3ee;--accent:#f4f3ee;--ease:cubic-bezier(0.22,1,0.36,1);--sans:\"Atkinson Hyperlegible Next\",ui-sans-serif,system-ui,sans-serif;--mono:\"Atkinson Hyperlegible Mono\",ui-monospace,Menlo,monospace;} .ds-run{display:grid;align-items:center;padding:1rem 0;background:#26282a;font-family:var(--sans)} .ds-run>*{grid-area:1/1} .ds-paint{height:1.5rem;background:var(--paint);-webkit-mask:linear-gradient(transparent 25%,#000 40%,#000 60%,transparent 75%);mask:linear-gradient(transparent 25%,#000 40%,#000 60%,transparent 75%)} .ds-tag{position:relative;z-index:1;justify-self:start;margin-left:40%;display:flex;align-items:center;gap:0.6rem;padding:0.15rem 0.85rem;background:#26282a;font-family:var(--mono);font-size:0.8125rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;color:var(--tint)} .ds-flag{width:1.1rem;height:1.9rem;margin-top:-1.2rem;color:var(--paint);flex-shrink:0} @media (prefers-reduced-motion:no-preference){.ds-paint{animation:ds-lay 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both}} @keyframes ds-lay{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}} .ds-run-fullstack{--paint:var(--locate-fullstack);--tint:var(--locate-fullstack-text)}"
+    },
+    {
+      "name": "Locate Run, Operations",
+      "kind": "custom",
+      "refersTo": "paint-line-ops",
+      "description": "Red run; the line uses raw power red, the tag uses the red text tint.",
+      "html": "<div class=\"ds-run ds-run-ops\"><div class=\"ds-paint\"></div><p class=\"ds-tag\"><svg class=\"ds-flag\" viewBox=\"0 0 24 40\" aria-hidden=\"true\"><path d=\"M3 2v38\" stroke=\"#d8d5cd\" stroke-width=\"2\"/><path d=\"M4 3h17l-3 6 3 6H4z\" fill=\"currentColor\"/></svg>Operations · 26 services</p></div>",
+      "css": ":host{--bg:#26282a;--text:#eeede8;--text-muted:#bdbcb5;--text-dim:#9d9c96;--line-strong:#55595d;--concrete:#cbc8c0;--concrete-ink:#1f2021;--concrete-muted:#45474a;--locate-frontend:#ff6a13;--locate-fullstack:#0072ce;--locate-fullstack-text:#6cb4f5;--locate-ops:#e4002b;--locate-ops-text:#ff6b7d;--locate-dig:#f4f3ee;--accent:#f4f3ee;--ease:cubic-bezier(0.22,1,0.36,1);--sans:\"Atkinson Hyperlegible Next\",ui-sans-serif,system-ui,sans-serif;--mono:\"Atkinson Hyperlegible Mono\",ui-monospace,Menlo,monospace;} .ds-run{display:grid;align-items:center;padding:1rem 0;background:#26282a;font-family:var(--sans)} .ds-run>*{grid-area:1/1} .ds-paint{height:1.5rem;background:var(--paint);-webkit-mask:linear-gradient(transparent 25%,#000 40%,#000 60%,transparent 75%);mask:linear-gradient(transparent 25%,#000 40%,#000 60%,transparent 75%)} .ds-tag{position:relative;z-index:1;justify-self:start;margin-left:40%;display:flex;align-items:center;gap:0.6rem;padding:0.15rem 0.85rem;background:#26282a;font-family:var(--mono);font-size:0.8125rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;color:var(--tint)} .ds-flag{width:1.1rem;height:1.9rem;margin-top:-1.2rem;color:var(--paint);flex-shrink:0} @media (prefers-reduced-motion:no-preference){.ds-paint{animation:ds-lay 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both}} @keyframes ds-lay{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}} .ds-run-ops{--paint:var(--locate-ops);--tint:var(--locate-ops-text)}"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link-main",
+      "description": "Top-strip menu. Work & Projects is always marked with a white painted stroke; other items draw one on hover or focus.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#\" class=\"ds-nav-link ds-nav-main\">Work &amp; Projects</a><a href=\"#\" class=\"ds-nav-link\">About me</a><a href=\"#\" class=\"ds-nav-link\">Résumé <span class=\"ds-note\">(PDF)</span></a></nav>",
+      "css": ":host{--bg:#26282a;--text:#eeede8;--text-muted:#bdbcb5;--text-dim:#9d9c96;--line-strong:#55595d;--concrete:#cbc8c0;--concrete-ink:#1f2021;--concrete-muted:#45474a;--locate-frontend:#ff6a13;--locate-fullstack:#0072ce;--locate-fullstack-text:#6cb4f5;--locate-ops:#e4002b;--locate-ops-text:#ff6b7d;--locate-dig:#f4f3ee;--accent:#f4f3ee;--ease:cubic-bezier(0.22,1,0.36,1);--sans:\"Atkinson Hyperlegible Next\",ui-sans-serif,system-ui,sans-serif;--mono:\"Atkinson Hyperlegible Mono\",ui-monospace,Menlo,monospace;} .ds-nav{display:flex;gap:1.75rem;align-items:baseline;padding:1rem;background:#26282a;font-family:var(--sans)} .ds-nav-link{position:relative;display:inline-block;padding-block:0.6rem;color:var(--text-muted);text-decoration:none;font-weight:600;transition:color 0.25s var(--ease)} .ds-nav-main{color:var(--text);font-size:1.25rem;font-weight:800;letter-spacing:-0.015em} .ds-note{font-weight:400;color:var(--text-dim)} .ds-nav-link::after{content:\"\";position:absolute;left:0;right:0;bottom:0.3rem;height:3px;border-radius:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s var(--ease)} .ds-nav-main::after{transform:none} .ds-nav-link:hover,.ds-nav-link:focus-visible{color:var(--text)} .ds-nav-link:hover::after,.ds-nav-link:focus-visible::after{transform:scaleX(1)} .ds-nav-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}"
+    },
+    {
+      "name": "Dig Mark",
+      "kind": "chip",
+      "refersTo": "dig-mark",
+      "description": "Availability inside a white sprayed dashed outline (dig-frame.webp border-image in the build; approximated here with a dashed border).",
+      "html": "<div class=\"ds-wrap\"><p class=\"ds-dig\">Available from Jan 2027 · EU citizen, open to relocation</p></div>",
+      "css": ":host{--bg:#26282a;--text:#eeede8;--text-muted:#bdbcb5;--text-dim:#9d9c96;--line-strong:#55595d;--concrete:#cbc8c0;--concrete-ink:#1f2021;--concrete-muted:#45474a;--locate-frontend:#ff6a13;--locate-fullstack:#0072ce;--locate-fullstack-text:#6cb4f5;--locate-ops:#e4002b;--locate-ops-text:#ff6b7d;--locate-dig:#f4f3ee;--accent:#f4f3ee;--ease:cubic-bezier(0.22,1,0.36,1);--sans:\"Atkinson Hyperlegible Next\",ui-sans-serif,system-ui,sans-serif;--mono:\"Atkinson Hyperlegible Mono\",ui-monospace,Menlo,monospace;} .ds-wrap{padding:1rem;background:#26282a} .ds-dig{display:inline-block;padding:0.35rem 0.75rem;border:3px dashed var(--locate-dig);color:var(--text);font-family:var(--sans);font-size:0.95rem;font-weight:600}"
+    },
+    {
+      "name": "Concrete Slab",
+      "kind": "card",
+      "refersTo": "concrete-slab",
+      "description": "The only container: long reading on poured concrete in dark ink, square, casting a physical shadow.",
+      "html": "<div class=\"ds-wrap\"><div class=\"ds-slab\"><p class=\"ds-first\">I own the component library every WISEflow frontend depends on.</p><p>Getting WCAG right once means ten applications get it for free. I also use <strong>Neovim</strong>, btw. <a href=\"#\">VIA University College</a></p></div></div>",
+      "css": ":host{--bg:#26282a;--text:#eeede8;--text-muted:#bdbcb5;--text-dim:#9d9c96;--line-strong:#55595d;--concrete:#cbc8c0;--concrete-ink:#1f2021;--concrete-muted:#45474a;--locate-frontend:#ff6a13;--locate-fullstack:#0072ce;--locate-fullstack-text:#6cb4f5;--locate-ops:#e4002b;--locate-ops-text:#ff6b7d;--locate-dig:#f4f3ee;--accent:#f4f3ee;--ease:cubic-bezier(0.22,1,0.36,1);--sans:\"Atkinson Hyperlegible Next\",ui-sans-serif,system-ui,sans-serif;--mono:\"Atkinson Hyperlegible Mono\",ui-monospace,Menlo,monospace;} .ds-wrap{padding:1.5rem;background:#26282a} .ds-slab{max-width:64ch;display:flex;flex-direction:column;gap:1.6rem;padding:2.5rem;background:var(--concrete);box-shadow:inset 0 1px 0 #f1efe9,0 0.5rem 1.25rem -0.4rem rgba(0,0,0,0.6);font-family:var(--sans)} .ds-slab p{color:var(--concrete-muted);font-size:1.25rem;line-height:1.7} .ds-slab .ds-first,.ds-slab strong{color:var(--concrete-ink)} .ds-slab a{color:var(--concrete-ink);font-weight:600;text-decoration-thickness:2px;text-underline-offset:0.2em} .ds-slab a:focus-visible{outline:2px solid var(--concrete-ink);outline-offset:3px}"
+    },
+    {
+      "name": "Colour Key",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Working legend for the locate code at the homepage foot.",
+      "html": "<ul class=\"ds-key\"><li class=\"ds-k-fe\">Orange: frontend</li><li class=\"ds-k-fs\">Blue: fullstack</li><li class=\"ds-k-op\">Red: operations</li><li class=\"ds-k-dig\">White outline: open to work</li><li class=\"ds-k-note\">Colours follow the utility locate code.</li></ul>",
+      "css": ":host{--bg:#26282a;--text:#eeede8;--text-muted:#bdbcb5;--text-dim:#9d9c96;--line-strong:#55595d;--concrete:#cbc8c0;--concrete-ink:#1f2021;--concrete-muted:#45474a;--locate-frontend:#ff6a13;--locate-fullstack:#0072ce;--locate-fullstack-text:#6cb4f5;--locate-ops:#e4002b;--locate-ops-text:#ff6b7d;--locate-dig:#f4f3ee;--accent:#f4f3ee;--ease:cubic-bezier(0.22,1,0.36,1);--sans:\"Atkinson Hyperlegible Next\",ui-sans-serif,system-ui,sans-serif;--mono:\"Atkinson Hyperlegible Mono\",ui-monospace,Menlo,monospace;} .ds-key{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem 1.75rem;margin:0;padding:1rem;background:#26282a;font-family:var(--sans);font-size:0.9rem;color:var(--text-muted)} .ds-key li::before{content:\"\";display:inline-block;vertical-align:middle;width:1.5rem;height:0.4rem;margin-right:0.6rem;border-radius:0.2rem} .ds-k-fe::before{background:var(--locate-frontend)} .ds-k-fs::before{background:var(--locate-fullstack)} .ds-k-op::before{background:var(--locate-ops)} .ds-key .ds-k-dig::before{width:1.1rem;height:0.8rem;border:2px dashed var(--locate-dig);border-radius:0} .ds-key .ds-k-note{color:var(--text-dim)} .ds-key .ds-k-note::before{display:none}"
+    },
+    {
+      "name": "Back Link",
+      "kind": "button",
+      "refersTo": null,
+      "description": "Return to the index from a subpage; drawn arrow nudges left on hover, colour shifts to the dig white.",
+      "html": "<div class=\"ds-wrap\"><a href=\"#\" class=\"ds-back\"><svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 12H5m6-6-6 6 6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>Index</a></div>",
+      "css": ":host{--bg:#26282a;--text:#eeede8;--text-muted:#bdbcb5;--text-dim:#9d9c96;--line-strong:#55595d;--concrete:#cbc8c0;--concrete-ink:#1f2021;--concrete-muted:#45474a;--locate-frontend:#ff6a13;--locate-fullstack:#0072ce;--locate-fullstack-text:#6cb4f5;--locate-ops:#e4002b;--locate-ops-text:#ff6b7d;--locate-dig:#f4f3ee;--accent:#f4f3ee;--ease:cubic-bezier(0.22,1,0.36,1);--sans:\"Atkinson Hyperlegible Next\",ui-sans-serif,system-ui,sans-serif;--mono:\"Atkinson Hyperlegible Mono\",ui-monospace,Menlo,monospace;} .ds-wrap{padding:1rem;background:#26282a} .ds-back{display:inline-flex;align-items:center;gap:0.5rem;padding-block:0.6rem;color:var(--text-muted);text-decoration:none;font-family:var(--sans);font-weight:600;transition:color 0.25s var(--ease)} .ds-arrow{width:1em;height:1em;transition:transform 0.25s var(--ease)} .ds-back:hover{color:var(--accent)} .ds-back:hover .ds-arrow{transform:translateX(-4px)} .ds-back:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Utility Locate",
+    "overview": "The site is a street surface marked for what is buried beneath it. Every page is asphalt with its aggregate showing, bounded on the left by a poured-concrete kerb that is sawcut at intervals and holds still while pages change. The work is shown the way a locate crew marks buried services: sprayed lines in the real utility colour code, each staked with a survey flag and a written tag. Paint carries meaning, never decoration. Words stay light, legible, and pass AA on the ground they sit on.\n\nDensity is calm and editorial: a top strip, a large claim, three full-width runs, a working legend. Long reading moves onto a lighter poured-concrete slab with dark ink, the most comfortable contrast on the site. Materials are procedural rasters (asphalt, kerb, slab, spray masks, a dig frame) generated by `website/tools/generate-textures.mjs` with provenance stored beside each file. The few icons are drawn SVG arrows and a flag, tinted through masks.\n\nThe world rejects the dark developer portfolio with a single neon accent and a row of cards. There is no accent outside the locate code.",
+    "keyCharacteristics": [
+      "Asphalt ground, concrete kerb on the left edge of every page, concrete slab for long reading.",
+      "Four paint colours with fixed meaning: orange frontend, blue fullstack, red operations, white proposed dig or availability.",
+      "Sprayed runs cross the full width from the kerb to the right edge, each flagged and tagged in mono.",
+      "Atkinson Hyperlegible Next for words; Atkinson Hyperlegible Mono only for locate tags and Work margin data.",
+      "One-time motion: the runs lay down once on load; menu words morph into subpage headings."
+    ],
+    "rules": [
+      {
+        "name": "The Colour Code Rule",
+        "body": "Orange means frontend, blue fullstack, red operations, white a proposed dig or availability. A colour never appears where its meaning does not apply, and there is no yellow and no other accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tint Rule",
+        "body": "Raw blue and red draw paint only; text in those colours uses their text tints. Paint draws lines, flags and marks; labels stay light text that passes AA.",
+        "section": "colors"
+      },
+      {
+        "name": "The Not-Colour-Alone Rule",
+        "body": "Every run carries a written tag naming its kind, and the homepage keeps a working legend, so colour is never the only cue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Crew Handwriting Rule",
+        "body": "Mono appears only in locate tags and the Work margin data (kind, dates). Section labels, about-page fact labels, meta lines and everything else are set in Next, even where they share the label class.",
+        "section": "typography"
+      },
+      {
+        "name": "The Heavy Claim Rule",
+        "body": "Headings set tight (-0.025em to -0.04em) and balanced; body text never goes below 400 or below Faded Chalk on asphalt.",
+        "section": "typography"
+      },
+      {
+        "name": "The Only Concrete Casts Rule",
+        "body": "Shadows belong to concrete objects. Text, links, paint and controls never cast or lift.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep the kerb fixed on the left edge of every page and out of every transition.",
+      "**Do** mark every kind of work with its code colour and a written tag; add the legend wherever the code first appears.",
+      "**Do** use the -text tints for any blue or red text; orange may be its own text tint.",
+      "**Do** run paint full width from the kerb to the right edge, using a different spray mask per run.",
+      "**Do** use the dig white for focus, hover and selection, and for availability.",
+      "**Do** put long reading on the concrete slab with ink, not on asphalt.",
+      "**Do** keep motion to the one-time lay-down and the heading morph, both off under reduced motion."
+    ],
+    "donts": [
+      "**Don't** add yellow or any colour outside the locate code, including for hover or emphasis.",
+      "**Don't** use a code colour where its meaning does not apply.",
+      "**Don't** set anything other than locate tags and Work margin data in Mono.",
+      "**Don't** set text in raw blue (#0072ce) or raw red (#e4002b).",
+      "**Don't** wrap work in cards or add glows; shadows belong only to kerb and slab.",
+      "**Don't** use glyph or icon-font arrows; use the drawn SVG set tinted through masks.",
+      "**Don't** replay the lay-down animation on scroll or hover."
+    ]
+  }
+}

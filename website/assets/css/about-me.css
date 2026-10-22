@@ -24,7 +24,7 @@ h1 {
   position: relative;
   font-size: var(--step-3);
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.3;
   letter-spacing: -0.02em;
   max-width: 22ch;
   padding-top: 2.5rem;
@@ -37,8 +37,9 @@ h1 {
   top: 0;
   left: 0;
   width: 2.5rem;
-  height: 2px;
-  background: var(--accent);
+  height: 3px;
+  border-radius: 2px;
+  background: var(--locate-dig);
 }
 
 .lede em {
@@ -55,49 +56,60 @@ h1 {
   align-items: start;
 }
 
+/* The long read sits on a poured-concrete slab: dark ink on a light
+   surface, the most comfortable contrast on the site. */
 .prose {
   max-width: var(--measure);
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  padding: 2.5rem;
+  background: var(--concrete) url("../img/concrete-slab.webp");
+  box-shadow: inset 0 1px 0 #f1efe9, 0 0.5rem 1.25rem -0.4rem rgba(0, 0, 0, 0.6);
 }
 
 .prose p {
-  color: var(--text-muted);
+  color: var(--concrete-muted);
   font-size: var(--step-1);
   line-height: 1.7;
 }
 
 .prose p:first-child {
-  color: var(--text);
+  color: var(--concrete-ink);
 }
 
 .prose strong {
-  color: var(--text);
-  font-weight: 600;
+  color: var(--concrete-ink);
+  font-weight: 700;
 }
 
 .prose a {
-  color: var(--text);
-  text-decoration: none;
-  border-bottom: 1px solid var(--accent-line);
-  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+  color: var(--concrete-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--concrete-muted);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
 }
 
 .prose a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  text-decoration-color: var(--concrete-ink);
+}
+
+.prose ::selection {
+  background: var(--concrete-ink);
+  color: var(--concrete);
 }
 
 /* Neovim, btw. */
 .neovim {
-  color: var(--text);
-  font-weight: 600;
+  color: var(--concrete-ink);
+  font-weight: 700;
   transition: color 0.25s var(--ease);
 }
 
 .neovim:hover {
-  color: #57a143;
+  color: #2f6b22;
 }
 
 /* Facts rail ----------------------------------------------------------- */
@@ -109,6 +121,16 @@ h1 {
   flex-direction: column;
   gap: 1.75rem;
   font-size: 0.95rem;
+}
+
+/* Rail labels are plain text, not locate tags. */
+.rail .label {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-muted);
 }
 
 .fact {
@@ -145,10 +167,13 @@ h1 {
 }
 
 .rail-links a[target="_blank"]::after {
-  content: "↗";
-  font-size: 0.8em;
-  color: var(--text-dim);
-  transition: transform 0.25s var(--ease), color 0.25s var(--ease);
+  content: "";
+  width: 0.8em;
+  height: 0.8em;
+  background: var(--text-dim);
+  -webkit-mask: url("../img/icons/arrow-up-right.svg") center / contain no-repeat;
+  mask: url("../img/icons/arrow-up-right.svg") center / contain no-repeat;
+  transition: transform 0.25s var(--ease), background 0.25s var(--ease);
 }
 
 .rail-links a:hover {
@@ -156,7 +181,7 @@ h1 {
 }
 
 .rail-links a[target="_blank"]:hover::after {
-  color: var(--accent);
+  background: var(--accent);
   transform: translate(2px, -2px);
 }
 
@@ -175,17 +200,17 @@ h1 {
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text);
-  text-decoration: none;
-  background-image: linear-gradient(var(--accent), var(--accent));
-  background-size: 0% 1px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 0.35s var(--ease), color 0.35s var(--ease);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.35s var(--ease), color 0.35s var(--ease);
 }
 
-.contact-email:hover {
+.contact-email:hover,
+.contact-email:focus-visible {
   color: var(--accent);
-  background-size: 100% 1px;
+  text-decoration-color: var(--accent);
 }
 
 .contact-note {
@@ -193,49 +218,7 @@ h1 {
   max-width: 52ch;
 }
 
-/* Reveal --------------------------------------------------------------- */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: rise 0.7s var(--ease) forwards;
-}
-
-.back-link.reveal {
-  animation-delay: 0.05s;
-}
-
-.lede.reveal {
-  animation-delay: 0.2s;
-}
-
-.prose.reveal {
-  animation-delay: 0.35s;
-}
-
-.rail.reveal {
-  animation-delay: 0.5s;
-}
-
-.contact.reveal {
-  animation-delay: 0.6s;
-}
-
-@keyframes rise {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* The staggered reveal already moves the content, so the page itself only fades. */
+/* Arriving from the index the heading flies in, so the page itself only fades. */
 ::view-transition-new(root) {
   animation: vt-fade-in 0.4s var(--ease) 0.1s both;
 }
@@ -261,5 +244,9 @@ h1 {
 
   .rail {
     position: static;
+  }
+
+  .prose {
+    padding: 1.5rem;
   }
 }

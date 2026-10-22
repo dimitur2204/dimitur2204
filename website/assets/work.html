@@ -6,12 +6,12 @@
     <title>Work &amp; Projects — Dimitar Nizamov</title>
     <meta
       name="description"
-      content="Five years of frontend work: design systems and component libraries at UNIwise, open-source payments at Podkrepi.bg, and side projects."
+      content="Five years of software work: the component library and frontend containers at UNIwise, open-source payments at Podkrepi.bg, Cloudflare deployments, and a 26-service homelab run like production."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500&family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/base.css" />
@@ -19,24 +19,26 @@
     <script src="js/posthog.js"></script>
   </head>
   <body>
+    <div class="kerb" aria-hidden="true"></div>
     <div class="container">
       <header>
-        <a href="/" class="back-link"><span>←</span> Index</a>
+        <a href="/" class="back-link"><span class="icon icon-back" aria-hidden="true"></span> Index</a>
         <h1 class="work-projects-title">Work &amp; Projects</h1>
         <p class="lede">
-          Five years of frontend, most of it spent on the unglamorous layer
-          underneath the product: component libraries, design systems, build
-          pipelines and the tests that keep them honest.
+          Five years of software, most of it spent on the unglamorous layer
+          underneath the product: component libraries, the containers and
+          pipelines that ship them, the servers I run myself, and the tests
+          that keep all of it honest.
         </p>
       </header>
 
       <section class="section-block">
         <p class="label rule-label">Experience</p>
 
-        <article class="entry">
+        <article class="entry entry-frontend" id="uniwise">
           <div class="entry-meta">
+            <span class="label entry-kind">Frontend</span>
             <span class="label entry-date">Feb 2022 — Present</span>
-            <span class="label">Aarhus, Denmark</span>
           </div>
           <div class="entry-body">
             <h2 class="entry-title">
@@ -46,6 +48,7 @@
               <span class="sub">· WISEflow</span>
             </h2>
             <p class="entry-role">Part-Time Frontend Developer</p>
+            <p class="entry-place">Aarhus, Denmark</p>
             <p class="entry-summary">
               WISEflow is one of the largest digital assessment platforms in
               Scandinavia and Europe, used by universities in Denmark, Norway,
@@ -71,9 +74,9 @@
                 visual regression in Cypress.
               </li>
               <li>
-                Ship and maintain frontends inside a microservices architecture,
-                tightening Docker workflows and CI/CD pipelines in GitHub
-                Actions alongside the DevOps team.
+                Built and optimised the Docker containers our frontend repos
+                are published from to our cloud deployments, and made their
+                testing and linting steps faster, alongside the DevOps team.
               </li>
               <li>
                 Mentor interns and new frontend hires through code review,
@@ -94,10 +97,10 @@
           </div>
         </article>
 
-        <article class="entry">
+        <article class="entry entry-fullstack" id="podkrepi">
           <div class="entry-meta">
+            <span class="label entry-kind">Fullstack</span>
             <span class="label entry-date">Dec 2021 — May 2024</span>
-            <span class="label">Remote, Bulgaria</span>
           </div>
           <div class="entry-body">
             <h2 class="entry-title">
@@ -108,6 +111,7 @@
             <p class="entry-role">
               Volunteer Fullstack Developer · Open source
             </p>
+            <p class="entry-place">Remote, Bulgaria</p>
             <p class="entry-summary">
               A transparent donation platform the Bulgarian IT community built
               together, so anyone can list a campaign and see exactly where the
@@ -138,15 +142,15 @@
               target="_blank"
               rel="noopener noreferrer"
               class="entry-link"
-              >Visit podkrepi.bg <span>→</span></a
+              >Visit podkrepi.bg <span class="icon icon-forward" aria-hidden="true"></span></a
             >
           </div>
         </article>
 
-        <article class="entry">
+        <article class="entry entry-frontend">
           <div class="entry-meta">
+            <span class="label entry-kind">Frontend</span>
             <span class="label entry-date">May 2021 — Sep 2021</span>
-            <span class="label">Sofia, Bulgaria</span>
           </div>
           <div class="entry-body">
             <h2 class="entry-title">
@@ -155,6 +159,7 @@
               >
             </h2>
             <p class="entry-role">Frontend Developer</p>
+            <p class="entry-place">Sofia, Bulgaria</p>
             <p class="entry-summary">
               A small software company in Sofia building a cloud provider
               platform for the Asian market.
@@ -185,10 +190,10 @@
           </div>
         </article>
 
-        <article class="entry">
+        <article class="entry entry-frontend">
           <div class="entry-meta">
+            <span class="label entry-kind">Frontend</span>
             <span class="label entry-date">Nov 2020 — May 2021</span>
-            <span class="label">Blagoevgrad, Bulgaria</span>
           </div>
           <div class="entry-body">
             <h2 class="entry-title">
@@ -197,6 +202,7 @@
               >
             </h2>
             <p class="entry-role">Junior Frontend Developer</p>
+            <p class="entry-place">Blagoevgrad, Bulgaria</p>
             <p class="entry-summary">
               An outsourcing shop in Blagoevgrad, building mostly for UK
               clients. My first job in the industry.
@@ -225,14 +231,15 @@
       <section class="section-block">
         <p class="label rule-label">Projects</p>
 
-        <article class="entry">
+        <article id="chivou" class="entry entry-fullstack">
           <div class="entry-meta">
+            <span class="label entry-kind">Fullstack</span>
             <span class="label entry-date">Startup client</span>
-            <span class="label">Web</span>
           </div>
           <div class="entry-body">
             <h2 class="entry-title">Chivou</h2>
             <p class="entry-role">Landing Page &amp; Onboarding Flow</p>
+            <p class="entry-place">Web</p>
             <p class="entry-summary">
               A responsive landing page and secure onboarding flow, built and
               shipped for an early-stage startup.
@@ -247,6 +254,14 @@
                 Used Airtable as the backing store, which kept the data
                 manageable for non-technical founders.
               </li>
+              <li>
+                Deployed on Cloudflare straight from git: every push builds and
+                publishes the site, with no manual release step.
+              </li>
+              <li>
+                Routed PostHog analytics through a reverse proxy on a
+                Cloudflare Worker, on the project's own domain.
+              </li>
             </ul>
             <div class="chips">
               <span class="chip">Cloudflare Workers</span>
@@ -256,34 +271,57 @@
           </div>
         </article>
 
-        <article class="entry">
+        <article class="entry entry-ops" id="homelab">
           <div class="entry-meta">
+            <span class="label entry-kind">Operations</span>
             <span class="label entry-date">Ongoing</span>
-            <span class="label">Self-hosted</span>
           </div>
           <div class="entry-body">
             <h2 class="entry-title">Homelab</h2>
-            <p class="entry-role">Debian server, run for real</p>
+            <p class="entry-role">26 services on Debian, run like production</p>
+            <p class="entry-place">Self-hosted</p>
             <p class="entry-summary">
               The place I get to be my own ops team, and where most of what I
-              know about Docker and Linux actually came from.
+              know about Docker, networking and Linux actually came from. The
+              whole setup lives in one repository, with about 130 commits since
+              September 2024.
             </p>
             <ul class="entry-points">
               <li>
-                Nextcloud, Plex and Immich running in Docker, reachable only
-                over a Tailscale network rather than an open port.
+                <strong>26 Docker Compose stacks</strong>, Nextcloud, Immich,
+                Home Assistant and a Forgejo git server among them, behind
+                Nginx Proxy Manager, with AdGuard Home as the network's DNS.
               </li>
               <li>
-                InfluxDB and Grafana for monitoring, with BorgBackup running
-                automated, deduplicated backups.
+                Tailscale for private access, VPN containers for outbound
+                traffic, and a VPN on the home router itself.
+              </li>
+              <li>
+                Nightly Borg backups written in TypeScript on Bun: each run stops
+                the affected stacks in dependency order, backs up, restarts them
+                and checks they came back. A weekly job restore-tests the latest
+                archive and integrity-checks the databases inside it.
+              </li>
+              <li>
+                Grafana, InfluxDB, Beszel and Scrutiny for metrics and disk
+                health; Healthchecks.io and ntfy alert me when a job fails.
+              </li>
+              <li>
+                GitHub Actions validates every Compose file, shellchecks the
+                scripts, lints the workflows and runs the tool tests. Actions
+                are pinned to commit SHAs and kept current by Dependabot.
               </li>
             </ul>
             <div class="chips">
               <span class="chip">Debian</span>
-              <span class="chip">Docker</span>
+              <span class="chip">Docker Compose</span>
+              <span class="chip">Nginx Proxy Manager</span>
+              <span class="chip">AdGuard Home</span>
               <span class="chip">Tailscale</span>
+              <span class="chip">Borg</span>
+              <span class="chip">Bun</span>
+              <span class="chip">GitHub Actions</span>
               <span class="chip">Grafana</span>
-              <span class="chip">BorgBackup</span>
             </div>
           </div>
         </article>
@@ -292,16 +330,17 @@
       <section class="section-block">
         <p class="label rule-label">Education</p>
 
-        <article class="entry">
+        <article class="entry entry-study">
           <div class="entry-meta">
+            <span class="label entry-kind">Study</span>
             <span class="label entry-date">Sep 2023 — Jan 2027</span>
-            <span class="label">Horsens, Denmark</span>
           </div>
           <div class="entry-body">
             <h2 class="entry-title">VIA University College</h2>
             <p class="entry-role">
               BEng Software Technology Engineering · ~10.4/12
             </p>
+            <p class="entry-place">Horsens, Denmark</p>
             <ul class="entry-points">
               <li>
                 Bachelor's project with the radiology department at
