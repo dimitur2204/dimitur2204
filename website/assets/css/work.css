@@ -29,6 +29,40 @@ h1 {
   margin-bottom: 5.5rem;
 }
 
+/* Road wear in the empty gutter right of the entries (wide screens only):
+   skid marks beside Experience, a tar snake beside Projects. The entry
+   runs paint over them. */
+.section-block {
+  position: relative;
+}
+
+@media (min-width: 1180px) {
+  .section-block:nth-of-type(1)::after,
+  .section-block:nth-of-type(2)::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .section-block:nth-of-type(1)::after {
+    top: 34rem;
+    right: -9rem;
+    width: 36rem;
+    height: 9rem;
+    background: url("../img/skid-swerve.webp") center / contain no-repeat;
+    transform: rotate(84deg);
+  }
+
+  .section-block:nth-of-type(2)::after {
+    top: 6rem;
+    right: 0;
+    width: 7rem;
+    height: 20rem;
+    background: url("../img/tar-snake.webp") center / contain no-repeat;
+    opacity: 0.85;
+  }
+}
+
 .section-block:last-child {
   margin-bottom: 0;
 }
@@ -107,7 +141,7 @@ h1 {
   background: var(--bg) url("../img/asphalt.webp");
 }
 
-/* The survey flag on the run, tinted with the line's paint. */
+/* The survey flag on the run, in the line's paint. */
 .entry-kind {
   display: inline-flex;
   align-items: center;
@@ -115,14 +149,21 @@ h1 {
   color: var(--tint);
 }
 
-.entry-kind::before {
-  content: "";
+/* Offset the waves so neighbouring flags never move together. */
+.entry:nth-child(3n + 2) {
+  --i: 1;
+}
+
+.entry:nth-child(3n) {
+  --i: 2;
+}
+
+.entry-kind .flag {
   width: 0.85rem;
   height: 1.45rem;
   margin-top: -0.9rem;
-  background: var(--paint);
-  -webkit-mask: url("../img/icons/flag.svg") center / contain no-repeat;
-  mask: url("../img/icons/flag.svg") center / contain no-repeat;
+  color: var(--paint);
+  flex-shrink: 0;
 }
 
 .entry-date {
@@ -267,7 +308,7 @@ h1 {
     background: none;
   }
 
-  .entry-kind::before {
+  .entry-kind .flag {
     margin: 0 0 -1.2rem;
   }
 

@@ -115,6 +115,32 @@ const results = await p.evaluate(() => {
     x.drawImage(concrete, 0, 0); x.drawImage(concrete, 0, 384);
     x.fillStyle = "rgba(40,38,35,0.55)"; x.fillRect(0, 478, 64, 2); x.fillStyle = "rgba(255,255,255,0.25)"; x.fillRect(0, 476, 64, 1);
     out["kerb.png"] = c.toDataURL("image/png"); })();
+  // --- road details: skid marks, tar snake (alpha, sit on asphalt) ---
+  function skid(W, H, seed, curve) { // two tyre streaks along a curve, rubber with tread breakup
+    const c = document.createElement("canvas"); c.width = W; c.height = H; const x = c.getContext("2d"); const r = rng(seed);
+    const track = H * 0.28, tyre = H * 0.09;
+    for (const off of [-track / 2, track / 2]) for (let i = 0; i < W; i++) {
+      const t = i / W; const y = H / 2 + curve(t) * H * 0.3 + off;
+      const fade = Math.min(1, t / 0.18) * Math.min(1, (1 - t) / 0.06);
+      for (let k = 0; k < 12; k++) { const dy = (r() - 0.5) * tyre * 1.6; const edge = 1 - Math.abs(dy) / (tyre * 0.8);
+        if (edge <= 0) continue; const tread = (Math.floor((y + dy) / 3) % 2) ? 0.75 : 1;
+        x.fillStyle = `rgba(6,6,7,${0.9 * edge * fade * tread * (0.7 + r() * 0.3)})`; x.fillRect(i, y + dy, 1.2, 1.2); } }
+    return c.toDataURL("image/png");
+  }
+  out["skid-swerve.png"] = skid(900, 220, 71, (t) => Math.sin(t * Math.PI * 1.1 - 0.4) * 0.8);
+  out["skid-stop.png"] = skid(620, 200, 83, (t) => -0.6 + t * 0.9 - Math.sin(t * Math.PI) * 0.35);
+  (() => { // tar snake: glossy crack sealant, wandering with a branch
+    const W = 260, H = 720, c = document.createElement("canvas"); c.width = W; c.height = H; const x = c.getContext("2d"); const r = rng(97);
+    const snake = (x0, y0, len, dir, w) => { let px = x0, py = y0, a = dir; const pts = [[px, py]];
+      for (let i = 0; i < len; i++) { a += (r() - 0.5) * 0.5; a += (Math.PI / 2 - a) * 0.04; px += Math.cos(a) * 4; py += Math.sin(a) * 4; pts.push([px, py]); }
+      x.lineCap = "round"; x.lineJoin = "round";
+      x.strokeStyle = "rgba(5,5,6,0.9)"; x.lineWidth = w; x.beginPath(); pts.forEach(([X, Y], i) => i ? x.lineTo(X, Y) : x.moveTo(X, Y)); x.stroke();
+      x.strokeStyle = "rgba(255,255,255,0.10)"; x.lineWidth = w * 0.25; x.beginPath(); pts.forEach(([X, Y], i) => i ? x.lineTo(X - w * 0.2, Y - w * 0.2) : x.moveTo(X, Y)); x.stroke();
+      return pts; };
+    const main = snake(W * 0.55, 6, 170, Math.PI / 2, 11);
+    const b = main[70]; snake(b[0], b[1], 45, Math.PI / 2 - 0.9, 8);
+    const b2 = main[120]; snake(b2[0], b2[1], 30, Math.PI / 2 + 0.8, 6.5);
+    out["tar-snake.png"] = c.toDataURL("image/png"); })();
   return out;
 });
 for (const [name, url] of Object.entries(results)) writeFileSync(`${out}/${name}`, Buffer.from(url.split(",")[1], "base64"));

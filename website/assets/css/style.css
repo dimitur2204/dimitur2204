@@ -44,19 +44,9 @@ main {
   color: var(--text-muted);
 }
 
-/* White paint outlines a proposed dig: here, the next job (the sprayed
-   frame comes from .dig-outline in base.css). */
-.dig-mark {
-  grid-column: 1;
-  justify-self: start;
-  padding: 0 0.4rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
 .primary-nav {
   grid-column: 2;
-  grid-row: 1 / span 2;
+  grid-row: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -123,6 +113,77 @@ main {
 }
 
 /* Claim ---------------------------------------------------------------- */
+
+/* A sealed crack running in from the top edge at the far right of the
+   street, beside the claim (wide screens only). The same tar sealant as on
+   the Work page. */
+body {
+  position: relative;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1240px) {
+  body::after {
+    content: "";
+    position: absolute;
+    top: -1.5rem;
+    right: 0.5rem;
+    width: 7rem;
+    height: 19.4rem; /* the sealant image's own aspect, so the pour stages land on the crack */
+    background: url("../img/tar-snake.webp") center top / contain no-repeat;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+}
+
+/* The sealant is poured once, the way a crew does it: a quick first run, a
+   pause while the pot is moved, a second run, another pause, then a slow
+   creep into the branches. Fresh sealant goes down solid black, then fades
+   a little as it cures. */
+@media (min-width: 1240px) and (prefers-reduced-motion: no-preference) {
+  body::after {
+    animation:
+      pour 4.2s linear 0.4s both,
+      cure 2.5s ease-out 4.6s both;
+  }
+}
+
+@keyframes pour {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+  22% {
+    clip-path: inset(0 0 58% 0);
+  }
+  34% {
+    clip-path: inset(0 0 57% 0);
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+  56% {
+    clip-path: inset(0 0 30% 0);
+  }
+  66% {
+    clip-path: inset(0 0 29% 0);
+    animation-timing-function: cubic-bezier(0.2, 0.4, 0.3, 1);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes cure {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.72;
+  }
+}
 
 .intro {
   margin-top: clamp(1.75rem, 4.5vh, 3.5rem);
@@ -289,6 +350,24 @@ main {
   }
 }
 
+/* Each flag is planted as its line's paint reaches it. */
+@media (prefers-reduced-motion: no-preference) {
+  .locate .flag {
+    animation: plant 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(0.55s + var(--i, 0) * 0.14s);
+  }
+}
+
+@keyframes plant {
+  from {
+    opacity: 0;
+    transform: translateY(-0.7rem);
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
 @keyframes lay-down {
   from {
     clip-path: inset(0 100% 0 0);
@@ -330,14 +409,6 @@ main {
 
 .key-ops::before {
   background: var(--locate-ops);
-}
-
-.locate-key .key-dig::before {
-  width: 1.6rem;
-  height: 1.1rem;
-  border: 6px solid transparent;
-  border-image: url("../img/dig-frame.webp") 24 round;
-  border-radius: 0;
 }
 
 .locate-key .key-note {

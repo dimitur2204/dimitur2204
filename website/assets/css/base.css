@@ -176,6 +176,35 @@ body {
   view-transition-name: kerb;
 }
 
+/* Survey station stencilled on the kerb (Work page): the year of the entry
+   being read, with a sawcut tick into the street. */
+.kerb-station {
+  position: absolute;
+  top: 38vh;
+  left: 0;
+  right: 0.55rem;
+  padding-bottom: 0.45rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: var(--step-00);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--concrete-ink);
+  border-bottom: 2px solid var(--concrete-muted);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+
+.kerb-station.is-on {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .kerb-station {
+    display: none;
+  }
+}
+
 /* The kerb's face dropping to the road: a lit lip, then the face in shade. */
 .kerb::after {
   content: "";
@@ -207,10 +236,44 @@ body {
   mask: url("../img/spray-h-a.webp") 0 50% / auto 100% repeat-x;
 }
 
-/* White paint outlining a proposed dig. */
-.dig-outline {
-  border: 12px solid transparent;
-  border-image: url("../img/dig-frame.webp") 24 round;
+/* Survey flag: a stake and a cloth in the line's paint. The cloth waves
+   continuously from the stake; offsets keep neighbouring flags out of step. */
+.flag {
+  overflow: visible;
+}
+
+.flag .stake {
+  stroke: var(--concrete);
+  stroke-width: 2;
+}
+
+.flag .cloth {
+  fill: currentColor;
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .flag .cloth {
+    animation: wave 2.4s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * -0.8s);
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: skewY(0deg) scaleX(1);
+  }
+  25% {
+    transform: skewY(-6deg) scaleX(0.9);
+  }
+  50% {
+    transform: skewY(2deg) scaleX(0.96);
+  }
+  75% {
+    transform: skewY(5deg) scaleX(0.88);
+  }
 }
 
 /* One drawn arrow set, tinted by the text colour. */
