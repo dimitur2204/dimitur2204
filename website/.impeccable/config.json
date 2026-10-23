@@ -1,0 +1,89 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/assigned.html"
+        ],
+        "createdAt": "2026-10-22T20:00:13.274Z",
+        "reason": "model decision: throwaway decision-round sketch, superseded by user-pinned shevitsa direction; never shipped"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-10-22T20:00:13.304Z",
+        "reason": "model decision: throwaway decision-round sketch, superseded by user-pinned shevitsa direction; never shipped"
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-manual.html"
+        ],
+        "createdAt": "2026-10-22T20:00:13.348Z",
+        "reason": "model decision: throwaway decision-round sketch, superseded by user-pinned shevitsa direction; never shipped"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "assets/index.html"
+        ],
+        "createdAt": "2026-10-22T20:44:52.358Z",
+        "reason": "model decision: footer status #fbe9ea sits on the red footer (#a8121e, ~6.4:1); detector resolves the page ground instead"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "assets/work.html"
+        ],
+        "createdAt": "2026-10-22T20:44:52.382Z",
+        "reason": "model decision: footer status #fbe9ea sits on the red footer (#a8121e, ~6.4:1); detector resolves the page ground instead"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "assets/about-me.html"
+        ],
+        "createdAt": "2026-10-22T20:44:52.408Z",
+        "reason": "model decision: footer status #fbe9ea sits on the red footer (#a8121e, ~6.4:1); detector resolves the page ground instead"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "assets/work.html"
+        ],
+        "createdAt": "2026-10-22T20:44:52.436Z",
+        "reason": "model decision: hairline border-top separators with 16px padding-top above content; rule, not a container"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "assets/about-me.html"
+        ],
+        "createdAt": "2026-10-22T20:44:52.461Z",
+        "reason": "model decision: hairline border-top separators with 16px padding-top above content; rule, not a container"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "assets/about-me.html"
+        ],
+        "createdAt": "2026-10-22T20:45:14.904Z",
+        "reason": "model decision: condensed display headings (h1 0.94, h2/h3 1.02) set tight by design; body copy is 1.6"
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Component Datasheet sketch</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#fff; --ink:#15171C; --spec:#1B2F8F; --fill:#E9EBEF; --mute:#6B7080; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1440px; height:900px; overflow:hidden; background:var(--paper); color:var(--ink); font-family:Archivo, sans-serif; }
+  .run { display:flex; justify-content:space-between; align-items:center; height:44px; padding:0 64px; border-bottom:1px solid var(--ink); font-family:"JetBrains Mono", monospace; font-size:12px; letter-spacing:.02em; }
+  .run nav { display:flex; gap:28px; }
+  .run nav a { color:var(--ink); text-decoration:none; }
+  .run nav a b { color:var(--spec); font-weight:500; margin-right:6px; }
+  .title { background:var(--spec); color:#fff; padding:44px 64px 40px; display:grid; grid-template-columns:1.25fr 1fr; gap:64px; align-items:end; }
+  .title .pn { font-family:"JetBrains Mono", monospace; font-size:13px; opacity:.75; margin-bottom:18px; }
+  .title h1 { font-size:96px; line-height:.92; font-weight:800; font-stretch:72%; letter-spacing:-.01em; }
+  .title .role { margin-top:16px; font-size:20px; font-stretch:100%; font-weight:500; }
+  .title .lede { font-size:26px; line-height:1.25; font-weight:500; }
+  .title dl { margin-top:22px; display:grid; grid-template-columns:auto 1fr; gap:6px 18px; font-size:14px; border-top:1px solid rgba(255,255,255,.4); padding-top:14px; }
+  .title dt { font-family:"JetBrains Mono", monospace; font-size:12px; opacity:.7; text-transform:uppercase; padding-top:2px; }
+  .body { display:grid; grid-template-columns:1fr 1.15fr; gap:64px; padding:36px 64px 0; }
+  h2 { font-size:15px; font-weight:700; font-stretch:80%; text-transform:uppercase; letter-spacing:.06em; border-bottom:2px solid var(--ink); padding-bottom:6px; margin-bottom:14px; display:flex; gap:12px; }
+  h2 span { color:var(--spec); }
+  ul.feat { list-style:none; font-size:16px; line-height:1.5; }
+  ul.feat li { padding-left:18px; position:relative; margin-bottom:7px; }
+  ul.feat li::before { content:""; position:absolute; left:0; top:9px; width:7px; height:7px; background:var(--ink); }
+  ul.feat li.ongoing::before { background:none; border:1.5px solid var(--ink); }
+  .fig { border:1px solid var(--ink); padding:18px 20px 12px; }
+  .fig svg { width:100%; height:auto; display:block; }
+  .cap { font-size:13px; margin-top:8px; color:var(--mute); }
+  .cap b { color:var(--ink); }
+  table { width:100%; border-collapse:collapse; font-size:14px; margin-top:26px; }
+  th { background:var(--fill); text-align:left; font-weight:600; font-stretch:80%; text-transform:uppercase; font-size:12px; letter-spacing:.05em; padding:7px 10px; border-top:2px solid var(--ink); }
+  td { padding:7px 10px; border-bottom:1px solid #C9CCD3; }
+  td.v { font-family:"JetBrains Mono", monospace; text-align:right; }
+  td a { color:var(--spec); }
+</style>
+</head>
+<body>
+  <div class="run">
+    <span>DN-01 · Software Engineer · Datasheet · Rev. 2026.10</span>
+    <nav><a href="#"><b>1</b>Overview</a><a href="#"><b>2</b>Work &amp; Projects</a><a href="#"><b>3</b>About</a><a href="#"><b>↓</b>Résumé PDF</a></nav>
+  </div>
+
+  <header class="title">
+    <div>
+      <p class="pn">Aarhus, Denmark · since 2021</p>
+      <h1>Dimitar<br>Nizamov</h1>
+      <p class="role">Software engineer: frontend, fullstack, operations</p>
+    </div>
+    <div>
+      <p class="lede">I build the layer other developers build on.</p>
+      <dl>
+        <dt>Now</dt><dd>Frontend Developer, UNIwise / WISEflow</dd>
+        <dt>Study</dt><dd>BEng Software Technology Eng., VIA, to Jan 2027</dd>
+        <dt>Status</dt><dd>EU citizen · open to relocation</dd>
+      </dl>
+    </div>
+  </header>
+
+  <main class="body">
+    <section>
+      <h2><span>1</span>Features</h2>
+      <ul class="feat">
+        <li class="ongoing">Owns the shared React + TypeScript component library behind 10 microfrontends and 15–20 engineers, at WCAG 2.1 AA</li>
+        <li class="ongoing">Migrating it off Semantic UI React onto headless primitives, without regressions</li>
+        <li class="ongoing">Builds the Docker containers the frontend repos ship in</li>
+        <li>Donation payments end to end at Podkrepi.bg: Next.js, NestJS, Prisma, Stripe</li>
+        <li class="ongoing">Runs 26 self-hosted services like production, with a weekly restore test</li>
+      </ul>
+    </section>
+    <section>
+      <div class="fig">
+        <svg viewBox="0 0 640 210" font-family="Archivo" font-size="12" fill="none" stroke="#15171C" stroke-width="1.2">
+          <rect x="4" y="12" width="176" height="52"/><text x="16" y="34" fill="#15171C" stroke="none" font-weight="700">Component library</text><text x="16" y="52" fill="#6B7080" stroke="none">React · TS · WCAG 2.1 AA</text>
+          <path d="M180 38 H250"/><path d="M244 33 L250 38 L244 43"/>
+          <rect x="250" y="12" width="150" height="52" fill="#E9EBEF"/><text x="262" y="34" fill="#15171C" stroke="none" font-weight="700">10 microfrontends</text><text x="262" y="52" fill="#6B7080" stroke="none">15–20 engineers</text>
+          <path d="M400 38 H470"/><path d="M464 33 L470 38 L464 43"/>
+          <rect x="470" y="12" width="166" height="52"/><text x="482" y="34" fill="#15171C" stroke="none" font-weight="700">WISEflow exams</text><text x="482" y="52" fill="#6B7080" stroke="none">universities, 6 countries</text>
+          <rect x="4" y="82" width="176" height="52"/><text x="16" y="104" fill="#15171C" stroke="none" font-weight="700">Frontend containers</text><text x="16" y="122" fill="#6B7080" stroke="none">Docker · CI lint + test</text>
+          <path d="M180 108 H250 V64"/><path d="M245 70 L250 64 L255 70"/>
+          <rect x="4" y="152" width="176" height="52"/><text x="16" y="174" fill="#15171C" stroke="none" font-weight="700">Payments</text><text x="16" y="192" fill="#6B7080" stroke="none">Next.js · NestJS · Stripe</text>
+          <path d="M180 178 H250"/><path d="M244 173 L250 178 L244 183"/>
+          <rect x="250" y="152" width="150" height="52" fill="#E9EBEF"/><text x="262" y="174" fill="#15171C" stroke="none" font-weight="700">Podkrepi.bg</text><text x="262" y="192" fill="#6B7080" stroke="none">73 merged PRs</text>
+          <rect x="470" y="152" width="166" height="52" stroke="#1B2F8F"/><text x="482" y="174" fill="#1B2F8F" stroke="none" font-weight="700">Homelab · 26 services</text><text x="482" y="192" fill="#6B7080" stroke="none">nightly backup → restore test</text>
+        </svg>
+        <p class="cap"><b>Figure 1.</b> Functional block diagram: what I build, and who builds on it.</p>
+      </div>
+      <table>
+        <tr><th>Parameter</th><th style="text-align:right">Value</th><th>Source</th></tr>
+        <tr><td>Microfrontends on the library</td><td class="v">10</td><td><a href="#">UNIwise</a></td></tr>
+        <tr><td>Merged pull requests, payments</td><td class="v">73</td><td><a href="#">GitHub search</a></td></tr>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

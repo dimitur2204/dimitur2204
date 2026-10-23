@@ -1,3 +1,41 @@
+/* Sofia Sans, by the Bulgarian foundry Lettersoup (SIL OFL), served from
+   this site rather than a font CDN. Latin and Latin Extended only. */
+@font-face {
+  font-family: "Sofia Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/sofia-sans-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Sofia Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/sofia-sans-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Sofia Sans Condensed";
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url("../fonts/sofia-sans-condensed-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Sofia Sans Condensed";
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url("../fonts/sofia-sans-condensed-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 *,
 *::before,
 *::after {
@@ -7,302 +45,203 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Utility Locate: an asphalt street marked for what is buried beneath it.
-     The paint follows the locate colour code and carries meaning: orange is
-     frontend, blue fullstack, red operations, white a proposed dig. The raw
-     blue and red only draw lines; text in those colours uses the -text tints. */
-  --bg: #26282a;
-  --surface: #2f3234;
-  --surface-hover: #36393b;
-  --line: #3e4144;
-  --line-strong: #55595d;
+  /* Shevitsa: madder red and black thread on white cloth. Every length
+     below is a whole number of stitch cells (--s), the 8px grid the
+     embroidery is worked on. */
+  --s: 8px;
 
-  --text: #eeede8;
-  --text-muted: #bdbcb5;
-  --text-dim: #9d9c96;
+  --cloth: #fafbfc;
+  --thread: #1c1414;
+  --thread-soft: #50555e;
+  --red: #a8121e;
+  --rule: #dce0e5;
 
-  --concrete: #cbc8c0;
-  --concrete-ink: #1f2021;
-  --concrete-muted: #45474a;
+  --sans: "Sofia Sans", ui-sans-serif, system-ui, sans-serif;
+  --narrow: "Sofia Sans Condensed", "Sofia Sans", ui-sans-serif, sans-serif;
 
-  --locate-frontend: #ff6a13;
-  --locate-fullstack: #0072ce;
-  --locate-fullstack-text: #6cb4f5;
-  --locate-ops: #e4002b;
-  --locate-ops-text: #ff6b7d;
-  --locate-dig: #f4f3ee;
+  --step-00: 0.875rem;
+  --step-0: 1.125rem;
+  --step-1: clamp(1.25rem, 1.18rem + 0.35vw, 1.5rem);
+  --step-2: clamp(1.625rem, 1.45rem + 0.8vw, 2.125rem);
+  --step-3: clamp(2.25rem, 1.8rem + 2vw, 3.5rem);
+  --step-4: clamp(2.75rem, 1.9rem + 4.4vw, 5.75rem);
 
-  /* Interaction (focus, hover, selection) uses the white of the dig marks;
-     no colour outside the locate code. */
-  --accent: var(--locate-dig);
-  --accent-bright: #ffffff;
-  --accent-wash: rgba(244, 243, 238, 0.1);
-  --accent-line: rgba(244, 243, 238, 0.45);
+  --measure: 66ch;
+  --gutter: calc(var(--s) * 3);
+  --wide: 1248px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  --kerb: 4.5rem;
-
-  --sans: "Atkinson Hyperlegible Next", ui-sans-serif, system-ui, sans-serif;
-  --mono: "Atkinson Hyperlegible Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  --step-00: 0.8125rem;
-  --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.08rem);
-  --step-1: clamp(1.15rem, 1.09rem + 0.3vw, 1.33rem);
-  --step-2: clamp(1.4rem, 1.29rem + 0.55vw, 1.75rem);
-  --step-3: clamp(1.75rem, 1.55rem + 1vw, 2.4rem);
-  --step-4: clamp(2.3rem, 1.9rem + 2vw, 3.6rem);
-
-  --measure: 64ch;
-  --radius: 14px;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+@media (min-width: 720px) {
+  :root {
+    --gutter: calc(var(--s) * 6);
+  }
 }
 
 @view-transition {
   navigation: auto;
 }
 
-/* Page transitions ------------------------------------------------------
-   The menu word you click becomes the heading of the page it opens, while
-   the index recedes behind it. These are the "entering a subpage" rules;
-   style.css reverses them for the way back to the index. */
-
-.work-projects-title {
-  view-transition-name: work-projects-title;
+/* Between pages the band and header stay put, and the menu word you click
+   becomes the heading of the page it opens: "Work & Projects" in the menu
+   and the h1 on work.html share a name, as do "About me" and about-me.html.
+   A page's own menu word carries no name, so on the way out its heading
+   flies back into the menu. The rest of the page fades across. */
+.hem {
+  view-transition-name: hem;
 }
 
-.about-title {
-  view-transition-name: about-title;
+.site-header {
+  view-transition-name: site-header;
 }
 
-/* Same type as the menu word, so the morph scales one shape into another. */
-h1.work-projects-title,
-h1.about-title {
-  width: fit-content;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+.primary-nav a[href="work.html"]:not([aria-current]) .nav-label {
+  view-transition-name: title-work;
 }
 
-::view-transition-group(*) {
-  animation-duration: 0.6s;
+.primary-nav a[href="about-me.html"]:not([aria-current]) .nav-label {
+  view-transition-name: title-about;
+}
+
+::view-transition-group(title-work),
+::view-transition-group(title-about) {
+  animation-duration: 600ms;
   animation-timing-function: var(--ease);
 }
 
-/* Scale snapshots by height and pin them left, so a menu word and the
-   heading it becomes line up instead of stretching. */
-::view-transition-old(work-projects-title),
-::view-transition-new(work-projects-title),
-::view-transition-old(about-title),
-::view-transition-new(about-title) {
+/* Scale the two snapshots by height and pin them left, so the menu word and
+   the heading grow into one another instead of stretching. The menu word and
+   the heading are set differently, so the hand-over between them is quick
+   and early rather than a long double exposure. */
+::view-transition-old(title-work),
+::view-transition-new(title-work),
+::view-transition-old(title-about),
+::view-transition-new(title-about) {
   width: auto;
   height: 100%;
 }
 
+::view-transition-old(title-work),
+::view-transition-old(title-about) {
+  animation: 180ms ease-out both vt-fade-out;
+}
+
+::view-transition-new(title-work),
+::view-transition-new(title-about) {
+  animation: 240ms ease-out 40ms both vt-fade;
+}
+
 ::view-transition-old(root) {
-  animation: vt-recede 0.3s var(--ease) both;
+  animation: 200ms cubic-bezier(0.4, 0, 1, 1) both vt-leave;
 }
 
 ::view-transition-new(root) {
-  animation: vt-rise 0.55s var(--ease) 0.15s both;
+  animation: 480ms var(--ease) 160ms both vt-enter;
 }
 
-@keyframes vt-recede {
+@keyframes vt-leave {
   to {
     opacity: 0;
-    transform: scale(0.96);
-    filter: blur(6px);
+    transform: translateY(calc(var(--s) * -1));
   }
 }
 
-@keyframes vt-rise {
+@keyframes vt-enter {
   from {
     opacity: 0;
-    transform: translateY(32px);
+    transform: translateY(calc(var(--s) * 2));
   }
 }
 
-@keyframes vt-drop {
+/* With less motion asked for, nothing travels: pages simply cross-fade. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) {
+    animation: none !important;
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: 160ms ease-out both vt-fade !important;
+  }
+
+  ::view-transition-old(*) {
+    animation-direction: reverse !important;
+  }
+}
+
+@keyframes vt-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-out {
   to {
-    opacity: 0;
-    transform: translateY(32px);
-  }
-}
-
-@keyframes vt-emerge {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-    filter: blur(6px);
-  }
-}
-
-@keyframes vt-fade-in {
-  from {
     opacity: 0;
   }
 }
 
 html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--s) * 4);
+}
+
+body {
+  background: var(--cloth);
+  color: var(--thread);
   font-family: var(--sans);
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--text);
   font-size: var(--step-0);
-  line-height: 1.65;
-  overflow-x: hidden;
-  min-height: 100vh;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  font-variant-numeric: lining-nums;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
-/* Asphalt ground with its aggregate, and the concrete kerb down the left
-   edge of every page, sawcut at intervals. The kerb is its own element with
-   its own transition name, so it holds still while pages change. Textures
-   are generated by website/tools/generate-textures.mjs. */
-body {
-  padding-left: var(--kerb);
-  background: var(--bg) url("../img/asphalt.webp");
+::selection {
+  background: var(--red);
+  color: #fff;
 }
 
-.kerb {
-  position: fixed;
-  inset: 0 auto 0 0;
-  width: var(--kerb);
-  z-index: 50;
-  pointer-events: none;
-  background: var(--concrete) url("../img/kerb.webp");
-  box-shadow: 0.35rem 0 0.9rem -0.2rem rgba(0, 0, 0, 0.6);
-  view-transition-name: kerb;
+h1,
+h2,
+h3 {
+  font-family: var(--narrow);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
-/* Survey station stencilled on the kerb (Work page): the year of the entry
-   being read, with a sawcut tick into the street. */
-.kerb-station {
-  position: absolute;
-  top: 38vh;
-  left: 0;
-  right: 0.55rem;
-  padding-bottom: 0.45rem;
-  text-align: center;
-  font-family: var(--mono);
-  font-size: var(--step-00);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--concrete-ink);
-  border-bottom: 2px solid var(--concrete-muted);
-  opacity: 0;
-  transition: opacity 0.2s var(--ease);
-}
-
-.kerb-station.is-on {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .kerb-station {
-    display: none;
-  }
-}
-
-/* The kerb's face dropping to the road: a lit lip, then the face in shade. */
-.kerb::after {
-  content: "";
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: 0.55rem;
-  border-left: 0.1rem solid #f1efe9;
-  background: linear-gradient(90deg, #9b978e, #7d7a72);
-}
-
-::view-transition-group(kerb),
-::view-transition-old(kerb),
-::view-transition-new(kerb) {
-  animation: none;
-}
-
-@media (max-width: 768px) {
-  :root {
-    --kerb: 0.75rem;
-  }
-}
-
-/* A sprayed locate line: the paint colour seen through a sprayed-stroke
-   mask, with overspray, uneven density and tapered ends. */
-.paint-line {
-  height: 1.5rem;
-  background: currentColor;
-  -webkit-mask: url("../img/spray-h-a.webp") 0 50% / auto 100% repeat-x;
-  mask: url("../img/spray-h-a.webp") 0 50% / auto 100% repeat-x;
-}
-
-/* Survey flag: a stake and a cloth in the line's paint. The cloth waves
-   continuously from the stake; offsets keep neighbouring flags out of step. */
-.flag {
-  overflow: visible;
-}
-
-.flag .stake {
-  stroke: var(--concrete);
-  stroke-width: 2;
-}
-
-.flag .cloth {
-  fill: currentColor;
-  transform-box: fill-box;
-  transform-origin: left center;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .flag .cloth {
-    animation: wave 2.4s ease-in-out infinite;
-    animation-delay: calc(var(--i, 0) * -0.8s);
-  }
-}
-
-@keyframes wave {
-  0%,
-  100% {
-    transform: skewY(0deg) scaleX(1);
-  }
-  25% {
-    transform: skewY(-6deg) scaleX(0.9);
-  }
-  50% {
-    transform: skewY(2deg) scaleX(0.96);
-  }
-  75% {
-    transform: skewY(5deg) scaleX(0.88);
-  }
-}
-
-/* One drawn arrow set, tinted by the text colour. */
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.12em;
-  background: currentColor;
-  -webkit-mask: var(--icon) center / contain no-repeat;
-  mask: var(--icon) center / contain no-repeat;
-}
-
-.icon-back {
-  --icon: url("../img/icons/arrow-left.svg");
-}
-
-.icon-forward {
-  --icon: url("../img/icons/arrow-right.svg");
+p,
+li {
+  text-wrap: pretty;
 }
 
 a {
   color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+  transition: color 160ms ease-out, text-decoration-color 160ms ease-out;
 }
 
-:where(a, button, [tabindex]):focus-visible {
-  outline: 2px solid var(--accent);
+a:hover {
+  color: var(--red);
+}
+
+:focus-visible {
+  outline: 3px solid var(--red);
   outline-offset: 3px;
-  border-radius: 3px;
+  border-radius: 1px;
+}
+
+strong {
+  font-weight: 700;
 }
 
 .visually-hidden {
@@ -310,132 +249,303 @@ a {
   width: 1px;
   height: 1px;
   overflow: hidden;
+  clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
 }
 
 .skip-link {
   position: absolute;
-  top: 1rem;
-  left: calc(var(--kerb) + 1rem);
-  z-index: 10000;
-  padding: 0.6rem 1rem;
-  background: var(--accent);
-  color: var(--bg);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 6px;
+  top: var(--s);
+  left: var(--s);
+  z-index: 10;
+  padding: var(--s) calc(var(--s) * 2);
+  background: var(--thread);
+  color: #fff;
+  font-weight: 700;
   transform: translateY(-200%);
 }
 
-.skip-link:focus-visible {
+.skip-link:focus {
   transform: none;
-  outline-color: var(--text);
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--bg);
+.skip-link:hover {
+  color: #fff;
 }
 
-h1,
-h2,
-h3 {
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  text-wrap: balance;
-  font-weight: 600;
+.container {
+  width: 100%;
+  max-width: calc(var(--wide) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
-p {
-  text-wrap: pretty;
+/* Bands -----------------------------------------------------------------
+   An embroidered band is two layers of the same tile: the pattern marked
+   out in pale tacking (::before) and the stitched thread (::after). */
+
+.band {
+  --tile: url("../img/stitch/hem.svg");
+  --rows: 11;
+  position: relative;
+  height: calc(var(--s) * var(--rows));
 }
 
-/* Locate tags: the kind, date and place written beside a paint mark. The
-   only place the monospace face appears. */
-.label {
-  font-family: var(--mono);
-  font-size: var(--step-00);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.rule-label {
-  font-family: var(--sans);
-  font-size: var(--step-1);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-transform: none;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-}
-
-.rule-label::after {
+.band::before,
+.band::after {
   content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--line-strong);
+  position: absolute;
+  inset: 0;
+  background: var(--tile) repeat-x left top / auto 100%;
 }
 
-.back-link {
+.band::before {
+  opacity: 0.2;
+  filter: grayscale(1);
+}
+
+.band-zigzag {
+  --tile: url("../img/stitch/zigzag.svg");
+  --rows: 7;
+}
+
+/* Opener bands run the full width of the page, out of the content column. */
+.opener .band {
+  margin-inline: calc(50% - 50vw);
+}
+
+.band-on-red {
+  --tile: url("../img/stitch/hem-on-red.svg");
+}
+
+.band-on-red::before {
+  opacity: 0.25;
+  filter: brightness(0) invert(1);
+}
+
+/* Site header ------------------------------------------------------------ */
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: calc(var(--s) * 2) calc(var(--s) * 4);
+  padding-block: calc(var(--s) * 3) calc(var(--s) * 4);
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.identity-name {
+  font-family: var(--narrow);
+  font-size: var(--step-1);
+  font-weight: 800;
+}
+
+.identity-role {
+  color: var(--thread-soft);
+  font-size: var(--step-00);
+}
+
+a.identity:hover .identity-name {
+  color: var(--red);
+}
+
+.primary-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 calc(var(--s) * 2);
+  list-style: none;
+}
+
+@media (min-width: 720px) {
+  .primary-nav ul {
+    column-gap: calc(var(--s) * 3);
+  }
+}
+
+.primary-nav a {
+  display: inline-block;
+  padding-block: var(--s);
+  font-weight: 600;
+  text-decoration-color: transparent;
+}
+
+.primary-nav a:hover,
+.primary-nav a[aria-current="page"] {
+  text-decoration-color: var(--red);
+}
+
+/* The label is boxed so its page-transition snapshot hugs the word; a
+   decoration does not reach into an inline-block, so it takes the link's. */
+.nav-label {
+  display: inline-block;
+  line-height: 1.1;
+  text-decoration: inherit;
+}
+
+.nav-note {
+  color: var(--thread-soft);
+  font-weight: 400;
+}
+
+/* Section openers: a zigzag band, then the heading. ----------------------- */
+
+.opener {
+  display: grid;
+  gap: calc(var(--s) * 3);
+  margin-bottom: calc(var(--s) * 4);
+}
+
+.opener h2 {
+  font-size: var(--step-3);
+}
+
+/* Lists stitched with a single cross for a marker. ------------------------ */
+
+.stitched-list {
+  list-style: none;
+}
+
+.stitched-list > li {
+  position: relative;
+  padding-left: calc(var(--s) * 3);
+}
+
+.stitched-list > li + li {
+  margin-top: var(--s);
+}
+
+.stitched-list > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: var(--s);
+  height: var(--s);
+  background: url("../img/stitch/cross.svg") center / contain no-repeat;
+}
+
+/* Inline lists of tools, separated by a stitch rather than boxed as chips.
+   Every item carries its stitch in front; the list is pulled left by one
+   stitch and its gap, and that strip is clipped, so no line starts on one. */
+.tags {
+  --lead: calc(var(--s) * 2 + 6px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 calc(var(--s) * 2);
+  margin-left: calc(var(--lead) * -1);
+  clip-path: inset(0 0 0 var(--lead));
+  list-style: none;
+  color: var(--thread-soft);
+  font-size: var(--step-00);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.tags li {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding-block: 0.6rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.25s var(--ease);
+  gap: calc(var(--s) * 2);
 }
 
-.back-link:hover {
-  color: var(--accent);
+.tags li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: url("../img/stitch/cross.svg") center / contain no-repeat;
+  opacity: 0.7;
 }
 
-.back-link span {
-  transition: transform 0.25s var(--ease);
+/* Footer: the page closes on a red field. --------------------------------- */
+
+.site-footer {
+  margin-top: calc(var(--s) * 15);
+  background: var(--red);
+  color: #fff;
 }
 
-.back-link:hover span {
-  transform: translateX(-4px);
+.site-footer .band {
+  background: var(--red);
 }
 
-.chips {
+.footer-body {
+  display: grid;
+  gap: calc(var(--s) * 4);
+  padding-block: calc(var(--s) * 6) calc(var(--s) * 8);
+}
+
+.footer-email {
+  font-family: var(--narrow);
+  font-size: var(--step-3);
+  font-weight: 800;
+  line-height: 1;
+  overflow-wrap: anywhere;
+  text-decoration-color: rgba(255, 255, 255, 0.55);
+  text-decoration-thickness: 3px;
+}
+
+.footer-email:hover {
+  color: #fff;
+  text-decoration-color: #fff;
+}
+
+.footer-links {
   display: flex;
-  gap: 0.4rem;
   flex-wrap: wrap;
+  gap: var(--s) calc(var(--s) * 4);
+  list-style: none;
+  font-weight: 600;
 }
 
-/* Tools used, as a plain run of names. */
-.chip {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  white-space: nowrap;
+.footer-links a {
+  text-decoration-color: rgba(255, 255, 255, 0.55);
 }
 
-.chip + .chip::before {
-  content: "·";
-  margin-right: 0.4rem;
-  color: var(--text-dim);
+.footer-links a:hover {
+  color: #fff;
+  text-decoration-color: #fff;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+.footer-status {
+  max-width: var(--measure);
+  color: #fbe9ea;
+}
+
+.site-footer :focus-visible {
+  outline-color: #fff;
+}
+
+.site-footer ::selection {
+  background: #fff;
+  color: var(--red);
+}
+
+@media (min-width: 900px) {
+  .footer-body {
+    grid-template-columns: 1fr auto;
+    align-items: end;
   }
 
-  @view-transition {
-    navigation: none;
+  .footer-status {
+    grid-column: 1 / -1;
+  }
+}
+
+@media print {
+  .band,
+  .site-footer .band {
+    display: none;
+  }
+
+  .site-footer {
+    background: none;
+    color: var(--thread);
   }
 }

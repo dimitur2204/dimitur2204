@@ -1,547 +1,106 @@
-/* Homepage: the street surface. Name, availability and the menu along the
-   top, the claim on the asphalt, then three sprayed locate lines running the
-   full width, one per kind of work, each tagged with its proof. */
-
-.container {
-  max-width: 1240px;
-  min-height: 100vh;
-  min-height: 100svh;
-  margin: 0 auto;
-  padding: 2rem clamp(1.5rem, 4vw, 3.5rem) 2.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-}
-
-/* Top strip ------------------------------------------------------------ */
-
-.site-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0.75rem 2rem;
-  padding-bottom: 1.1rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.identity {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  column-gap: 1rem;
-  row-gap: 0.25rem;
-}
-
-.identity-name {
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.identity-role {
-  color: var(--text-muted);
-}
-
-.primary-nav {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: flex-end;
-  column-gap: 1.75rem;
-  row-gap: 0.25rem;
-}
-
-.nav-link {
-  position: relative;
-  display: inline-block;
-  padding-block: 0.6rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.25s var(--ease);
-}
-
-.nav-link > span:first-child {
-  display: inline-block;
-}
-
-.nav-link-main {
-  color: var(--text);
-  font-size: var(--step-1);
-  font-weight: 800;
-  letter-spacing: -0.015em;
-}
-
-.nav-note {
-  font-weight: 400;
-  color: var(--text-dim);
-}
-
-/* A painted stroke under each link; the main one is always marked. */
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.3rem;
-  height: 3px;
-  border-radius: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.35s var(--ease);
-}
-
-.nav-link-main::after {
-  background: var(--locate-dig);
-  transform: none;
-}
-
-.nav-link:hover,
-.nav-link:focus-visible {
-  color: var(--text);
-}
-
-.nav-link:hover::after,
-.nav-link:focus-visible::after {
-  background: var(--accent);
-  transform: scaleX(1);
-}
-
-/* Claim ---------------------------------------------------------------- */
-
-/* A sealed crack running in from the top edge at the far right of the
-   street, beside the claim (wide screens only). The same tar sealant as on
-   the Work page. */
-body {
-  position: relative;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-}
-
-@media (min-width: 1240px) {
-  body::after {
-    content: "";
-    position: absolute;
-    top: -1.5rem;
-    right: 0.5rem;
-    width: 7rem;
-    height: 19.4rem; /* the sealant image's own aspect, so the pour stages land on the crack */
-    background: url("../img/tar-snake.webp") center top / contain no-repeat;
-    opacity: 0.9;
-    pointer-events: none;
-  }
-}
-
-/* The sealant is poured once, the way a crew does it: a quick first run, a
-   pause while the pot is moved, a second run, another pause, then a slow
-   creep into the branches. Fresh sealant goes down solid black, then fades
-   a little as it cures. */
-@media (min-width: 1240px) and (prefers-reduced-motion: no-preference) {
-  body::after {
-    animation:
-      pour 4.2s linear 0.4s both,
-      cure 2.5s ease-out 4.6s both;
-  }
-}
-
-@keyframes pour {
-  0% {
-    clip-path: inset(0 0 100% 0);
-    animation-timing-function: cubic-bezier(0.3, 0.7, 0.4, 1);
-  }
-  22% {
-    clip-path: inset(0 0 58% 0);
-  }
-  34% {
-    clip-path: inset(0 0 57% 0);
-    animation-timing-function: cubic-bezier(0.3, 0.7, 0.4, 1);
-  }
-  56% {
-    clip-path: inset(0 0 30% 0);
-  }
-  66% {
-    clip-path: inset(0 0 29% 0);
-    animation-timing-function: cubic-bezier(0.2, 0.4, 0.3, 1);
-  }
-  100% {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes cure {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.72;
-  }
-}
+/* Index ------------------------------------------------------------------ */
 
 .intro {
-  margin-top: clamp(1.75rem, 4.5vh, 3.5rem);
+  display: grid;
+  gap: calc(var(--s) * 4);
+  padding-block: calc(var(--s) * 4) calc(var(--s) * 7);
 }
 
 .intro h1 {
-  max-width: 15ch;
-  font-size: clamp(2.4rem, 1.4rem + 3vw, 4.1rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 0.98;
+  max-width: 13ch;
+  font-size: var(--step-4);
+  line-height: 0.94;
+  letter-spacing: -0.015em;
 }
 
 .lede {
-  max-width: 74ch;
-  margin-top: 1.25rem;
+  max-width: 52ch;
   font-size: var(--step-1);
-  line-height: 1.55;
-  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-/* Locate lines --------------------------------------------------------- */
-
-.locates {
-  margin-top: clamp(1.75rem, 4vh, 3rem);
-}
-
-.locate-list {
-  list-style: none;
-}
-
-.locate {
-  --paint: var(--locate-frontend);
-  --tint: var(--locate-frontend);
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  column-gap: clamp(1.5rem, 4vw, 3.5rem);
-  align-items: start;
-  padding-bottom: 0.75rem;
-}
-
-.locate-fullstack {
-  --paint: var(--locate-fullstack);
-  --tint: var(--locate-fullstack-text);
-}
-
-.locate-ops {
-  --paint: var(--locate-ops);
-  --tint: var(--locate-ops-text);
-}
-
-/* The run: a line sprayed from the kerb to the right edge of the street, with
-   its proof sprayed onto it beside a survey flag. */
-.locate-run {
-  grid-column: 1 / -1;
-  display: grid;
-  align-items: center;
-  margin-bottom: 0.25rem;
-}
-
-.locate-run > * {
-  grid-area: 1 / 1;
-}
-
-.locate .paint-line {
-  width: calc(100vw - var(--kerb));
-  margin-left: calc(50% - (100vw - var(--kerb)) / 2);
-  color: var(--paint);
-}
-
-/* Each line is its own pass of the can. */
-.locate-fullstack .paint-line {
-  -webkit-mask-image: url("../img/spray-h-b.webp");
-  mask-image: url("../img/spray-h-b.webp");
-}
-
-.locate-ops .paint-line {
-  -webkit-mask-image: url("../img/spray-h-c.webp");
-  mask-image: url("../img/spray-h-c.webp");
-}
-
-/* Above the masked line, which paints in its own layer. */
-.locate-tag {
-  position: relative;
-  z-index: 1;
-  justify-self: start;
-  margin-left: calc(47.5% + clamp(0.75rem, 2vw, 1.75rem));
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.15rem 0.85rem;
-  background: var(--bg) url("../img/asphalt.webp");
-  font-family: var(--mono);
-  font-size: var(--step-00);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--tint);
-}
-
-.flag {
-  width: 1.1rem;
-  height: 1.9rem;
-  margin-top: -1.2rem;
-  color: var(--paint);
-  flex-shrink: 0;
-}
-
-.locate h3 {
-  font-size: var(--step-2);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.18;
-}
-
-.locate h3 a {
-  padding-block: 0.4rem;
-  text-decoration: underline;
-  text-decoration-color: var(--tint);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
-  transition: color 0.25s var(--ease);
-}
-
-.locate h3 a:hover {
-  color: var(--tint);
-}
-
-.locate-meta {
-  margin-top: 0.35rem;
-  font-size: 0.92rem;
-  color: var(--text-dim);
-}
-
-.locate-text {
-  max-width: 58ch;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.locate-source {
-  display: block;
-  width: fit-content;
-  margin-top: 0.25rem;
-  padding-block: 0.4rem;
-  color: var(--text);
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: var(--line-strong);
-  text-underline-offset: 0.25em;
-  transition: text-decoration-color 0.25s var(--ease);
-}
-
-.locate-source:hover {
-  text-decoration-color: var(--accent);
-}
-
-/* The lines are laid down once, left to right, as the page arrives. */
-@media (prefers-reduced-motion: no-preference) {
-  .locate .paint-line {
-    animation: lay-down 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-delay: calc(0.15s + var(--i, 0) * 0.14s);
-  }
-}
-
-/* Each flag is planted as its line's paint reaches it. */
-@media (prefers-reduced-motion: no-preference) {
-  .locate .flag {
-    animation: plant 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-delay: calc(0.55s + var(--i, 0) * 0.14s);
-  }
-}
-
-@keyframes plant {
-  from {
-    opacity: 0;
-    transform: translateY(-0.7rem);
-  }
-  60% {
-    opacity: 1;
-  }
-}
-
-@keyframes lay-down {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-/* Key ------------------------------------------------------------------ */
-
-.locate-key {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.6rem 1.75rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.locate-key li::before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  width: 1.5rem;
-  height: 0.4rem;
-  margin-right: 0.6rem;
-  border-radius: 0.2rem;
-}
-
-.key-frontend::before {
-  background: var(--locate-frontend);
-}
-
-.key-fullstack::before {
-  background: var(--locate-fullstack);
-}
-
-.key-ops::before {
-  background: var(--locate-ops);
-}
-
-.locate-key .key-note {
-  color: var(--text-dim);
-}
-
-.locate-key .key-note::before {
-  display: none;
-}
-
-/* Footer --------------------------------------------------------------- */
-
-.site-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem 2rem;
-  margin-top: clamp(3rem, 8vh, 5rem);
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
-  font-size: 0.92rem;
-}
-
-.status {
-  color: var(--text-dim);
-}
-
-.contact-links {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-}
-
-.contact-links a {
-  display: inline-block;
-  padding-block: 0.6rem;
-  color: var(--text-muted);
-  text-decoration: underline;
-  text-decoration-color: var(--line-strong);
-  text-underline-offset: 0.25em;
-  transition: color 0.25s var(--ease), text-decoration-color 0.25s var(--ease);
-}
-
-.contact-links a:hover {
-  color: var(--text);
-  text-decoration-color: var(--accent);
-}
-
-/* Returning from a subpage: reverse of base.css. The page drops away, the
-   index comes back into focus, and the heading flies back into its slot. */
-::view-transition-old(root) {
-  animation: vt-drop 0.3s var(--ease) both;
-}
-
-::view-transition-new(root) {
-  animation: vt-emerge 0.55s var(--ease) 0.1s both;
-}
-
-@media (max-width: 860px) {
-  .site-header {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .primary-nav {
-    grid-column: 1;
-    grid-row: auto;
-    justify-content: flex-start;
-  }
-
-  .locate {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 0.6rem;
-  }
-
-  /* Narrow screens: the line is too short to carry the tag on it, so the
-     tag is sprayed just above the line with its flag staked through it, and
-     the paint runs the full width. */
-  .locate-run {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
-  .locate-tag {
-    margin: 0 0 -0.2rem;
-    padding: 0;
-    background: none;
-  }
-
-  .flag {
-    margin: 0 0 -1.3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 1.5rem 1.25rem 2rem;
-  }
-
+@media (min-width: 1000px) {
   .intro {
-    margin-top: 2rem;
-  }
-
-  .locates {
-    margin-top: 2.75rem;
-  }
-}
-
-/* Landscape phones: a smaller claim leaves room for the first line. */
-@media (max-height: 500px) {
-  .container {
-    padding-top: 1rem;
-  }
-
-  .site-header {
-    padding-bottom: 0.75rem;
-  }
-
-  .intro {
-    margin-top: 1.25rem;
-  }
-
-  .intro h1 {
-    font-size: 2rem;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+    column-gap: calc(var(--s) * 8);
   }
 
   .lede {
-    margin-top: 0.75rem;
-    font-size: var(--step-0);
+    padding-bottom: calc(var(--s) * 1);
   }
+}
 
-  .locates {
-    margin-top: 2rem;
+/* Disciplines: three columns, each led by its motif. All three stay in
+   view; pointing at one sets the other two back to their tacking. */
+
+.discipline-list {
+  display: grid;
+  gap: calc(var(--s) * 8);
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .discipline-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: calc(var(--s) * 6);
+  }
+}
+
+.discipline {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--s) * 1);
+}
+
+.motif {
+  display: block;
+  align-self: flex-start;
+  height: calc(var(--s) * 9);
+  width: auto;
+  margin-bottom: calc(var(--s) * 1);
+  transition: opacity 220ms var(--ease), filter 220ms var(--ease);
+}
+
+.discipline h3 {
+  font-size: var(--step-2);
+}
+
+.discipline h3 a {
+  text-decoration-color: transparent;
+}
+
+.discipline h3 a:hover,
+.discipline h3 a:focus-visible {
+  text-decoration-color: var(--red);
+}
+
+.discipline-meta {
+  color: var(--thread-soft);
+  font-size: var(--step-00);
+  font-weight: 600;
+  margin-bottom: var(--s);
+}
+
+.metric {
+  font-family: var(--narrow);
+  font-size: var(--step-0);
+  font-weight: 700;
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.discipline-source {
+  margin-top: var(--s);
+  font-weight: 600;
+  width: fit-content;
+}
+
+@media (hover: hover) {
+  .discipline-list:has(.discipline:hover) .discipline:not(:hover) .motif,
+  .discipline-list:has(.discipline:focus-within) .discipline:not(:focus-within) .motif {
+    opacity: 0.32;
+    filter: grayscale(1);
   }
 }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Category standard sketch</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1440px; height:900px; overflow:hidden; background:#fff; color:#111827; font-family:"Hanken Grotesk", sans-serif; }
+  .wrap { max-width:1120px; margin:0 auto; }
+  header { display:flex; justify-content:space-between; align-items:center; height:88px; font-size:16px; }
+  header nav { display:flex; gap:32px; color:#4B5563; }
+  header nav a:last-child { color:#2563EB; }
+  .intro { padding:80px 0 72px; }
+  .intro h1 { font-size:60px; line-height:1.05; font-weight:700; letter-spacing:-.02em; max-width:16ch; }
+  .intro p { font-size:20px; color:#4B5563; margin-top:20px; max-width:56ch; line-height:1.5; }
+  .intro .cta { margin-top:32px; display:flex; gap:12px; }
+  .btn { padding:12px 20px; border-radius:8px; font-weight:500; background:#2563EB; color:#fff; }
+  .btn.o { background:#fff; color:#111827; border:1px solid #D1D5DB; }
+  h2 { font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:#6B7280; margin-bottom:20px; }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card { border:1px solid #E5E7EB; border-radius:12px; padding:24px; }
+  .card .t { font-size:13px; color:#2563EB; font-weight:500; }
+  .card h3 { font-size:20px; margin-top:8px; line-height:1.25; }
+  .card p { font-size:15px; color:#4B5563; margin-top:10px; line-height:1.5; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header><strong>Dimitar Nizamov</strong><nav><a>Work</a><a>About</a><a>Résumé</a><a>Contact</a></nav></header>
+    <section class="intro">
+      <h1>I build the layer other developers build on.</h1>
+      <p>Software engineer in Aarhus, Denmark. Five years across frontend, fullstack and DevOps: component libraries, the containers they ship in, payments, and a 26-service homelab.</p>
+      <div class="cta"><span class="btn">See my work</span><span class="btn o">Download résumé</span></div>
+    </section>
+    <h2>Selected work</h2>
+    <div class="cards">
+      <div class="card"><span class="t">Frontend · UNIwise</span><h3>The component library behind 10 microfrontends</h3><p>React and TypeScript, WCAG 2.1 AA, used by 15–20 engineers.</p></div>
+      <div class="card"><span class="t">Fullstack · Podkrepi.bg</span><h3>Payments, end to end</h3><p>Next.js, NestJS, Prisma and Stripe. 73 merged PRs.</p></div>
+      <div class="card"><span class="t">Operations · Homelab</span><h3>Backups that prove they restore</h3><p>26 self-hosted services with a weekly restore test.</p></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Design-System Reference sketch</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#FAFAF7; --ink:#0E0E0E; --red:#D8401A; --line:#C9CCC4; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1440px; height:900px; overflow:hidden; background:var(--paper); color:var(--ink); font-family:"Schibsted Grotesk", sans-serif; }
+  .grid { position:absolute; inset:0 48px; display:grid; grid-template-columns:repeat(12,1fr); gap:24px; pointer-events:none; }
+  .grid i { border-left:1px solid var(--line); border-right:1px solid var(--line); opacity:.45; }
+  .page { position:relative; display:grid; grid-template-columns:repeat(12,1fr); gap:24px; padding:0 48px; }
+  .bar { grid-column:1/-1; display:flex; justify-content:space-between; height:56px; align-items:center; border-bottom:2px solid var(--ink); font-size:14px; font-weight:500; }
+  .bar nav { display:flex; gap:32px; }
+  .bar small { font-family:"JetBrains Mono", monospace; font-size:12px; }
+  .toc { grid-column:1/4; padding-top:40px; font-size:14px; line-height:2; }
+  .toc p { font-family:"JetBrains Mono", monospace; font-size:11px; text-transform:uppercase; color:#666; margin-bottom:8px; }
+  .toc ol { list-style:none; counter-reset:t; }
+  .toc li { counter-increment:t; border-bottom:1px solid var(--line); }
+  .toc li::before { content:"0" counter(t) "  "; font-family:"JetBrains Mono", monospace; font-size:12px; color:var(--red); }
+  .hero { grid-column:4/-1; padding-top:36px; }
+  .hero .k { font-family:"JetBrains Mono", monospace; font-size:12px; color:var(--red); }
+  .hero h1 { font-size:148px; line-height:.86; font-weight:800; letter-spacing:-.035em; margin-top:10px; }
+  .hero .lede { margin-top:26px; font-size:24px; line-height:1.3; max-width:30ch; font-weight:500; }
+  .spec { grid-column:4/-1; margin-top:44px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .chip { border-top:8px solid var(--ink); padding-top:14px; }
+  .chip.r { border-color:var(--red); }
+  .chip .n { font-size:64px; font-weight:800; letter-spacing:-.03em; line-height:1; }
+  .chip .l { font-family:"JetBrains Mono", monospace; font-size:11px; text-transform:uppercase; margin-top:8px; color:#555; }
+  .chip p { font-size:15px; line-height:1.45; margin-top:10px; max-width:34ch; }
+  .callout { display:inline-grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--red); color:#fff; font-size:11px; font-weight:700; margin-right:8px; vertical-align:2px; }
+</style>
+</head>
+<body>
+  <div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="page">
+    <div class="bar"><span>Dimitar Nizamov</span><nav><span>Work &amp; Projects</span><span>About</span><span>Résumé ↓</span></nav><small>Reference v5 · 2026</small></div>
+    <aside class="toc">
+      <p>Contents</p>
+      <ol><li>Principles</li><li>Frontend</li><li>Fullstack</li><li>Operations</li><li>Education</li><li>Contact</li></ol>
+    </aside>
+    <section class="hero">
+      <span class="k">00 · Overview</span>
+      <h1>Dimitar<br>Nizamov</h1>
+      <p class="lede"><span class="callout">1</span>I build the layer other developers build on.</p>
+    </section>
+    <section class="spec">
+      <div class="chip r"><div class="n">10</div><div class="l">Frontend · microfrontends</div><p>The shared React and TypeScript library behind every WISEflow frontend, kept at WCAG 2.1 AA.</p></div>
+      <div class="chip"><div class="n">73</div><div class="l">Fullstack · merged PRs</div><p>Donation payments end to end at Podkrepi.bg: Next.js, NestJS, Prisma, Stripe.</p></div>
+      <div class="chip"><div class="n">26</div><div class="l">Operations · services</div><p>A homelab run like production, with nightly backups and a weekly restore test.</p></div>
+    </section>
+  </div>
+</body>
+</html>

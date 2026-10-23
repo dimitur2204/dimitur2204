@@ -1,95 +1,38 @@
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+/* 404: the hem band with a run of stitches missing, the pattern still
+   marked out in tacking underneath. */
+
+.band-broken::after {
+  -webkit-mask-image: linear-gradient(90deg, #000 38%, transparent 38%, transparent 58%, #000 58%);
+  mask-image: linear-gradient(90deg, #000 38%, transparent 38%, transparent 58%, #000 58%);
 }
 
-/* Nothing is located here: the page is an outlined dig with nothing in it. */
-.container {
-  text-align: center;
-  position: relative;
-  margin: 1.5rem;
-  padding: clamp(2rem, 6vw, 3.5rem);
-  max-width: 34rem;
-  border: 14px solid transparent;
-  border-image: url("../img/dig-frame.webp") 24 round;
-}
-
-/* Skid marks that swerve toward the dig and stop short of it: nothing here
-   to drive to (wide screens only). */
-@media (min-width: 1100px) {
-  .container::before {
-    content: "";
-    position: absolute;
-    top: 38%;
-    right: calc(100% + 0.5rem);
-    width: 30rem;
-    height: 9.5rem;
-    background: url("../img/skid-stop.webp") center / contain no-repeat;
-    pointer-events: none;
-  }
+.missing {
+  display: grid;
+  gap: calc(var(--s) * 3);
+  padding-block: calc(var(--s) * 10) calc(var(--s) * 15);
 }
 
 .error-code {
-  font-size: clamp(5rem, 16vw, 10rem);
+  font-family: var(--narrow);
+  font-size: clamp(5rem, 3rem + 10vw, 11rem);
   font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--text);
-  margin-bottom: 1.5rem;
+  line-height: 0.85;
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
 }
 
-.error-code span {
-  color: var(--text-dim);
-}
-
-.error-title {
-  font-size: var(--step-2);
-  font-weight: 600;
-  margin-bottom: 0.75rem;
+.missing h1 {
+  font-size: var(--step-3);
 }
 
 .error-message {
-  color: var(--text-muted);
-  margin: 0 auto 2.5rem;
-  max-width: 34ch;
-}
-
-/* The locate ticket: nothing found, so nothing painted. */
-.locate-ticket {
-  margin: -1rem auto 2.25rem;
-  font-family: var(--mono);
-  font-size: var(--step-00);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-dim);
+  max-width: 52ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
 }
 
 .home-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-block: 0.6rem;
-  color: var(--text);
+  width: fit-content;
+  margin-top: var(--s);
   font-weight: 700;
-  text-decoration: underline;
-  text-decoration-color: var(--locate-dig);
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.35em;
-  transition: text-decoration-color 0.3s var(--ease);
-}
-
-.home-link:hover {
-  text-decoration-color: var(--accent);
-}
-
-.home-link .icon {
-  transition: transform 0.25s var(--ease);
-}
-
-.home-link:hover .icon {
-  transform: translateX(-4px);
 }

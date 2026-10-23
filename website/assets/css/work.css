@@ -1,318 +1,229 @@
-.container {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 4rem 2rem 6rem;
-  position: relative;
-  z-index: 1;
+/* Work & Projects ---------------------------------------------------------
+   A reading column with a margin to its left. The margin carries the world:
+   each entry's motif, discipline and dates. The column carries the text. */
+
+.page-head {
+  display: grid;
+  gap: calc(var(--s) * 3);
+  padding-block: calc(var(--s) * 5) calc(var(--s) * 12);
 }
 
-/* Page header ---------------------------------------------------------- */
-
-header {
-  margin-bottom: 5rem;
-}
-
-h1 {
+.page-head h1 {
+  view-transition-name: title-work;
+  width: fit-content;
   font-size: var(--step-4);
-  font-weight: 800;
-  margin: 1.75rem 0 1rem;
+  line-height: 0.94;
+  letter-spacing: -0.015em;
 }
 
 .lede {
-  max-width: var(--measure);
+  max-width: 58ch;
   font-size: var(--step-1);
-  color: var(--text-muted);
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
-.section-block {
-  margin-bottom: 5.5rem;
+.contents ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s) calc(var(--s) * 3);
+  list-style: none;
+  padding-top: calc(var(--s) * 2);
+  border-top: 1px solid var(--rule);
+  font-weight: 600;
 }
 
-/* Road wear in the empty gutter right of the entries (wide screens only):
-   skid marks beside Experience, a tar snake beside Projects. The entry
-   runs paint over them. */
-.section-block {
-  position: relative;
+.contents a {
+  display: inline-block;
+  padding-block: var(--s);
+  text-decoration-color: transparent;
 }
 
-@media (min-width: 1180px) {
-  .section-block:nth-of-type(1)::after,
-  .section-block:nth-of-type(2)::after {
-    content: "";
-    position: absolute;
-    pointer-events: none;
-  }
-
-  .section-block:nth-of-type(1)::after {
-    top: 34rem;
-    right: -9rem;
-    width: 36rem;
-    height: 9rem;
-    background: url("../img/skid-swerve.webp") center / contain no-repeat;
-    transform: rotate(84deg);
-  }
-
-  .section-block:nth-of-type(2)::after {
-    top: 6rem;
-    right: 0;
-    width: 7rem;
-    height: 20rem;
-    background: url("../img/tar-snake.webp") center / contain no-repeat;
-    opacity: 0.85;
-  }
+.contents a:hover,
+.contents a:focus-visible {
+  text-decoration-color: var(--red);
 }
 
-.section-block:last-child {
-  margin-bottom: 0;
+.section-block + .section-block {
+  margin-top: calc(var(--s) * 15);
 }
-
-/* Entry ----------------------------------------------------------------
-   Each entry opens with a locate run, the same device as the homepage: a
-   sprayed line from the kerb to the right edge, with a flag and a tag on it
-   naming the kind of work and the dates, so colour is never the only cue. */
 
 .entry {
-  --paint: var(--locate-frontend);
-  --tint: var(--locate-frontend);
-  position: relative;
-  isolation: isolate;
-  scroll-margin-top: 2rem;
-  padding-bottom: 3.5rem;
+  display: grid;
+  gap: calc(var(--s) * 2);
+  padding-block: calc(var(--s) * 5);
+  border-top: 1px solid var(--rule);
 }
 
-.entry-fullstack {
-  --paint: var(--locate-fullstack);
-  --tint: var(--locate-fullstack-text);
-}
-
-.entry-ops {
-  --paint: var(--locate-ops);
-  --tint: var(--locate-ops-text);
-}
-
-.entry-study {
-  --paint: var(--locate-dig);
-  --tint: var(--locate-dig);
-}
-
-.entry:last-child {
-  padding-bottom: 0;
-}
-
-.entry::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0.05rem;
-  width: calc(100vw - var(--kerb));
-  left: calc(50% - (100vw - var(--kerb)) / 2);
-  height: 1.5rem;
-  background: var(--paint);
-  -webkit-mask: url("../img/spray-h-a.webp") 0 50% / auto 100% repeat-x;
-  mask: url("../img/spray-h-a.webp") 0 50% / auto 100% repeat-x;
-}
-
-.entry-fullstack::before {
-  -webkit-mask-image: url("../img/spray-h-b.webp");
-  mask-image: url("../img/spray-h-b.webp");
-}
-
-.entry-ops::before {
-  -webkit-mask-image: url("../img/spray-h-c.webp");
-  mask-image: url("../img/spray-h-c.webp");
-}
-
-/* Study is a proposed dig: marked in white dashes, not yet dug. */
-.entry-study::before {
-  -webkit-mask: url("../img/spray-dash-h.webp") 0 50% / auto 100% repeat-x;
-  mask: url("../img/spray-dash-h.webp") 0 50% / auto 100% repeat-x;
+.opener + .entry {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .entry-meta {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 0.1rem 0.9rem;
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 0 1.4rem 1.25rem;
-  padding: 0.05rem 0.85rem 0.05rem 0.6rem;
-  background: var(--bg) url("../img/asphalt.webp");
+  column-gap: calc(var(--s) * 2);
+  font-family: var(--narrow);
+  line-height: 1.3;
 }
 
-/* The survey flag on the run, in the line's paint. */
+.entry-motif {
+  grid-row: span 2;
+  width: auto;
+  height: calc(var(--s) * 5);
+}
+
 .entry-kind {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  color: var(--tint);
-}
-
-/* Offset the waves so neighbouring flags never move together. */
-.entry:nth-child(3n + 2) {
-  --i: 1;
-}
-
-.entry:nth-child(3n) {
-  --i: 2;
-}
-
-.entry-kind .flag {
-  width: 0.85rem;
-  height: 1.45rem;
-  margin-top: -0.9rem;
-  color: var(--paint);
-  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--red);
 }
 
 .entry-date {
-  color: var(--text-muted);
+  color: var(--thread-soft);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .entry-body {
-  max-width: 46rem;
-}
-
-.entry-place {
-  margin: -1rem 0 1.25rem;
-  font-size: 0.92rem;
-  color: var(--text-dim);
+  display: grid;
+  gap: calc(var(--s) * 2);
+  max-width: var(--measure);
 }
 
 .entry-title {
   font-size: var(--step-2);
-  font-weight: 600;
-  margin-bottom: 0.2rem;
 }
 
 .entry-title a {
-  color: inherit;
-  text-decoration: underline;
   text-decoration-color: transparent;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  transition: text-decoration-color 0.35s var(--ease), color 0.35s var(--ease);
 }
 
 .entry-title a:hover,
 .entry-title a:focus-visible {
-  color: var(--tint);
-  text-decoration-color: var(--tint);
+  text-decoration-color: var(--red);
 }
 
 .entry-title .sub {
-  color: var(--text-dim);
-  font-weight: 400;
+  color: var(--thread-soft);
+  font-weight: 600;
 }
 
 .entry-role {
-  color: var(--tint);
-  font-size: var(--step-0);
-  font-weight: 500;
-  margin-bottom: 1.25rem;
+  margin-top: calc(var(--s) * -1);
+  font-weight: 700;
+}
+
+.entry-place {
+  color: var(--thread-soft);
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .entry-summary {
-  color: var(--text-muted);
-  max-width: var(--measure);
-  margin-bottom: 1.25rem;
+  color: var(--thread-soft);
 }
 
-.entry-points {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  max-width: var(--measure);
-  margin-bottom: 1.75rem;
+.entry .stitched-list a {
+  text-decoration-thickness: 2px;
 }
 
-.entry-points li {
-  position: relative;
-  padding-left: 1.4rem;
-  color: var(--text-muted);
+.entry .tags {
+  padding-top: var(--s);
 }
 
-.entry-points li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.72em;
-  width: 6px;
-  height: 2px;
-  background: var(--tint);
-}
-
-.entry-points strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.entry-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-top: 1.25rem;
-  padding-block: 0.4rem;
-  color: var(--tint);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.entry-link span {
-  transition: transform 0.25s var(--ease);
-}
-
-.entry-link:hover span {
-  transform: translateX(4px);
-}
-
-/* Skills --------------------------------------------------------------- */
-
-.skill-groups {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 2.5rem 3rem;
-}
-
-.skill-group h3 {
-  font-size: var(--step-0);
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 0.6rem;
-}
-
-@media (max-width: 820px) {
-  .container {
-    padding: 2.5rem 1.5rem 4rem;
+@media (max-width: 899px) {
+  .entry-body {
+    display: contents;
   }
 
-  header {
-    margin-bottom: 3rem;
-  }
-
-  .entry {
-    padding-bottom: 2.5rem;
-  }
-
-  /* As on the homepage: the tag sits just above the run, its flag staked
-     through the paint, so the line shows across the full width. */
-  .entry::before {
-    top: 1.45rem;
+  .entry-title {
+    order: -2;
   }
 
   .entry-meta {
-    margin: 0 0 2rem;
-    padding: 0;
-    background: none;
+    order: -1;
   }
 
-  .entry-kind .flag {
-    margin: 0 0 -1.2rem;
+  .entry-role {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .entry {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    column-gap: calc(var(--s) * 6);
   }
 
-  .section-block {
-    margin-bottom: 3.5rem;
+  .entry-meta {
+    align-self: start;
+    position: sticky;
+    top: calc(var(--s) * 3);
+    grid-template-columns: 1fr;
+    row-gap: calc(var(--s) * 1);
+    padding-top: calc(var(--s) * 1);
+  }
+
+  .entry-motif {
+    grid-row: auto;
+    height: calc(var(--s) * 9);
+    margin-bottom: var(--s);
+  }
+
+  .opener {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    column-gap: calc(var(--s) * 6);
+  }
+
+  .opener .band {
+    grid-column: 1 / -1;
+  }
+
+  .opener h2 {
+    grid-column: 2;
+  }
+}
+
+/* Skills */
+
+.skill-groups {
+  display: grid;
+  gap: calc(var(--s) * 3);
+}
+
+.skill-group {
+  display: grid;
+  gap: calc(var(--s) * 0.5);
+  padding-top: calc(var(--s) * 2);
+  border-top: 1px solid var(--rule);
+}
+
+.skill-group dt {
+  font-family: var(--narrow);
+  font-weight: 700;
+  color: var(--red);
+}
+
+@media (min-width: 900px) {
+  .skill-groups {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    column-gap: calc(var(--s) * 6);
+  }
+
+  .skill-group {
+    grid-column: 2;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 5fr);
+    column-gap: calc(var(--s) * 4);
+  }
+}
+
+@media print {
+  .entry-meta {
+    position: static;
+  }
+
+  .contents {
+    display: none;
   }
 }

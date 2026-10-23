@@ -8,417 +8,436 @@
       name="description"
       content="Five years of software work: the component library and frontend containers at UNIwise, open-source payments at Podkrepi.bg, Cloudflare deployments, and a 26-service homelab run like production."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500&family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="theme-color" content="#a8121e" />
+    <link rel="icon" href="img/stitch/motif-frontend.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/work.css" />
     <script src="js/posthog.js"></script>
-    <script src="js/dig.js" defer></script>
-    <script src="js/station.js" defer></script>
   </head>
   <body>
-    <div class="kerb" aria-hidden="true"><span class="kerb-station"></span></div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="band hem" aria-hidden="true"></div>
+
     <div class="container">
-      <header>
-        <a href="/" class="back-link"><span class="icon icon-back" aria-hidden="true"></span> Index</a>
-        <h1 class="work-projects-title">Work &amp; Projects</h1>
-        <p class="lede">
-          Five years of software, most of it spent on the unglamorous layer
-          underneath the product: component libraries, the containers and
-          pipelines that ship them, the servers I run myself, and the tests
-          that keep all of it honest.
-        </p>
+      <header class="site-header">
+        <a href="/" class="identity">
+          <span class="identity-name">Dimitar Nizamov</span>
+          <span class="identity-role">Software engineer · frontend, fullstack, DevOps</span>
+        </a>
+        <nav class="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="work.html" aria-current="page"><span class="nav-label">Work &amp; Projects</span></a></li>
+            <li><a href="about-me.html"><span class="nav-label">About me</span></a></li>
+            <li>
+              <a href="cv.pdf" target="_blank"
+                >Résumé <span class="nav-note">(PDF<span class="visually-hidden">, opens in a new tab</span>)</span></a
+              >
+            </li>
+          </ul>
+        </nav>
       </header>
 
-      <section class="section-block">
-        <p class="label rule-label">Experience</p>
-
-        <article class="entry entry-frontend" id="uniwise" data-station="2022">
-          <div class="entry-meta">
-            <span class="label entry-kind"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path class="stake" d="M3 2v38"/><path class="cloth" d="M4 3h17l-3 6 3 6H4z"/></svg>Frontend</span>
-            <span class="label entry-date">Feb 2022 — Present</span>
-          </div>
-          <div class="entry-body">
-            <h2 class="entry-title">
-              <a href="https://uniwise.eu/" target="_blank" rel="noopener noreferrer"
-                >UNIwise</a
-              >
-              <span class="sub">· WISEflow</span>
-            </h2>
-            <p class="entry-role">Part-Time Frontend Developer</p>
-            <p class="entry-place">Aarhus, Denmark</p>
-            <p class="entry-summary">
-              WISEflow is one of the largest digital assessment platforms in
-              Scandinavia and Europe, used by universities in Denmark, Norway,
-              the UK, Portugal, France and Spain.
-            </p>
-            <ul class="entry-points">
-              <li>
-                <strong
-                  >Own the shared React and TypeScript component library and
-                  design system</strong
-                >
-                — the core dependency of every frontend in the company,
-                consumed by 10 microfrontends and 15–20 engineers.
-              </li>
-              <li>
-                Leading its migration off Semantic UI React onto headless,
-                unstyled primitives built against a Figma design system, keeping
-                every existing application accessible to
-                <strong>WCAG 2.1 Level AA</strong> throughout.
-              </li>
-              <li>
-                Introduced the test suite from nothing: unit coverage in Vitest,
-                visual regression in Cypress.
-              </li>
-              <li>
-                Built and optimised the Docker containers our frontend repos
-                are published from to our cloud deployments, and made their
-                testing and linting steps faster, alongside the DevOps team.
-              </li>
-              <li>
-                Mentor interns and new frontend hires through code review,
-                technical guidance and package work.
-              </li>
+      <main id="main-content">
+        <header class="page-head">
+          <h1>Work &amp; Projects</h1>
+          <p class="lede">
+            Five years of software, most of it spent on the unglamorous layer
+            underneath the product: component libraries, the containers and
+            pipelines that ship them, the servers I run myself, and the tests
+            that keep all of it honest.
+          </p>
+          <nav class="contents" aria-label="On this page">
+            <ul>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#skills">Skills</a></li>
             </ul>
-            <div class="chips">
-              <span class="chip">React</span>
-              <span class="chip">TypeScript</span>
-              <span class="chip">Design Systems</span>
-              <span class="chip">Vite</span>
-              <span class="chip">Rollup</span>
-              <span class="chip">Storybook</span>
-              <span class="chip">Vitest</span>
-              <span class="chip">Cypress</span>
-              <span class="chip">Docker</span>
-            </div>
-          </div>
-        </article>
+          </nav>
+        </header>
 
-        <article class="entry entry-fullstack" id="podkrepi" data-station="2021">
-          <div class="entry-meta">
-            <span class="label entry-kind"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path class="stake" d="M3 2v38"/><path class="cloth" d="M4 3h17l-3 6 3 6H4z"/></svg>Fullstack</span>
-            <span class="label entry-date">Dec 2021 — May 2024</span>
+        <section class="section-block" aria-labelledby="experience">
+          <div class="opener">
+            <div class="band band-zigzag" aria-hidden="true"></div>
+            <h2 id="experience">Experience</h2>
           </div>
-          <div class="entry-body">
-            <h2 class="entry-title">
-              <a href="https://podkrepi.bg" target="_blank" rel="noopener noreferrer"
-                >Podkrepi.bg</a
-              >
-            </h2>
-            <p class="entry-role">
-              Volunteer Fullstack Developer · Open source
-            </p>
-            <p class="entry-place">Remote, Bulgaria</p>
-            <p class="entry-summary">
-              A transparent donation platform the Bulgarian IT community built
-              together, so anyone can list a campaign and see exactly where the
-              money goes.
-            </p>
-            <ul class="entry-points">
-              <li><strong>73 merged pull requests</strong> across frontend and backend.</li>
-              <li>
-                Engineered the primary payment process end to end — React and
-                Next.js on the front, Node.js, NestJS and Prisma behind it.
-              </li>
-              <li>Integrated Stripe for one-off card payments and recurring donations.</li>
-              <li>
-                Wrote the Cypress visual and smoke tests covering the whole
-                donation journey.
-              </li>
-            </ul>
-            <div class="chips">
-              <span class="chip">React</span>
-              <span class="chip">Next.js</span>
-              <span class="chip">NestJS</span>
-              <span class="chip">Prisma</span>
-              <span class="chip">Stripe</span>
-              <span class="chip">Cypress</span>
-            </div>
-            <a
-              href="https://podkrepi.bg"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="entry-link"
-              >Visit podkrepi.bg <span class="icon icon-forward" aria-hidden="true"></span></a
-            >
-          </div>
-        </article>
 
-        <article class="entry entry-frontend" data-station="2021">
-          <div class="entry-meta">
-            <span class="label entry-kind"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path class="stake" d="M3 2v38"/><path class="cloth" d="M4 3h17l-3 6 3 6H4z"/></svg>Frontend</span>
-            <span class="label entry-date">May 2021 — Sep 2021</span>
-          </div>
-          <div class="entry-body">
-            <h2 class="entry-title">
-              <a href="https://www.devasoft.bg/" target="_blank" rel="noopener noreferrer"
-                >Devasoft</a
-              >
-            </h2>
-            <p class="entry-role">Frontend Developer</p>
-            <p class="entry-place">Sofia, Bulgaria</p>
-            <p class="entry-summary">
-              A small software company in Sofia building a cloud provider
-              platform for the Asian market.
-            </p>
-            <ul class="entry-points">
-              <li>
-                <strong>Sole frontend engineer</strong> on the product, working
-                alongside three backend developers.
-              </li>
-              <li>
-                Initiated and built the administration panel from scratch in
-                React, TypeScript, Redux and React Bootstrap — it let admins
-                publish marketplace templates that customers provisioned virtual
-                machines from, much like DigitalOcean's.
-              </li>
-              <li>
-                Worked into the Python backend and the Ansible playbooks doing
-                the actual VM provisioning.
-              </li>
-            </ul>
-            <div class="chips">
-              <span class="chip">React</span>
-              <span class="chip">TypeScript</span>
-              <span class="chip">Redux</span>
-              <span class="chip">Python</span>
-              <span class="chip">Ansible</span>
+          <article class="entry" id="uniwise">
+            <div class="entry-meta">
+              <img class="entry-motif" src="img/stitch/motif-frontend.svg" width="36" height="36" alt="" />
+              <p class="entry-kind">Frontend</p>
+              <p class="entry-date">Feb 2022 — Present</p>
             </div>
-          </div>
-        </article>
+            <div class="entry-body">
+              <h3 class="entry-title">
+                <a href="https://uniwise.eu/" target="_blank" rel="noopener noreferrer">UNIwise</a>
+                <span class="sub">· WISEflow</span>
+              </h3>
+              <p class="entry-role">Part-Time Frontend Developer <span class="entry-place">· Aarhus, Denmark</span></p>
+              <p class="entry-summary">
+                WISEflow is one of the largest digital assessment platforms in
+                Scandinavia and Europe, used by universities in Denmark, Norway,
+                the UK, Portugal, France and Spain.
+              </p>
+              <ul class="stitched-list">
+                <li>
+                  <strong
+                    >Own the shared React and TypeScript component library and
+                    design system</strong
+                  >
+                  — the core dependency of every frontend in the company,
+                  consumed by 10 microfrontends and 15–20 engineers.
+                </li>
+                <li>
+                  Leading its migration off Semantic UI React onto headless,
+                  unstyled primitives built against a Figma design system, keeping
+                  every existing application accessible to
+                  <strong>WCAG 2.1 Level AA</strong> throughout.
+                </li>
+                <li>
+                  Introduced the test suite from nothing: unit coverage in Vitest,
+                  visual regression in Cypress.
+                </li>
+                <li>
+                  Built and optimised the Docker containers our frontend repos
+                  are published from, and made their testing and linting steps
+                  faster, alongside the DevOps team.
+                </li>
+                <li>
+                  Mentor interns and new frontend hires through code review,
+                  technical guidance and package work.
+                </li>
+              </ul>
+              <ul class="tags" aria-label="Tools">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Design Systems</li>
+                <li>Vite</li>
+                <li>Rollup</li>
+                <li>Storybook</li>
+                <li>Vitest</li>
+                <li>Cypress</li>
+                <li>Docker</li>
+              </ul>
+            </div>
+          </article>
 
-        <article class="entry entry-frontend" data-station="2020">
-          <div class="entry-meta">
-            <span class="label entry-kind"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path class="stake" d="M3 2v38"/><path class="cloth" d="M4 3h17l-3 6 3 6H4z"/></svg>Frontend</span>
-            <span class="label entry-date">Nov 2020 — May 2021</span>
-          </div>
-          <div class="entry-body">
-            <h2 class="entry-title">
-              <a href="https://www.klevret.com/" target="_blank" rel="noopener noreferrer"
-                >Klevret</a
-              >
-            </h2>
-            <p class="entry-role">Junior Frontend Developer</p>
-            <p class="entry-place">Blagoevgrad, Bulgaria</p>
-            <p class="entry-summary">
-              An outsourcing shop in Blagoevgrad, building mostly for UK
-              clients. My first job in the industry.
-            </p>
-            <ul class="entry-points">
-              <li>
-                Built the CSS and JavaScript for Umbraco themes and custom sites
-                on large, deeply nested SCSS architectures.
-              </li>
-              <li>
-                jQuery and C# templating for most of it; Vue and React where the
-                interaction needed to be richer.
-              </li>
-            </ul>
-            <div class="chips">
-              <span class="chip">SCSS</span>
-              <span class="chip">jQuery</span>
-              <span class="chip">Vue</span>
-              <span class="chip">Umbraco</span>
-              <span class="chip">C#</span>
+          <article class="entry" id="podkrepi">
+            <div class="entry-meta">
+              <img class="entry-motif" src="img/stitch/motif-fullstack.svg" width="36" height="44" alt="" />
+              <p class="entry-kind">Fullstack</p>
+              <p class="entry-date">Dec 2021 — May 2024</p>
             </div>
-          </div>
-        </article>
-      </section>
+            <div class="entry-body">
+              <h3 class="entry-title">
+                <a href="https://podkrepi.bg" target="_blank" rel="noopener noreferrer">Podkrepi.bg</a>
+              </h3>
+              <p class="entry-role">Volunteer Fullstack Developer · Open source <span class="entry-place">· Remote, Bulgaria</span></p>
+              <p class="entry-summary">
+                A transparent donation platform the Bulgarian IT community built
+                together, so anyone can list a campaign and see exactly where the
+                money goes.
+              </p>
+              <ul class="stitched-list">
+                <li>
+                  <a
+                    href="https://github.com/search?q=org%3Apodkrepi-bg+author%3Adimitur2204+is%3Apr+is%3Amerged&amp;type=pullrequests"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><strong>73 merged pull requests</strong></a
+                  >
+                  across frontend and backend.
+                </li>
+                <li>
+                  Engineered the primary payment process end to end — React and
+                  Next.js on the front, Node.js, NestJS and Prisma behind it.
+                </li>
+                <li>Integrated Stripe for one-off card payments and recurring donations.</li>
+                <li>
+                  Wrote the Cypress visual and smoke tests covering the whole
+                  donation journey.
+                </li>
+              </ul>
+              <ul class="tags" aria-label="Tools">
+                <li>React</li>
+                <li>Next.js</li>
+                <li>NestJS</li>
+                <li>Prisma</li>
+                <li>Stripe</li>
+                <li>Cypress</li>
+              </ul>
+            </div>
+          </article>
 
-      <section class="section-block">
-        <p class="label rule-label">Projects</p>
+          <article class="entry" id="devasoft">
+            <div class="entry-meta">
+              <img class="entry-motif" src="img/stitch/motif-frontend.svg" width="36" height="36" alt="" />
+              <p class="entry-kind">Frontend</p>
+              <p class="entry-date">May 2021 — Sep 2021</p>
+            </div>
+            <div class="entry-body">
+              <h3 class="entry-title">
+                <a href="https://www.devasoft.bg/" target="_blank" rel="noopener noreferrer">Devasoft</a>
+              </h3>
+              <p class="entry-role">Frontend Developer <span class="entry-place">· Sofia, Bulgaria</span></p>
+              <p class="entry-summary">
+                A small software company in Sofia building a cloud provider
+                platform for the Asian market.
+              </p>
+              <ul class="stitched-list">
+                <li>
+                  <strong>Sole frontend engineer</strong> on the product, working
+                  alongside three backend developers.
+                </li>
+                <li>
+                  Initiated and built the administration panel from scratch in
+                  React, TypeScript, Redux and React Bootstrap — it let admins
+                  publish marketplace templates that customers provisioned virtual
+                  machines from, much like DigitalOcean's.
+                </li>
+                <li>
+                  Worked into the Python backend and the Ansible playbooks doing
+                  the actual VM provisioning.
+                </li>
+              </ul>
+              <ul class="tags" aria-label="Tools">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Redux</li>
+                <li>Python</li>
+                <li>Ansible</li>
+              </ul>
+            </div>
+          </article>
 
-        <article id="chivou" class="entry entry-fullstack">
-          <div class="entry-meta">
-            <span class="label entry-kind"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path class="stake" d="M3 2v38"/><path class="cloth" d="M4 3h17l-3 6 3 6H4z"/></svg>Fullstack</span>
-            <span class="label entry-date">Startup client</span>
-          </div>
-          <div class="entry-body">
-            <h2 class="entry-title">Chivou</h2>
-            <p class="entry-role">Landing Page &amp; Onboarding Flow</p>
-            <p class="entry-place">Web</p>
-            <p class="entry-summary">
-              A responsive landing page and secure onboarding flow, built and
-              shipped for an early-stage startup.
-            </p>
-            <ul class="entry-points">
-              <li>
-                Architected the form submission pipeline as a serverless
-                function on Cloudflare Workers, so credentials stay server-side
-                and nothing sensitive is handled in the browser.
-              </li>
-              <li>
-                Used Airtable as the backing store, which kept the data
-                manageable for non-technical founders.
-              </li>
-              <li>
-                Deployed on Cloudflare straight from git: every push builds and
-                publishes the site, with no manual release step.
-              </li>
-              <li>
-                Routed PostHog analytics through a reverse proxy on a
-                Cloudflare Worker, on the project's own domain.
-              </li>
-            </ul>
-            <div class="chips">
-              <span class="chip">Cloudflare Workers</span>
-              <span class="chip">TypeScript</span>
-              <span class="chip">Airtable</span>
+          <article class="entry" id="klevret">
+            <div class="entry-meta">
+              <img class="entry-motif" src="img/stitch/motif-frontend.svg" width="36" height="36" alt="" />
+              <p class="entry-kind">Frontend</p>
+              <p class="entry-date">Nov 2020 — May 2021</p>
             </div>
-          </div>
-        </article>
+            <div class="entry-body">
+              <h3 class="entry-title">
+                <a href="https://www.klevret.com/" target="_blank" rel="noopener noreferrer">Klevret</a>
+              </h3>
+              <p class="entry-role">Junior Frontend Developer <span class="entry-place">· Blagoevgrad, Bulgaria</span></p>
+              <p class="entry-summary">
+                An outsourcing shop in Blagoevgrad, building mostly for UK
+                clients. My first job in the industry.
+              </p>
+              <ul class="stitched-list">
+                <li>
+                  Built the CSS and JavaScript for Umbraco themes and custom sites
+                  on large, deeply nested SCSS architectures.
+                </li>
+                <li>
+                  jQuery and C# templating for most of it; Vue and React where the
+                  interaction needed to be richer.
+                </li>
+              </ul>
+              <ul class="tags" aria-label="Tools">
+                <li>SCSS</li>
+                <li>jQuery</li>
+                <li>Vue</li>
+                <li>Umbraco</li>
+                <li>C#</li>
+              </ul>
+            </div>
+          </article>
+        </section>
 
-        <article class="entry entry-ops" id="homelab" data-station="2024">
-          <div class="entry-meta">
-            <span class="label entry-kind"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path class="stake" d="M3 2v38"/><path class="cloth" d="M4 3h17l-3 6 3 6H4z"/></svg>Operations</span>
-            <span class="label entry-date">Ongoing</span>
+        <section class="section-block" aria-labelledby="projects">
+          <div class="opener">
+            <div class="band band-zigzag" aria-hidden="true"></div>
+            <h2 id="projects">Projects</h2>
           </div>
-          <div class="entry-body">
-            <h2 class="entry-title">Homelab</h2>
-            <p class="entry-role">26 services on Debian, run like production</p>
-            <p class="entry-place">Self-hosted</p>
-            <p class="entry-summary">
-              The place I get to be my own ops team, and where most of what I
-              know about Docker, networking and Linux actually came from. The
-              whole setup lives in one repository, with about 130 commits since
-              September 2024.
-            </p>
-            <ul class="entry-points">
-              <li>
-                <strong>26 Docker Compose stacks</strong>, Nextcloud, Immich,
-                Home Assistant and a Forgejo git server among them, behind
-                Nginx Proxy Manager, with AdGuard Home as the network's DNS.
-              </li>
-              <li>
-                Tailscale for private access, VPN containers for outbound
-                traffic, and a VPN on the home router itself.
-              </li>
-              <li>
-                Nightly Borg backups written in TypeScript on Bun: each run stops
-                the affected stacks in dependency order, backs up, restarts them
-                and checks they came back. A weekly job restore-tests the latest
-                archive and integrity-checks the databases inside it.
-              </li>
-              <li>
-                Grafana, InfluxDB, Beszel and Scrutiny for metrics and disk
-                health; Healthchecks.io and ntfy alert me when a job fails.
-              </li>
-              <li>
-                GitHub Actions validates every Compose file, shellchecks the
-                scripts, lints the workflows and runs the tool tests. Actions
-                are pinned to commit SHAs and kept current by Dependabot.
-              </li>
-            </ul>
-            <div class="chips">
-              <span class="chip">Debian</span>
-              <span class="chip">Docker Compose</span>
-              <span class="chip">Nginx Proxy Manager</span>
-              <span class="chip">AdGuard Home</span>
-              <span class="chip">Tailscale</span>
-              <span class="chip">Borg</span>
-              <span class="chip">Bun</span>
-              <span class="chip">GitHub Actions</span>
-              <span class="chip">Grafana</span>
-            </div>
-          </div>
-        </article>
-      </section>
 
-      <section class="section-block">
-        <p class="label rule-label">Education</p>
+          <article class="entry" id="chivou">
+            <div class="entry-meta">
+              <img class="entry-motif" src="img/stitch/motif-fullstack.svg" width="36" height="44" alt="" />
+              <p class="entry-kind">Fullstack</p>
+              <p class="entry-date">Startup client</p>
+            </div>
+            <div class="entry-body">
+              <h3 class="entry-title">Chivou</h3>
+              <p class="entry-role">Landing Page &amp; Onboarding Flow <span class="entry-place">· Web</span></p>
+              <p class="entry-summary">
+                A responsive landing page and secure onboarding flow, built and
+                shipped for an early-stage startup.
+              </p>
+              <ul class="stitched-list">
+                <li>
+                  Architected the form submission pipeline as a serverless
+                  function on Cloudflare Workers, so credentials stay server-side
+                  and nothing sensitive is handled in the browser.
+                </li>
+                <li>
+                  Used Airtable as the backing store, which kept the data
+                  manageable for non-technical founders.
+                </li>
+                <li>
+                  Deployed on Cloudflare straight from git: every push builds and
+                  publishes the site, with no manual release step.
+                </li>
+                <li>
+                  Routed PostHog analytics through a reverse proxy on a
+                  Cloudflare Worker, on the project's own domain.
+                </li>
+              </ul>
+              <ul class="tags" aria-label="Tools">
+                <li>Cloudflare Workers</li>
+                <li>TypeScript</li>
+                <li>Airtable</li>
+              </ul>
+            </div>
+          </article>
 
-        <article class="entry entry-study" data-station="2023">
-          <div class="entry-meta">
-            <span class="label entry-kind"><svg class="flag" viewBox="0 0 24 40" aria-hidden="true"><path class="stake" d="M3 2v38"/><path class="cloth" d="M4 3h17l-3 6 3 6H4z"/></svg>Study</span>
-            <span class="label entry-date">Sep 2023 — Jan 2027</span>
-          </div>
-          <div class="entry-body">
-            <h2 class="entry-title">VIA University College</h2>
-            <p class="entry-role">
-              BEng Software Technology Engineering · ~10.4/12
-            </p>
-            <p class="entry-place">Horsens, Denmark</p>
-            <ul class="entry-points">
-              <li>
-                Bachelor's project with the radiology department at
-                <strong>Aarhus University Hospital</strong>, applying machine
-                learning to medical imaging to relate organ health to biological
-                age.
-              </li>
-              <li>
-                Coursework and hands-on projects weighted toward embedded C,
-                databases and backend systems — deliberately the parts of the
-                stack furthest from my day job.
-              </li>
-            </ul>
-            <div class="chips">
-              <span class="chip">C</span>
-              <span class="chip">Python</span>
-              <span class="chip">Machine Learning</span>
-              <span class="chip">Databases</span>
+          <article class="entry" id="homelab">
+            <div class="entry-meta">
+              <img class="entry-motif" src="img/stitch/motif-ops.svg" width="36" height="36" alt="" />
+              <p class="entry-kind">Operations</p>
+              <p class="entry-date">Ongoing</p>
             </div>
-          </div>
-        </article>
-      </section>
+            <div class="entry-body">
+              <h3 class="entry-title">Homelab</h3>
+              <p class="entry-role">26 services on Debian, run like production <span class="entry-place">· Self-hosted</span></p>
+              <p class="entry-summary">
+                The place I get to be my own ops team, and where most of what I
+                know about Docker, networking and Linux actually came from. The
+                whole setup lives in one repository, with about 130 commits since
+                September 2024.
+              </p>
+              <ul class="stitched-list">
+                <li>
+                  <strong>26 Docker Compose stacks</strong>, Nextcloud, Immich,
+                  Home Assistant and a Forgejo git server among them, behind
+                  Nginx Proxy Manager, with AdGuard Home as the network's DNS.
+                </li>
+                <li>
+                  Tailscale for private access, VPN containers for outbound
+                  traffic, and a VPN on the home router itself.
+                </li>
+                <li>
+                  Nightly Borg backups written in TypeScript on Bun: each run stops
+                  the affected stacks in dependency order, backs up, restarts them
+                  and checks they came back. A weekly job restore-tests the latest
+                  archive and integrity-checks the databases inside it.
+                </li>
+                <li>
+                  Grafana, InfluxDB, Beszel and Scrutiny for metrics and disk
+                  health; Healthchecks.io and ntfy alert me when a job fails.
+                </li>
+                <li>
+                  GitHub Actions validates every Compose file, shellchecks the
+                  scripts, lints the workflows and runs the tool tests. Actions
+                  are pinned to commit SHAs and kept current by Dependabot.
+                </li>
+              </ul>
+              <ul class="tags" aria-label="Tools">
+                <li>Debian</li>
+                <li>Docker Compose</li>
+                <li>Nginx Proxy Manager</li>
+                <li>AdGuard Home</li>
+                <li>Tailscale</li>
+                <li>Borg</li>
+                <li>Bun</li>
+                <li>GitHub Actions</li>
+                <li>Grafana</li>
+              </ul>
+            </div>
+          </article>
+        </section>
 
-      <section class="section-block">
-        <p class="label rule-label">Skills</p>
-        <div class="skill-groups">
-          <div class="skill-group">
-            <h3>Core</h3>
-            <div class="chips">
-              <span class="chip">TypeScript</span>
-              <span class="chip">React</span>
-              <span class="chip">Next.js</span>
-              <span class="chip">HTML &amp; CSS</span>
-              <span class="chip">Redux</span>
-              <span class="chip">TanStack</span>
-            </div>
+        <section class="section-block" aria-labelledby="education">
+          <div class="opener">
+            <div class="band band-zigzag" aria-hidden="true"></div>
+            <h2 id="education">Education</h2>
           </div>
-          <div class="skill-group">
-            <h3>Testing</h3>
-            <div class="chips">
-              <span class="chip">Vitest</span>
-              <span class="chip">Playwright</span>
-              <span class="chip">Cypress</span>
-              <span class="chip">React Testing Library</span>
-              <span class="chip">Jest</span>
+
+          <article class="entry" id="via">
+            <div class="entry-meta">
+              <img class="entry-motif" src="img/stitch/motif-study.svg" width="28" height="36" alt="" />
+              <p class="entry-kind">Study</p>
+              <p class="entry-date">Sep 2023 — Jan 2027</p>
             </div>
-          </div>
-          <div class="skill-group">
-            <h3>Build &amp; Tooling</h3>
-            <div class="chips">
-              <span class="chip">Vite</span>
-              <span class="chip">Rollup</span>
-              <span class="chip">Webpack</span>
-              <span class="chip">Storybook</span>
-              <span class="chip">Git</span>
-              <span class="chip">Figma</span>
+            <div class="entry-body">
+              <h3 class="entry-title">VIA University College</h3>
+              <p class="entry-role">
+                BEng Software Technology Engineering · ~10.4/12
+                <span class="entry-place">· Horsens, Denmark</span>
+              </p>
+              <ul class="stitched-list">
+                <li>
+                  Bachelor's project with the radiology department at
+                  <strong>Aarhus University Hospital</strong>, applying machine
+                  learning to medical imaging to relate organ health to biological
+                  age.
+                </li>
+                <li>
+                  Coursework and hands-on projects weighted toward embedded C,
+                  databases and backend systems — deliberately the parts of the
+                  stack furthest from my day job.
+                </li>
+              </ul>
+              <ul class="tags" aria-label="Subjects">
+                <li>C</li>
+                <li>Python</li>
+                <li>Machine Learning</li>
+                <li>Databases</li>
+              </ul>
             </div>
+          </article>
+        </section>
+
+        <section class="section-block" aria-labelledby="skills">
+          <div class="opener">
+            <div class="band band-zigzag" aria-hidden="true"></div>
+            <h2 id="skills">Skills</h2>
           </div>
-          <div class="skill-group">
-            <h3>Platform</h3>
-            <div class="chips">
-              <span class="chip">Docker</span>
-              <span class="chip">Linux</span>
-              <span class="chip">Python</span>
-              <span class="chip">C</span>
+          <dl class="skill-groups">
+            <div class="skill-group">
+              <dt>Core</dt>
+              <dd>TypeScript, React, Next.js, HTML &amp; CSS, Redux, TanStack</dd>
             </div>
-          </div>
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <div class="chips">
-              <span class="chip">Bulgarian — native</span>
-              <span class="chip">English — fluent</span>
+            <div class="skill-group">
+              <dt>Testing</dt>
+              <dd>Vitest, Playwright, Cypress, React Testing Library, Jest</dd>
             </div>
-          </div>
-        </div>
-      </section>
+            <div class="skill-group">
+              <dt>Build &amp; Tooling</dt>
+              <dd>Vite, Rollup, Webpack, Storybook, Git, Figma</dd>
+            </div>
+            <div class="skill-group">
+              <dt>Platform</dt>
+              <dd>Docker, Linux, Python, C</dd>
+            </div>
+            <div class="skill-group">
+              <dt>Languages</dt>
+              <dd>Bulgarian — native<br />English — fluent</dd>
+            </div>
+          </dl>
+        </section>
+      </main>
     </div>
+
+    <footer class="site-footer">
+      <div class="band band-on-red" aria-hidden="true"></div>
+      <div class="container footer-body">
+        <a class="footer-email" href="mailto:dimitur2204@gmail.com">dimitur2204@gmail.com</a>
+        <ul class="footer-links">
+          <li><a href="https://github.com/dimitur2204" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/dimitar-nizamov-9180121a2/" target="_blank" rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+          </li>
+          <li><a href="cv.pdf" target="_blank">Résumé (PDF)</a></li>
+        </ul>
+        <p class="footer-status">
+          Aarhus, Denmark · EU citizen, open to relocation · BEng at VIA until
+          Jan 2027
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

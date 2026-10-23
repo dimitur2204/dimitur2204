@@ -1,252 +1,95 @@
-.container {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 4rem 2rem 6rem;
-  position: relative;
-  z-index: 1;
+/* About ------------------------------------------------------------------ */
+
+.page-head {
+  display: grid;
+  gap: calc(var(--s) * 3);
+  padding-block: calc(var(--s) * 5) calc(var(--s) * 10);
 }
 
-/* Header --------------------------------------------------------------- */
-
-header {
-  margin-bottom: 4rem;
-}
-
-h1 {
+.page-head h1 {
+  view-transition-name: title-about;
+  width: fit-content;
   font-size: var(--step-4);
-  font-weight: 800;
-  margin-top: 1.75rem;
+  line-height: 0.94;
+  letter-spacing: -0.015em;
 }
-
-/* Lede ----------------------------------------------------------------- */
 
 .lede {
-  position: relative;
-  font-size: var(--step-3);
-  font-weight: 500;
+  max-width: 34ch;
+  font-family: var(--narrow);
+  font-size: var(--step-2);
+  font-weight: 700;
   line-height: 1.3;
-  letter-spacing: -0.02em;
-  max-width: 22ch;
-  padding-top: 2.5rem;
-  margin-bottom: 4.5rem;
-}
-
-.lede::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2.5rem;
-  height: 3px;
-  border-radius: 2px;
-  background: var(--locate-dig);
 }
 
 .lede em {
   font-style: normal;
-  color: var(--text-dim);
+  color: var(--red);
 }
-
-/* Two-column body ------------------------------------------------------ */
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 17rem);
-  gap: 5rem;
-  align-items: start;
+  gap: calc(var(--s) * 8);
 }
 
-/* The long read sits on a poured-concrete slab: dark ink on a light
-   surface, the most comfortable contrast on the site. */
 .prose {
   max-width: var(--measure);
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  padding: 2.5rem;
-  background: var(--concrete) url("../img/concrete-slab.webp");
-  box-shadow: inset 0 1px 0 #f1efe9, 0 0.5rem 1.25rem -0.4rem rgba(0, 0, 0, 0.6);
 }
 
-.prose p {
-  color: var(--concrete-muted);
-  font-size: var(--step-1);
-  line-height: 1.7;
-}
-
-.prose p:first-child {
-  color: var(--concrete-ink);
-}
-
-.prose strong {
-  color: var(--concrete-ink);
-  font-weight: 700;
-}
-
-.prose a {
-  color: var(--concrete-ink);
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: var(--concrete-muted);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
-}
-
-.prose a:hover {
-  text-decoration-color: var(--concrete-ink);
-}
-
-.prose ::selection {
-  background: var(--concrete-ink);
-  color: var(--concrete);
-}
-
-/* Neovim, btw. */
-.neovim {
-  color: var(--concrete-ink);
-  font-weight: 700;
-  transition: color 0.25s var(--ease);
-}
-
-.neovim:hover {
-  color: #2f6b22;
-}
-
-/* Facts rail ----------------------------------------------------------- */
-
-.rail {
-  position: sticky;
-  top: 4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  font-size: 0.95rem;
-}
-
-/* Rail labels are plain text, not locate tags. */
-.rail .label {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--text-muted);
-}
-
-.fact {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  padding-left: 1rem;
-  border-left: 1px solid var(--line);
-}
-
-.fact-value {
-  color: var(--text);
-  line-height: 1.45;
-}
-
-.fact-value .muted {
-  color: var(--text-dim);
-}
-
-.rail-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-
-.rail-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  width: fit-content;
-  transition: color 0.25s var(--ease);
-}
-
-.rail-links a[target="_blank"]::after {
-  content: "";
-  width: 0.8em;
-  height: 0.8em;
-  background: var(--text-dim);
-  -webkit-mask: url("../img/icons/arrow-up-right.svg") center / contain no-repeat;
-  mask: url("../img/icons/arrow-up-right.svg") center / contain no-repeat;
-  transition: transform 0.25s var(--ease), background 0.25s var(--ease);
-}
-
-.rail-links a:hover {
-  color: var(--accent);
-}
-
-.rail-links a[target="_blank"]:hover::after {
-  background: var(--accent);
-  transform: translate(2px, -2px);
-}
-
-/* Contact -------------------------------------------------------------- */
-
-.contact {
-  margin-top: 6rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--line);
-}
-
-.contact-email {
-  display: inline-block;
-  margin: 1rem 0 0.75rem;
-  font-size: var(--step-2);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  transition: text-decoration-color 0.35s var(--ease), color 0.35s var(--ease);
-}
-
-.contact-email:hover,
-.contact-email:focus-visible {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
+.prose p + p {
+  margin-top: calc(var(--s) * 3);
 }
 
 .contact-note {
-  color: var(--text-dim);
-  max-width: 52ch;
+  padding-top: calc(var(--s) * 3);
+  border-top: 1px solid var(--rule);
+  font-weight: 600;
 }
 
-/* Arriving from the index the heading flies in, so the page itself only fades. */
-::view-transition-new(root) {
-  animation: vt-fade-in 0.4s var(--ease) 0.1s both;
+.facts dl {
+  display: grid;
+  gap: calc(var(--s) * 3);
 }
 
-@media (max-width: 860px) {
-  .container {
-    padding: 2.5rem 1.5rem 4rem;
-  }
+.fact {
+  display: grid;
+  gap: calc(var(--s) * 0.5);
+  padding-top: calc(var(--s) * 2);
+  border-top: 1px solid var(--rule);
+}
 
-  header {
-    margin-bottom: 2.5rem;
-  }
+.fact dt {
+  font-family: var(--narrow);
+  font-weight: 700;
+  color: var(--red);
+}
 
-  .lede {
-    max-width: none;
-    margin-bottom: 3rem;
-  }
+.fact dd {
+  font-weight: 600;
+  line-height: 1.4;
+}
 
+.fact .muted {
+  display: block;
+  color: var(--thread-soft);
+  font-weight: 400;
+}
+
+.fact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 calc(var(--s) * 3);
+}
+
+@media (min-width: 900px) {
   .about-grid {
-    grid-template-columns: 1fr;
-    gap: 3.5rem;
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    column-gap: calc(var(--s) * 10);
   }
 
-  .rail {
-    position: static;
-  }
-
-  .prose {
-    padding: 1.5rem;
+  .facts {
+    align-self: start;
+    position: sticky;
+    top: calc(var(--s) * 3);
   }
 }
