@@ -47,7 +47,11 @@ test("the homepage explains the speciality before visitors choose a page", () =>
   const html = readPage("index.html");
   const heading = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
   assert.ok(heading, "The homepage needs an actual page heading");
-  assert.match(plainText(heading), /I build the layer other developers build on\./);
+  assert.match(plainText(heading), /Dimitar/);
+  const intro = html.match(/<section class="intro"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(intro, "The homepage needs an intro");
+  assert.match(plainText(intro), /software engineer/);
+  assert.match(plainText(intro), /component library/);
   assert.match(html, /work.html#uniwise/);
   assert.match(html, /work.html#podkrepi/);
   assert.match(plainText(html), /10 microfrontends/);

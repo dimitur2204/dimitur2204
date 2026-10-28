@@ -6,13 +6,17 @@
     <title>Dimitar Nizamov — Software Engineer</title>
     <meta
       name="description"
-      content="Dimitar Nizamov, software engineer in Aarhus, Denmark. Five years of building the layer other developers build on: a shared React component library, frontend containers and CI, payments end to end, and a 26-service homelab."
+      content="Dimitar Nizamov, a software engineer in Aarhus, originally from Bulgaria. Days on the component library behind WISEflow's frontends, evenings on a homelab of self-hosted services."
     />
     <meta name="theme-color" content="#a8121e" />
     <link rel="icon" href="img/stitch/motif-frontend.svg" type="image/svg+xml" />
+    <link rel="preload" href="fonts/sofia-sans-condensed-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/sofia-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/posthog.js"></script>
+    <script src="js/posthog.js" defer></script>
+    <script src="js/site.js" defer></script>
+    <script src="js/motifs.js" defer blocking="render"></script>
     <link rel="prefetch" href="work.html" />
     <link rel="prefetch" href="about-me.html" />
   </head>
@@ -41,12 +45,12 @@
 
       <main id="main-content">
         <section class="intro" aria-labelledby="intro-title">
-          <h1 id="intro-title">I build the layer other developers build on.</h1>
+          <h1 id="intro-title">Hi, I'm Dimitar.</h1>
           <p class="lede">
-            Five years of it so far: the component library every WISEflow
-            frontend depends on, the containers our frontends ship in, a
-            payment flow end to end, and 26 self-hosted services I run as my
-            own ops team.
+            A software engineer in Aarhus, originally from Bulgaria. My days go
+            to the component library behind WISEflow's frontends, my evenings
+            to a home server that always needs something. I'm finishing my BEng
+            at VIA in January 2027.
           </p>
         </section>
 
@@ -69,19 +73,16 @@
             <li class="discipline">
               <img class="motif" src="img/stitch/motif-fullstack.svg" width="72" height="88" alt="" />
               <h3><a href="work.html#podkrepi">Payments, end to end</a></h3>
-              <p class="discipline-meta">Podkrepi.bg · open source, 2021–2024 · <span class="metric">73 merged PRs</span></p>
+              <p class="discipline-meta">Podkrepi.bg · open source, 2021–2024 · <a class="metric"
+                href="https://github.com/search?q=org%3Apodkrepi-bg+author%3Adimitur2204+is%3Apr+is%3Amerged&amp;type=pullrequests"
+                target="_blank"
+                rel="noopener noreferrer"
+							>73 merged PRs</a></p>
               <p>
                 The donation payment flow of an open-source charity platform:
                 Next.js on the front, NestJS and Prisma behind it, Stripe for
                 one-off and recurring gifts.
               </p>
-              <a
-                class="discipline-source"
-                href="https://github.com/search?q=org%3Apodkrepi-bg+author%3Adimitur2204+is%3Apr+is%3Amerged&amp;type=pullrequests"
-                target="_blank"
-                rel="noopener noreferrer"
-                >73 merged pull requests on GitHub<span class="visually-hidden"> (opens in a new tab)</span></a
-              >
             </li>
             <li class="discipline">
               <img class="motif" src="img/stitch/motif-ops.svg" width="72" height="72" alt="" />
@@ -102,15 +103,21 @@
     <footer class="site-footer">
       <div class="band band-on-red" aria-hidden="true"></div>
       <div class="container footer-body">
-        <a class="footer-email" href="mailto:dimitur2204@gmail.com">dimitur2204@gmail.com</a>
+        <div class="footer-contact">
+          <a class="footer-email" href="mailto:dimitur2204@gmail.com">dimitur2204@gmail.com</a>
+          <button type="button" class="link-button copy-email" data-copy="dimitur2204@gmail.com" hidden>
+            <span class="copy-label">Copy address</span>
+          </button>
+          <span class="visually-hidden" aria-live="polite" data-copy-status></span>
+        </div>
         <ul class="footer-links">
-          <li><a href="https://github.com/dimitur2204" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://github.com/dimitur2204" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li>
           <li>
             <a href="https://www.linkedin.com/in/dimitar-nizamov-9180121a2/" target="_blank" rel="noopener noreferrer"
-              >LinkedIn</a
+              >LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a
             >
           </li>
-          <li><a href="cv.pdf" target="_blank">Résumé (PDF)</a></li>
+          <li><a href="cv.pdf" target="_blank">Résumé (PDF)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
         </ul>
         <p class="footer-status">
           Aarhus, Denmark · EU citizen, open to relocation · BEng at VIA until

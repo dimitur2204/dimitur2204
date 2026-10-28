@@ -10,9 +10,13 @@
     />
     <meta name="theme-color" content="#a8121e" />
     <link rel="icon" href="img/stitch/motif-frontend.svg" type="image/svg+xml" />
+    <link rel="preload" href="fonts/sofia-sans-condensed-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/sofia-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/work.css" />
-    <script src="js/posthog.js"></script>
+    <script src="js/posthog.js" defer></script>
+    <script src="js/site.js" defer></script>
+    <script src="js/motifs.js" defer blocking="render"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -66,11 +70,11 @@
             <div class="entry-meta">
               <img class="entry-motif" src="img/stitch/motif-frontend.svg" width="36" height="36" alt="" />
               <p class="entry-kind">Frontend</p>
-              <p class="entry-date">Feb 2022 — Present</p>
+              <p class="entry-date">Feb 2022&thinsp;–&thinsp;Present</p>
             </div>
             <div class="entry-body">
               <h3 class="entry-title">
-                <a href="https://uniwise.eu/" target="_blank" rel="noopener noreferrer">UNIwise</a>
+                <a href="https://uniwise.eu/" target="_blank" rel="noopener noreferrer">UNIwise<span class="visually-hidden"> (opens in a new tab)</span></a>
                 <span class="sub">· WISEflow</span>
               </h3>
               <p class="entry-role">Part-Time Frontend Developer <span class="entry-place">· Aarhus, Denmark</span></p>
@@ -126,11 +130,11 @@
             <div class="entry-meta">
               <img class="entry-motif" src="img/stitch/motif-fullstack.svg" width="36" height="44" alt="" />
               <p class="entry-kind">Fullstack</p>
-              <p class="entry-date">Dec 2021 — May 2024</p>
+              <p class="entry-date">Dec 2021&thinsp;–&thinsp;May 2024</p>
             </div>
             <div class="entry-body">
               <h3 class="entry-title">
-                <a href="https://podkrepi.bg" target="_blank" rel="noopener noreferrer">Podkrepi.bg</a>
+                <a href="https://podkrepi.bg" target="_blank" rel="noopener noreferrer">Podkrepi.bg<span class="visually-hidden"> (opens in a new tab)</span></a>
               </h3>
               <p class="entry-role">Volunteer Fullstack Developer · Open source <span class="entry-place">· Remote, Bulgaria</span></p>
               <p class="entry-summary">
@@ -144,7 +148,7 @@
                     href="https://github.com/search?q=org%3Apodkrepi-bg+author%3Adimitur2204+is%3Apr+is%3Amerged&amp;type=pullrequests"
                     target="_blank"
                     rel="noopener noreferrer"
-                    ><strong>73 merged pull requests</strong></a
+                    ><strong>73 merged pull requests</strong><span class="visually-hidden"> (opens in a new tab)</span></a
                   >
                   across frontend and backend.
                 </li>
@@ -173,11 +177,11 @@
             <div class="entry-meta">
               <img class="entry-motif" src="img/stitch/motif-frontend.svg" width="36" height="36" alt="" />
               <p class="entry-kind">Frontend</p>
-              <p class="entry-date">May 2021 — Sep 2021</p>
+              <p class="entry-date">May 2021&thinsp;–&thinsp;Sep 2021</p>
             </div>
             <div class="entry-body">
               <h3 class="entry-title">
-                <a href="https://www.devasoft.bg/" target="_blank" rel="noopener noreferrer">Devasoft</a>
+                <a href="https://www.devasoft.bg/" target="_blank" rel="noopener noreferrer">Devasoft<span class="visually-hidden"> (opens in a new tab)</span></a>
               </h3>
               <p class="entry-role">Frontend Developer <span class="entry-place">· Sofia, Bulgaria</span></p>
               <p class="entry-summary">
@@ -214,11 +218,11 @@
             <div class="entry-meta">
               <img class="entry-motif" src="img/stitch/motif-frontend.svg" width="36" height="36" alt="" />
               <p class="entry-kind">Frontend</p>
-              <p class="entry-date">Nov 2020 — May 2021</p>
+              <p class="entry-date">Nov 2020&thinsp;–&thinsp;May 2021</p>
             </div>
             <div class="entry-body">
               <h3 class="entry-title">
-                <a href="https://www.klevret.com/" target="_blank" rel="noopener noreferrer">Klevret</a>
+                <a href="https://www.klevret.com/" target="_blank" rel="noopener noreferrer">Klevret<span class="visually-hidden"> (opens in a new tab)</span></a>
               </h3>
               <p class="entry-role">Junior Frontend Developer <span class="entry-place">· Blagoevgrad, Bulgaria</span></p>
               <p class="entry-summary">
@@ -358,7 +362,7 @@
             <div class="entry-meta">
               <img class="entry-motif" src="img/stitch/motif-study.svg" width="28" height="36" alt="" />
               <p class="entry-kind">Study</p>
-              <p class="entry-date">Sep 2023 — Jan 2027</p>
+              <p class="entry-date">Sep 2023&thinsp;–&thinsp;Jan 2027</p>
             </div>
             <div class="entry-body">
               <h3 class="entry-title">VIA University College</h3>
@@ -423,15 +427,21 @@
     <footer class="site-footer">
       <div class="band band-on-red" aria-hidden="true"></div>
       <div class="container footer-body">
-        <a class="footer-email" href="mailto:dimitur2204@gmail.com">dimitur2204@gmail.com</a>
+        <div class="footer-contact">
+          <a class="footer-email" href="mailto:dimitur2204@gmail.com">dimitur2204@gmail.com</a>
+          <button type="button" class="link-button copy-email" data-copy="dimitur2204@gmail.com" hidden>
+            <span class="copy-label">Copy address</span>
+          </button>
+          <span class="visually-hidden" aria-live="polite" data-copy-status></span>
+        </div>
         <ul class="footer-links">
-          <li><a href="https://github.com/dimitur2204" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://github.com/dimitur2204" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li>
           <li>
             <a href="https://www.linkedin.com/in/dimitar-nizamov-9180121a2/" target="_blank" rel="noopener noreferrer"
-              >LinkedIn</a
+              >LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a
             >
           </li>
-          <li><a href="cv.pdf" target="_blank">Résumé (PDF)</a></li>
+          <li><a href="cv.pdf" target="_blank">Résumé (PDF)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
         </ul>
         <p class="footer-status">
           Aarhus, Denmark · EU citizen, open to relocation · BEng at VIA until

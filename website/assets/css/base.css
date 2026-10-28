@@ -36,6 +36,40 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* Fallbacks drawn from the visitor's own Arial (or its metric twin,
+   Liberation Sans), scaled to Sofia Sans' widths and vertical metrics, so
+   text set before the fonts arrive takes nearly the same room and the
+   swap barely moves the page. Measured against the shipped files. */
+@font-face {
+  font-family: "Sofia Sans Fallback";
+  font-weight: 400 500;
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans");
+  size-adjust: 94.7%;
+  ascent-override: 95%;
+  descent-override: 31.7%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Sofia Sans Fallback";
+  font-weight: 600 700;
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold");
+  size-adjust: 90.5%;
+  ascent-override: 99.4%;
+  descent-override: 33.1%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Sofia Sans Condensed Fallback";
+  font-weight: 600 800;
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold");
+  size-adjust: 74.9%;
+  ascent-override: 120.2%;
+  descent-override: 40.1%;
+  line-gap-override: 0%;
+}
+
 *,
 *::before,
 *::after {
@@ -58,8 +92,8 @@
   --red: #a8121e;
   --rule: #dce0e5;
 
-  --sans: "Sofia Sans", ui-sans-serif, system-ui, sans-serif;
-  --narrow: "Sofia Sans Condensed", "Sofia Sans", ui-sans-serif, sans-serif;
+  --sans: "Sofia Sans", "Sofia Sans Fallback", ui-sans-serif, system-ui, sans-serif;
+  --narrow: "Sofia Sans Condensed", "Sofia Sans Condensed Fallback", "Sofia Sans", ui-sans-serif, sans-serif;
 
   --step-00: 0.875rem;
   --step-0: 1.125rem;
@@ -395,6 +429,13 @@ a.identity:hover .identity-name {
   font-weight: 400;
 }
 
+/* Discipline motifs are stitched in by motifs.js; until each is swapped
+   for its inline drawing, the finished image is held back. */
+.stitch-motifs img.motif,
+.stitch-motifs img.entry-motif {
+  visibility: hidden;
+}
+
 /* Section openers: a zigzag band, then the heading. ----------------------- */
 
 .opener {
@@ -496,12 +537,51 @@ a.identity:hover .identity-name {
   text-decoration-color: #fff;
 }
 
+/* The address and its copy control. The control only appears when the
+   clipboard can be written; it answers with one stitched cross. */
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s) calc(var(--s) * 3);
+}
+
+.footer-contact .copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s);
+  padding-block: calc(var(--s) * 1.5);
+  margin-block: calc(var(--s) * -1.5);
+  font-weight: 600;
+}
+
+.copy-cross {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  overflow: visible;
+}
+
+/* Each link is padded out to a 44px touch target; the list's negative
+   margin gives that padding back, so the footer sets as it did. */
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s) calc(var(--s) * 4);
+  gap: 0 calc(var(--s) * 4);
+  margin-block: calc(var(--s) * -1.5);
   list-style: none;
   font-weight: 600;
+}
+
+.footer-links a,
+.footer-links .link-button {
+  display: inline-block;
+  padding-block: calc(var(--s) * 1.5);
 }
 
 .footer-links a {
@@ -527,7 +607,8 @@ a.identity:hover .identity-name {
   color: var(--red);
 }
 
-@media (min-width: 900px) {
+/* The email and the links share a row only once both fit whole. */
+@media (min-width: 1100px) {
   .footer-body {
     grid-template-columns: 1fr auto;
     align-items: end;
@@ -538,14 +619,39 @@ a.identity:hover .identity-name {
   }
 }
 
+/* A control that reads as one of the links beside it. */
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.55);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  text-decoration-color: #fff;
+}
+
 @media print {
   .band,
-  .site-footer .band {
+  .site-footer .band,
+  .link-button {
     display: none;
   }
 
   .site-footer {
     background: none;
     color: var(--thread);
+  }
+
+  /* A motif still waiting to be stitched prints whole. */
+  .motif line,
+  .entry-motif line {
+    stroke-dashoffset: 0 !important;
   }
 }
